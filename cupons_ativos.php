@@ -17,6 +17,11 @@ include "include/navbar.php";
 <div class="container" style="margin-top: 70px;">
     <?php include "include/alerta.php" ?>
     <div class="row">
+        <div class="col-12 col-lg-3">
+            <button class="btn btn-primary btn-lg btn-block"><i class="fas fa-plus-circle"></i> Novo Cupom</button>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 col-lg-4 mt-3">
             <div class="card">
                 <!--                <img src="..." class="card-img-top" alt="...">-->
