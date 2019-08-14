@@ -43,15 +43,17 @@
 			require_once("include/functions.php");
 
 			// Poderia ser utilizado aqui também para incluir o HEADER do site
+            include "include/header.php";
+
 		}
 
 		public function Conexao() {
-			define('LOCAL', 'localhost:3306');
+			define('LOCAL', 'localhost');
 			define('USER',  'root');
 			define('PASS',  '');
 			define('DB', 'fidelize');
 
-			$this->conexao = mysqli_connect(LOCAL, USER, PASS, DB) or die ("Erro na conexao com o servidor.");
+			//$this->conexao = mysqli_connect(LOCAL, USER, PASS, DB) or die ("Erro na conexao com o servidor.");
 		}
 
 		/** 
@@ -59,7 +61,7 @@
 		 * Poderia ser usado aqui, a inclusão do FOOTER do site...
 		 */
 		public function __destruct() {
-			
+            //include "include/footer.php";
 		}
 
 	}

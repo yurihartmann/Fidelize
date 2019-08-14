@@ -1,1 +1,31 @@
-/* Definições Globais de CSS do projeto */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-orange {
+    background-color: #ff763b;
+    color: #fff;
+}
+
+.btn-orange:hover {
+    background-color: #d06734;
+    color: #fff;
+}
+
+.btn-outline-orange {
+    color: #ff763b;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ff763b;
+}
+
+.btn-outline-orange:hover {
+    background-color: #ff763b;
+    background-image: none;
+    border-color: #ff763b;
+    color: #fff;
+}
+
+.bg-orange {
+    background-color: #ff763b;
+}
