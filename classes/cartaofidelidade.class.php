@@ -29,6 +29,8 @@ class cartaoFidelidade extends Site{
             return false;
     }
 
+
+
     function deleteCartaoFidelidadePorID($id_cartao){
 
         $sql = "DELETE FROM registro_cartaoFidelidade where registro_cartaoFidelidade.fk_carimbo = '$id_cartao'";

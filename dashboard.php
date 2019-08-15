@@ -17,7 +17,7 @@ include "include/navbar.php";
             <div class="card text-white bg-primary m-1 mt-3 text-center">
                 <div class="card-body">
                     <h3 class="card-title"><i class="fas fa-users"></i> Clientes Fidelizados</h3>
-                    <p class="card-text"><span class="spinner-border spinner-border-sm" role="status"
+                    <p class="card-text font-weight-light" id="painel_clientes_fidelizados"><span class="spinner-border spinner-border-sm" role="status"
                                                aria-hidden="true"></span></p>
                 </div>
             </div>
@@ -26,7 +26,7 @@ include "include/navbar.php";
             <div class="card text-white bg-warning m-1 mt-3 text-center">
                 <div class="card-body">
                     <h3 class="card-title"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
-                    <p class="card-text"><span class="spinner-border spinner-border-sm" role="status"
+                    <p class="card-text font-weight-light"><span class="spinner-border spinner-border-sm" role="status"
                                                aria-hidden="true"></span></p>
                 </div>
             </div>
@@ -35,7 +35,7 @@ include "include/navbar.php";
             <div class="card text-white bg-success m-1 mt-3 text-center">
                 <div class="card-body">
                     <h3 class="card-title"><i class="fas fa-check-circle"></i> Cupons Completados</h3>
-                    <h2 class="card-text font-weight-light">34</h2>
+                    <p class="card-text font-weight-light" id="painel_cupons_completados"><p>
                 </div>
             </div>
         </div>
@@ -45,28 +45,31 @@ include "include/navbar.php";
     <div class="row mt-3">
         <div class="col">
             <div class="card">
-                <h5 class="card-header">Clientes</h5>
+                <h5 class="card-header">Registros Carimbos</h5>
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Numero</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Cupons</th>
-                            <th scope="col">Andamento</th>
+                            <th scope="col"><i class="fas fa-phone-alt"></i> Numero</th>
+                            <th scope="col"><i class="fas fa-user"></i> Cliente</th>
+                            <th scope="col"><i class="fas fa-ticket-alt"></i> Nome do Cupom</th>
+                            <th scope="col" class="text-center"><i class="fas fa-running"></i> Andamento</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($registros as $chave => $valor): ?>
+                        <?php foreach ($registros as $chave => $valor):
+                            $ppv = 100/$valor['objetivo'];
+                            $porcentagem = $ppv * $valor['count(fk_cliente)'];
+                            ?>
                             <tr>
                                 <th scope="row"><?= $valor['numero'] ?></th>
                                 <td><?= $valor['nome'] ?></td>
                                 <td><?= $valor['nome_cartao'] ?></td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar"
-                                             style="width: <?= $valor['andamento'] ?>0%" aria-valuenow="30"
-                                             aria-valuemin="0" aria-valuemax="100"><?= $valor['andamento'] ?>/10
+                                        <div class="progress-bar <?=( $porcentagem >= 70 ? 'progress-bar-striped':'' )?> <?=( $porcentagem == 100 ? 'bg-success':'' )?>" role="progressbar"
+                                             style="width: <?=$porcentagem?>%"
+                                             aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>/<?= $valor['objetivo'] ?>
                                         </div>
                                     </div>
                                 </td>
@@ -74,7 +77,7 @@ include "include/navbar.php";
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-                    <a href="registro_clientes.php" class="btn btn-outline-dark float-right">Ver Tudo</a>
+                    <a href="registro_carimbos.php" class="btn btn-outline-dark float-right">Ver Tudo</a>
                 </div>
             </div>
         </div>

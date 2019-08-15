@@ -15,15 +15,16 @@ class Session
     public function __construct($conexao)
     {
         $this->conexao = $conexao;
-        if (isset($_POST['inputEmail']) && isset($_POST['inputSenha'])){
-            $this->Login($_POST['inputEmail'],$_POST['inputSenha'], true);
+        if (isset($_POST['inputEmail']) && isset($_POST['inputSenha'])) {
+            $this->Login($_POST['inputEmail'], $_POST['inputSenha'], $_POST['inputRemember']);
         }
-        if (isset($_POST['btnSair'])){
+        if (isset($_POST['btnSair'])) {
             $this->Logout();
         }
     }
 
-    function Login($email, $senha, $lembrar){
+    function Login($email, $senha, $lembrar)
+    {
         $sql = "SELECT * FROM lojas where email = '$email'";
         $resultado = mysqli_fetch_assoc(mysqli_query($this->conexao, $sql));
 
@@ -31,35 +32,53 @@ class Session
             $_SESSION['empresa_logado'] = true;
             $_SESSION['empresa_nome'] = $resultado['nome'];
             $_SESSION['empresa_id'] = $resultado['id'];
+            if ($lembrar == 'remember'){
+                $this->setLembrarDeMim($email, $senha);
+            }
             header("Location: dashboard.php");
         } else {
             $_SESSION['empresa_logado'] = false;
-            setAlerta('danger',"<strong>Email ou senha invalidos</strong>, tente novamente");
+            setAlerta('danger', "<strong>Email ou senha invalidos</strong>, tente novamente");
             header("Location: index.php");
         }
     }
 
-    function veficaSession(){
-        if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index' &&!(isset($_SESSION['empresa_logado']) && $_SESSION['empresa_logado'] == true)){
-            setAlerta('info',"<strong>Voce precisa se logar!</strong>");
+    function veficaSession()
+    {
+        if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index' && !(isset($_SESSION['empresa_logado']) && $_SESSION['empresa_logado'] == true)) {
+            setAlerta('info', "<strong>Voce precisa se logar!</strong>");
             header("Location: index.php");
+        } else if (isset($_SESSION['empresa_logado']) == true && substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) == 'index') {
+            header("Location: dashboard.php");
+        } else if ($this->getLembrarDeMim() && substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) == 'index'){
+            $remenber = $this->getLembrarDeMim();
+            die($remenber);
         }
     }
 
-    function Logout(){
+    function Logout()
+    {
         session_destroy();
+        setcookie('remember');
         header("Location: index.php");
     }
-    
 
-    public function getEmail()
+
+    function setLembrarDeMim($email, $senha)
     {
-        return $this->email;
+        $remenber['email'] = $email;
+        $remenber['senha'] = $senha;
+        setcookie('remember', serialize($remenber), time() + 60 * 60 * 24);
     }
 
-    public function getNome()
+    function getLembrarDeMim()
     {
-        return $this->nome;
+        if (isset($_COOKIE['remember']) && !is_null($_COOKIE['remember'])) {
+            $remenber = unserialize($_COOKIE['remember']);
+            return $remenber;
+        } else {
+            return false;
+        }
     }
 
 

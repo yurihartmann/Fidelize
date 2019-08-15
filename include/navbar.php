@@ -8,20 +8,20 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item <?=($ativo == "dashboard") ? "active" : "" ?>">
-                <a class="nav-link" href="dashboard.php">Inicio</a>
+                <a class="nav-link" href="dashboard.php"><i class="fas fa-home"></i> Inicio</a>
             </li>
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
             </li>
-            <li class="nav-item <?=($ativo == "registro_clientes") ? "active" : "" ?>">
-                <a class="nav-link" href="registro_clientes.php">Registro dos Clientes</a>
+            <li class="nav-item <?=($ativo == "registro_carimbo") ? "active" : "" ?>">
+                <a class="nav-link" href="registro_carimbos.php"><i class="fas fa-check-circle"></i> Registros Carimbos</a>
             </li>
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?=($ativo == "cupons_ativos") ? "active" : "" ?>">
                 <a class="nav-link" href="cupons_ativos.php"><i class="fas fa-ticket-alt"></i> Cupons Ativos <span
-                            class="badge badge-success">500</span></a>
+                            class="badge badge-success" id="badgeCuponsAtivos">500</span></a>
             </li>
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>

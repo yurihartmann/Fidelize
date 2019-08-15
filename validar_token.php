@@ -41,10 +41,10 @@ include "include/navbar.php";
                     <table class="table table-striped">
                         <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Numero</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Nome do Cupom</th>
-                            <th scope="col">Usado</th>
+                            <th scope="col"><i class="fas fa-phone-alt"></i> Numero</th>
+                            <th scope="col"><i class="fas fa-user"></i> Nome</th>
+                            <th scope="col"><i class="fas fa-ticket-alt"></i> Nome do Cupom</th>
+                            <th scope="col"><i class="fab fa-slack-hash"></i> Usado</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -121,3 +121,5 @@ include "include/navbar.php";
     </div>
 </div>
 </body>
+
+<?php include "classes/footer.php" ?>

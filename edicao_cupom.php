@@ -1,6 +1,6 @@
 <?php
 
-require_once "classes/cartaoFidelidade.class.php";
+require_once "classes/cartaofidelidade.class.php";
 
 $registros = new cartaoFidelidade();
 
@@ -22,7 +22,7 @@ include "include/navbar.php";
     <?php getAlerta(); ?>
     <div class="row">
         <div class="col mt-4">
-            <a class="btn btn-outline-secondary" href="cupons_ativos.php">Voltar</a>
+            <a class="btn btn-outline-secondary" href="cupons_ativos.php"><i class="fas fa-arrow-left"></i> Voltar</a>
         </div>
     </div>
     <div class="row">
@@ -53,8 +53,11 @@ include "include/navbar.php";
 
                 <h6>anexar foto</h6>
 
-                <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar">Salvar</button>
+                <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar" id="btnSalvarCupom">Salvar</button>
             </form>
         </div>
     </div>
 </div>
+
+
+<?php include "classes/footer.php" ?>

@@ -40,7 +40,7 @@ $site = new Site();
                         </div>
                         <div class="custom-control custom-checkbox mb-3">
                             <input type="checkbox" class="custom-control-input" id="inputLembrarDeMim"
-                                   value="remenber">
+                                   value="remember" name="inputRemember">
                             <label class="custom-control-label" for="inputLembrarDeMim">Lembrar de mim</label>
                         </div>
                         <button class="btn btn-block btn-lg btn-outline-success">Login</button>
@@ -51,5 +51,7 @@ $site = new Site();
     </div>
 </div>
 </div>
+
+<?php include "classes/footer.php" ?>
 
 
