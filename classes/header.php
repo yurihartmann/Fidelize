@@ -11,3 +11,4 @@
     <link rel="stylesheet" href="media/css/estilos.css">
     <script src="media/js/font_awesome.js"></script>
 </head>
+<body class="bg-light" style="margin-bottom: 80px;">

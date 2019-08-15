@@ -1,14 +1,14 @@
 <?php
 
 
-require_once "classes/session.class.php";
+require_once "classes/site.class.php";
+$site = new Site();
 
-$session = new Session();
 
 ?>
 
 
-<body class="bg-info">
+<div class="bg-dark">
 <div class="container">
     <div class="row p-1">
         <div class="col-12 col-md-8 offset-md-2 bg-light rounded mt-5">
@@ -25,7 +25,7 @@ $session = new Session();
             </div>
             <div class="row mb-3">
                 <div class="col px-5 py-4">
-                    <?php include "include/alerta.php" ?>
+                    <?php getAlerta(); ?>
                     <form method="post">
                         <div class="form-group">
                             <label for="inputEmail">Email</label>
@@ -44,15 +44,12 @@ $session = new Session();
                             <label class="custom-control-label" for="inputLembrarDeMim">Lembrar de mim</label>
                         </div>
                         <button class="btn btn-block btn-lg btn-outline-success">Login</button>
-                        <a href="dashboard.php">dashboard</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-</body>
-
+</div>
 
 

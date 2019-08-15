@@ -3,56 +3,31 @@
 require_once "classes/registro_cartaofidelidade.class.php";
 
 $registros = new registro_cartaoFidelidade();
-$registros = $registros->clientesPorLojaLimit10($_SESSION['empresa_id']);
+$registros = $registros->clientesPorLojaLimit10(1);
 
 // INCLUINDO NAVBAR
-$ativo = "dashboard";
+$ativo = "registro_clientes";
 include "include/navbar.php";
 ?>
 
 <div class="container" style="margin-top: 70px; margin-bottom: 70px;">
     <?php getAlerta(); ?>
     <div class="row">
-        <div class="col-12 col-lg-4">
-            <div class="card text-white bg-primary m-1 mt-3 text-center">
-                <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-users"></i> Clientes Fidelizados</h3>
-                    <p class="card-text"><span class="spinner-border spinner-border-sm" role="status"
-                                               aria-hidden="true"></span></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="card text-white bg-warning m-1 mt-3 text-center">
-                <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
-                    <p class="card-text"><span class="spinner-border spinner-border-sm" role="status"
-                                               aria-hidden="true"></span></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="card text-white bg-success m-1 mt-3 text-center">
-                <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-check-circle"></i> Cupons Completados</h3>
-                    <h2 class="card-text font-weight-light">34</h2>
-                </div>
-            </div>
+        <div class="col mt-3">
+            <a class="btn btn-lg btn-success" href="novo_registro.php">Novo registro</a>
         </div>
     </div>
-
-
     <div class="row mt-3">
         <div class="col">
             <div class="card">
-                <h5 class="card-header">Clientes</h5>
+                <h5 class="card-header">Registro dos Clientes</h5>
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">Numero</th>
                             <th scope="col">Nome</th>
-                            <th scope="col">Cupons</th>
+                            <th scope="col">Nome do Cupom</th>
                             <th scope="col">Andamento</th>
                         </tr>
                         </thead>
@@ -74,7 +49,6 @@ include "include/navbar.php";
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-                    <a href="registro_clientes.php" class="btn btn-outline-dark float-right">Ver Tudo</a>
                 </div>
             </div>
         </div>
@@ -82,5 +56,3 @@ include "include/navbar.php";
 </div>
 
 <?php include "classes/footer.php" ?>
-
-

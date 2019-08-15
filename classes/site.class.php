@@ -1,69 +1,69 @@
 <?php
-	
-	/** 
-	 * CLASSE "Site"
-	 * Classe principal do projeto.
-	 */
-	class Site {
 
-		public $conexao;
+/**
+ * CLASSE "Site"
+ * Classe principal do projeto.
+ */
+class Site
+{
 
-		/** 
-		 * SITE CONSTRUCT
-		 * Executa o autoload, inclui as configurações,
-		 * funções e cria a conexão inicial.
-		 */
-		public function __construct() {
+    public $conexao;
 
-			session_start();
+    const LOCAL = 'fidelize.ga';
+    const USER = 'fidelize';
+    const PASS = '1qaz2wsxentra21';
+    const DB = 'fidelize_master';
 
-			/* AUTOLOAD
-			 * Metodo mágico que vai carregar os arquivos 
-			 * das classes automaticamente com base no nome 
-			 * da classe. O nome do arquivo php deve ter o
-			 * mesmo nome da classe.
-			 */
+    /**
+     * SITE CONSTRUCT
+     * Executa o autoload, inclui as configurações,
+     * funções e cria a conexão inicial.
+     */
+    public function __construct()
+    {
 
-			function __autoload($class_name) {
-				$class_name = strtolower($class_name);
-				$path = "classes/$class_name.class.php";
+        if (!isset($_SESSION))
+            session_start();
 
-				if (file_exists($path)) {
-					require_once($path);
-				} else {
-					die("Classe <b>".$class_name."</b> não encontrada no servidor!");
-				}
-			}
+        /* AUTOLOAD
+         * Metodo mágico que vai carregar os arquivos
+         * das classes automaticamente com base no nome
+         * da classe. O nome do arquivo php deve ter o
+         * mesmo nome da classe.
+         */
 
-			// Iniciando a Conexão
-			$this->Conexao();
 
-			// Includes de configurações e funções globais do projeto
-			require_once("include/config.php");
-			require_once("include/functions.php");
 
-			// Poderia ser utilizado aqui também para incluir o HEADER do site
-            include "include/header.php";
+        // Iniciando a Conexão
+        $this->Conexao();
 
-		}
+        // Includes de configurações e funções globais do projeto
+        require_once("include/config.php");
+        require_once("include/functions.php");
 
-		public function Conexao() {
-			define('LOCAL', 'localhost');
-			define('USER',  'root');
-			define('PASS',  '');
-			define('DB', 'fidelize');
+        $session = new Session($this->conexao);
+        $session->veficaSession();
 
-			//$this->conexao = mysqli_connect(LOCAL, USER, PASS, DB) or die ("Erro na conexao com o servidor.");
-		}
+        // Poderia ser utilizado aqui também para incluir o HEADER do site
+        include "header.php";
 
-		/** 
-		 * SITE DESTRUCT
-		 * Poderia ser usado aqui, a inclusão do FOOTER do site...
-		 */
-		public function __destruct() {
-            //include "include/footer.php";
-		}
+    }
 
-	}
+    public function Conexao()
+    {
+        $this->conexao = mysqli_connect(self::LOCAL, self::USER, self::PASS, self::DB) or die ("Erro na conexao com o servidor.");
+    }
+
+    /**
+     * SITE DESTRUCT
+     * Poderia ser usado aqui, a inclusão do FOOTER do site...
+     */
+    public function __destruct()
+    {
+//        include "footer.php";
+    }
+
+
+}
 
 ?>
