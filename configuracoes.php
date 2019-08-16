@@ -3,7 +3,7 @@
 require_once "classes/loja.class.php";
 
 $loja = new Loja();
-$registros = $loja->dadosLoja();
+$registros = $loja->dadosLoja($_SESSION['empresa_id']);
 
 
 // INCLUINDO NAVBAR

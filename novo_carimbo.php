@@ -25,7 +25,8 @@ include "include/navbar.php";
     <div class="row">
         <div class="col-12 mt-3">
             <h2 class="text-center">Novo Carimbo</h2>
-            <form method="post" class="">
+            <form method="post" class="" id="formSalvarCarimbo">
+                <input type="hidden" name="formSalvarCarimbo" value="formSalvarCarimbo">
                 <div class="form-group">
                     <label for="inputNumberCupom">Numero do Cliente</label>
                     <input type="text"
@@ -40,7 +41,7 @@ include "include/navbar.php";
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvarCarimbo">Carimbar</button>
+                <button class="btn btn-success btn-lg float-right" id="btnSalvarCarimbo" type="submit" name="btnSalvarCarimbo">Carimbar</button>
             </form>
         </div>
     </div>

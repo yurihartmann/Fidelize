@@ -3,7 +3,7 @@
 require_once "classes/registro_cartaofidelidade.class.php";
 
 $registros = new registro_cartaoFidelidade();
-$registros = $registros->clientesPorLojaLimit10(1);
+$registros = $registros->clientesPorLoja($_SESSION['empresa_id']);
 
 // INCLUINDO NAVBAR
 $ativo = "registro_carimbo";
@@ -22,6 +22,7 @@ include "include/navbar.php";
             <div class="card">
                 <h5 class="card-header">Registros Carimbos</h5>
                 <div class="card-body">
+                    <?php if (!is_null($registros[0]['numero'])): ?>
                     <table class="table table-striped">
                         <thead class="thead-dark">
                         <tr>
@@ -32,18 +33,18 @@ include "include/navbar.php";
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($registros as $chave => $valor): ?>
+                        <?php foreach ($registros as $chave => $valor):
+                            $ppv = 100/$valor['objetivo'];
+                            $porcentagem = $ppv * $valor['count(fk_cliente)'];
+                            ?>
                             <tr>
                                 <th scope="row"><?= $valor['numero'] ?></th>
-                                <td> <img src="media/images/perfil_generico.jpg" height="22px" class="rounded-circle mx-3"> <?= $valor['nome'] ?></td>
+                                <td><?= $valor['nome'] ?></td>
                                 <td><?= $valor['nome_cartao'] ?></td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar"
-                                             style="width: <?php
-                                             $ppv = 100/$valor['objetivo'];
-                                             echo $ppv * $valor['count(fk_cliente)'];
-                                             ?>%"
+                                        <div class="progress-bar <?=( $porcentagem >= 70 ? 'progress-bar-striped':'' )?> <?=( $porcentagem == 100 ? 'bg-success':'' )?>" role="progressbar"
+                                             style="width: <?=$porcentagem?>%"
                                              aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>/<?= $valor['objetivo'] ?>
                                         </div>
                                     </div>
@@ -52,6 +53,14 @@ include "include/navbar.php";
                         <?php endforeach; ?>
                         </tbody>
                     </table>
+                    <?php else: ?>
+                        <div class="row">
+                            <div class="col-6 offset-3 text-warning text-center">
+                                <i class="fas fa-exclamation-triangle fa-5x"></i>
+                                <h3 class="mt-3">Nenhuma informacao para exibir</h3>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

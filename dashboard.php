@@ -5,6 +5,7 @@ require_once "classes/registro_cartaofidelidade.class.php";
 $registros = new registro_cartaoFidelidade();
 $registros = $registros->clientesPorLojaLimit10($_SESSION['empresa_id']);
 
+
 // INCLUINDO NAVBAR
 $ativo = "dashboard";
 include "include/navbar.php";
@@ -47,6 +48,7 @@ include "include/navbar.php";
             <div class="card">
                 <h5 class="card-header">Registros Carimbos</h5>
                 <div class="card-body">
+                    <?php if (!is_null($registros[0]['numero'])): ?>
                     <table class="table table-striped">
                         <thead class="thead-dark">
                         <tr>
@@ -78,6 +80,14 @@ include "include/navbar.php";
                         </tbody>
                     </table>
                     <a href="registro_carimbos.php" class="btn btn-outline-dark float-right">Ver Tudo</a>
+                    <?php else: ?>
+                    <div class="row">
+                        <div class="col-6 offset-3 text-warning text-center">
+                            <i class="fas fa-exclamation-triangle fa-5x"></i>
+                            <h3 class="mt-3">Nenhuma informacao para exibir</h3>
+                        </div>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

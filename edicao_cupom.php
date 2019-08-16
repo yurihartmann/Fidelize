@@ -28,8 +28,9 @@ include "include/navbar.php";
     <div class="row">
         <div class="col-12 mt-3">
             <h2 class="text-center">Cupom</h2>
-            <form method="post" class="">
+            <form method="post" class="" id="formSalvarCupom">
                 <input class="d-none" value="<?= ( $_GET['id'] == 'novo' ? 'novo' : $_GET['id']) ?>" name="id">
+                <input class="d-none" value="formSalvarCupom" name="formSalvarCupom">
                 <div class="form-group">
                     <label for="inputNomeCupom">Nome do Cartao</label>
                     <input type="text"
@@ -43,12 +44,14 @@ include "include/navbar.php";
                 <div class="form-group">
                     <label for="inputObjetivoCupom">Objetivo de Carimbos</label>
                     <input type="number"
-                           class="form-control" name="objetivo_cupom" id="inputObjetivoCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['objetivo'] : '') ?>">
+                           class="form-control" name="objetivo_cupom" id="inputObjetivoCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['objetivo'] : '') ?>" <?= (is_array($registros) ? 'disabled=""' : '') ?>>
+                    <?= (!is_array($registros) ? '<small id="helpId" class="form-text text-muted">Esse valor nao podera ser alterado futuramente</small>' : '') ?>
                 </div>
                 <div class="form-group">
                     <label for="inputPremioCupom">Premio</label>
                     <input type="text"
-                           class="form-control" name="premio_cupom" id="inputPremioCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['premio'] : '') ?>">
+                           class="form-control" name="premio_cupom" id="inputPremioCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['premio'] : '') ?>" <?= (is_array($registros) ? 'disabled=""' : '') ?>>
+                    <?= (!is_array($registros) ? '<small id="helpId" class="form-text text-muted">Esse valor nao podera ser alterado futuramente</small>' : '') ?>
                 </div>
 
                 <h6>anexar foto</h6>

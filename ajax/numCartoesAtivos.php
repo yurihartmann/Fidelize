@@ -2,7 +2,7 @@
 
 require_once "conecao.php";
 
-sleep(2);
+sleep(1);
 
 $id_loja = $_POST['id_loja'];
 
