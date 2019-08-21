@@ -14,6 +14,8 @@ class registro_cartaoFidelidade extends Site
     function __construct()
     {
         parent::__construct();
+
+        // BOTAO CARIMBAR
         if (isset($_POST['formSalvarCarimbo']))
             $this->salvarCarimbo();
     }
@@ -21,6 +23,7 @@ class registro_cartaoFidelidade extends Site
 
     public function clientesPorLoja($id_loja)
     {
+        // CONTA E TRAZ OS DADOS DO CARTAO FIDELIDADE E DO CLIENTE EM QUESTAO, CONTANDO O NUMERO DE CARIMBOS JA RESGISTRADOS
         $sql = "select *, count(fk_cliente) from registro_cartaoFidelidade
                 inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
                 inner join lojas l on cF.fk_loja = l.id
@@ -35,6 +38,7 @@ class registro_cartaoFidelidade extends Site
 
     public function clientesPorLojaLimit10($id_loja)
     {
+        // CONTA E TRAZ OS DADOS DO CARTAO FIDELIDADE E DO CLIENTE EM QUESTAO, CONTANDO O NUMERO DE CARIMBOS JA RESGISTRADOS COM LIMITE DE 10
         $sql = "select *, count(fk_cliente) from registro_cartaoFidelidade
                 inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
                 inner join lojas l on cF.fk_loja = l.id
@@ -49,14 +53,16 @@ class registro_cartaoFidelidade extends Site
 
     function todosCartoesPorLoja($id_loja)
     {
+        // PEGA OS CARTOES QUE A LOJA POSSUE
         $cartao = new cartaoFidelidade();
         return $cartao->todosCartoesPorLoja($id_loja);
     }
 
     function salvarCarimbo()
     {
-
+        // SALVA UM NOVO CARIMBO
         $numero = $_POST['number'];
+        die(var_dump($numero));
         $id_cupom = $_POST['cupom'];
 
         $sql = "select * from clientes where numero = '$numero'";
@@ -92,6 +98,7 @@ class registro_cartaoFidelidade extends Site
 
     function verificaSeCompletouCupom($number_cliente, $id_cupom)
     {
+        // VERIFICA SE O CUPOM JA FOI COMPLETADO PELO USUARIO EM QUESTAO
         $sql = "select count(*) as num, cF.objetivo from registro_cartaoFidelidade
                 inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
                 where fk_cliente = '$number_cliente' and fk_carimbo = '$id_cupom'";

@@ -12,9 +12,12 @@ class cartaoFidelidade extends Site
     function __construct()
     {
         parent::__construct();
+
+        // BOTAO EXCLUIR DA EDICAO DE CUPOM
         if (isset($_POST['btnExcluir']))
             $this->deleteCartaoFidelidadePorID($_POST['id_cupom']);
 
+        // BOTAO SALVAR DA EDICAO DE CUPOM
         if (isset($_POST['formSalvarCupom']) && $_POST['id'] == 'novo')
             $this->salvarNovoCupom();
         else if (isset($_POST['formSalvarCupom']) && $_POST['id'] != 'novo')
@@ -23,6 +26,7 @@ class cartaoFidelidade extends Site
 
     function todosCartoesPorLoja($id_loja)
     {
+        // RETORNA TODOS OS CARTOES RELACIONADO COM O ID DA LOJA
         $sql = "select * from cartaoFidelidade where fk_loja = '$id_loja'";
         $query = mysqli_query($this->conexao, $sql);
         if ($query)
@@ -35,12 +39,15 @@ class cartaoFidelidade extends Site
     function deleteCartaoFidelidadePorID($id_cartao)
     {
 
+        // DELETA OS REGISTROS VICULADOS AO CARTAO FIDELIDADE
         $sql = "DELETE FROM registro_cartaoFidelidade where registro_cartaoFidelidade.fk_carimbo = '$id_cartao'";
         $query = mysqli_query($this->conexao, $sql);
         if ($query) {
+            // DELETA OS TOKENS VICULADOS AO CARTAO FIDELIDADE
             $sql = "DELETE FROM tokens where tokens.fk_carimbo = '$id_cartao'";
             $query = mysqli_query($this->conexao, $sql);
             if ($query) {
+                // DELETA O CARTAO FIDELIDADE
                 $sql = "DELETE FROM cartaoFidelidade WHERE cartaoFidelidade.id = '$id_cartao'";
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query) {
@@ -60,13 +67,10 @@ class cartaoFidelidade extends Site
         }
     }
 
-    function createCartaoFidelidade()
-    {
-
-    }
 
     function dadosCartaoFidelidadePorId($id_cartao)
     {
+        // PEGA OS DADOS DE UMA CARTAO FIDELIDADE POR ID
         $sql = "select * from cartaoFidelidade where id = '$id_cartao'";
         $query = mysqli_query($this->conexao, $sql);
         if ($query)
@@ -77,6 +81,7 @@ class cartaoFidelidade extends Site
 
     function salvarNovoCupom()
     {
+        // SALVA UM NOVO CARTAO FIDELIDADE
         $nome_cupom = $_POST['nome_cupom'];
         $objetivo = $_POST['objetivo_cupom'];
         $descricao = $_POST['descricao_cupom'];
@@ -98,6 +103,7 @@ class cartaoFidelidade extends Site
 
     function updateCupom()
     {
+        // GUARDA AS ALTERACOES DE UMA CARTAO FIDELIDADE
         $id = $_POST['id'];
         $nome_cupom = $_POST['nome_cupom'];
         $objetivo = $_POST['objetivo_cupom'];

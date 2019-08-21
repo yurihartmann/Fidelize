@@ -4,7 +4,7 @@ require_once "classes/loja.class.php";
 
 $loja = new Loja();
 $registros = $loja->dadosLoja($_SESSION['empresa_id']);
-
+$registros = $registros[0];
 
 // INCLUINDO NAVBAR
 include "include/navbar.php";
@@ -23,24 +23,24 @@ include "include/navbar.php";
                 <h2 class="text-center">Configuracoes</h2>
                 <form method="post" class="">
                     <div class="form-group">
-                        <label for="inputNomeCupom">Nome da Loja</label>
+                        <label for="inputNomeLoja">Nome da Loja</label>
                         <input type="text"
-                               class="form-control" name="nome" id="inputNomeCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome'] : '') ?>">
+                               class="form-control" name="nome" id="inputNomeLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome'] : '') ?>">
                     </div>
                     <div class="form-group">
-                        <label for="inputDescricaoCupom">Email</label>
+                        <label for="inputEmailLoja">Email</label>
                         <input type="text"
-                               class="form-control" name="email" id="inputDescricaoCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" disabled>
+                               class="form-control" name="email" id="inputEmailLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="inputObjetivoCupom">Senha Atual</label>
+                        <label for="inputSenha">Senha Atual</label>
                         <input type="password"
-                               class="form-control" name="old_senha" id="inputObjetivoCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['objetivo'] : '') ?>">
+                               class="form-control" name="old_senha" id="inputSenha" aria-describedby="helpId" placeholder="" value="">
                     </div>
                     <div class="form-group">
-                        <label for="inputPremioCupom">Senha Nova</label>
+                        <label for="inputSenhaNova">Senha Nova</label>
                         <input type="password"
-                               class="form-control" name="new_senha" id="inputPremioCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['premio'] : '') ?>">
+                               class="form-control" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
                         <small id="helpId" class="form-text text-muted">Se nao deseja alterar a senha deixe o campo em branco</small>
                     </div>
                     <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar">Salvar</button>
