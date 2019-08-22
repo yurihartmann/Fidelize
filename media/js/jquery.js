@@ -134,5 +134,7 @@ $(document).ready(function () {
     //
     // });
 
-
+    if ($("#showModal").val() == "true"){
+        $('#exampleModal').modal('show')
+    }
 });

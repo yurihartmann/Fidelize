@@ -81,7 +81,10 @@ where token = '$token' and l.id = '$id_loja'";
                     $query = mysqli_query($this->conexao, $sql);
                     if ($query){
                         $result = mysqli_fetch_assoc($query);
-                        setAlerta('success','Tokem Valido- NOME CARTAO = '.$result['nome_cartao']. "PREMIO = " . $result['premio']);
+                        $modal['nome_cartao'] = $result['nome_cartao'];
+                        $modal['premio'] = $result['premio'];
+                        setModal($modal);
+//                        setAlerta('success','Tokem Valido- NOME CARTAO = '.$result['nome_cartao']. "PREMIO = " . $result['premio']);
                         header("Location: validar_token.php");
 
                     } else {

@@ -21,7 +21,7 @@ include "include/navbar.php";
         <?php if (!$vazio): ?>
             <div class="row">
                 <div class="col-12 col-lg-3 mt-3">
-                    <a class="btn btn-primary btn-lg btn-block" href="edicao_cupom.php?id=novo"><i
+                    <a class="btn btn-orange btn-lg btn-block" href="edicao_cupom.php?id=novo"><i
                                 class="fas fa-plus-circle"></i> Novo Cupom</a>
                 </div>
             </div>
@@ -29,7 +29,7 @@ include "include/navbar.php";
         <div class="row">
             <?php foreach ($registros as $chave => $valor): ?>
                 <div class="col-12 col-lg-4 mt-3">
-                    <div class="card">
+                    <div class="card shadow">
                         <!--                <img src="..." class="card-img-top" alt="...">-->
                         <div class="bg-dark text-center text-white pt-5" style="height: 200px; width: 100%;">Capa do
                             cupom

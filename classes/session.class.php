@@ -52,7 +52,9 @@ class Session
     function Logout()
     {
         session_destroy();
-        setcookie('remember');
+        setcookie('modal');
+        setcookie('alerta');
+        setcookie('modal_show');
         header("Location: index.php");
     }
 

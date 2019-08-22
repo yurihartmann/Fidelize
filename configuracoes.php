@@ -15,7 +15,7 @@ include "include/navbar.php";
         <?php getAlerta(); ?>
         <div class="row">
             <div class="col mt-4">
-                <a class="btn btn-outline-secondary" href="cupons_ativos.php">Voltar</a>
+                <a class="btn btn-outline-secondary" href="cupons_ativos.php"><i class="fas fa-arrow-left"></i> Voltar</a>
             </div>
         </div>
         <div class="row">
@@ -43,7 +43,7 @@ include "include/navbar.php";
                                class="form-control" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
                         <small id="helpId" class="form-text text-muted">Se nao deseja alterar a senha deixe o campo em branco</small>
                     </div>
-                    <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar" id="btnSalvarConfig"><i class="fas fa-save"></i> Salvar</button>
+                    <button class="btn btn-orange btn-lg float-right" type="submit" name="btnSalvar" id="btnSalvarConfig"><i class="fas fa-save"></i> Salvar</button>
                 </form>
             </div>
         </div>

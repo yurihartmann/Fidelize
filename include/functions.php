@@ -32,12 +32,21 @@ function __autoload($class_name) {
     }
 }
 
-function setModal(){
-
+function getModal(){
+    if (isset($_COOKIE['modal']) && !is_null($_COOKIE['modal'])) {
+        $modal = unserialize($_COOKIE['modal']);
+        if (isset($_COOKIE['modal_show']) && !is_null($_COOKIE['modal_show'])){
+            $modal['show'] = 'true';
+        }
+        include "modal.php";
+    }
 }
 
-function getModal(){
-
+function setModal($dados){
+    $modal = $dados;
+    setcookie('modal');
+    setcookie('modal_show',true,time() + 5);
+    setcookie('modal', serialize($modal), time() + (60 * 10));
 }
 
 ?>

@@ -14,12 +14,12 @@ include "include/navbar.php";
     <?php getAlerta(); ?>
     <div class="row">
         <div class="col mt-3">
-            <a class="btn btn-lg btn-primary" href="novo_carimbo.php"><i class="fas fa-plus-circle"></i> Novo Carimbo</a>
+            <a class="btn btn-lg btn-orange" href="novo_carimbo.php"><i class="fas fa-plus-circle"></i> Novo Carimbo</a>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col">
-            <div class="card">
+            <div class="card shadow">
                 <h5 class="card-header">Registros Carimbos</h5>
                 <div class="card-body">
                     <?php if (!is_null($registros[0]['numero'])): ?>
@@ -43,7 +43,7 @@ include "include/navbar.php";
                                 <td><?= $valor['nome_cartao'] ?></td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar <?=( $porcentagem >= 70 ? 'progress-bar-striped':'' )?> <?=( $porcentagem == 100 ? 'bg-success':'' )?>" role="progressbar"
+                                        <div class="progress-bar <?=( $porcentagem >= 70 ? 'progress-bar-striped':'' )?> <?=( $porcentagem == 100 ? 'bg-orange':'' )?>" role="progressbar"
                                              style="width: <?=$porcentagem?>%"
                                              aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>/<?= $valor['objetivo'] ?>
                                         </div>

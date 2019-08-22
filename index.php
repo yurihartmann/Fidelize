@@ -11,8 +11,8 @@ $site = new Site();
     <div class="row p-1">
         <div class="col-12 col-md-8 offset-md-2 bg-light rounded mt-5">
             <div class="row">
-                <div class="col px-4 pt-4">
-                    <a href="" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Voltar</a>
+                <div class="col px-4 ml-4 pt-4">
+                    <a href="http://fidelize.ga" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Voltar</a>
                 </div>
             </div>
             <div class="row">
@@ -36,7 +36,7 @@ $site = new Site();
                             <input type="password" class="form-control" name="inputSenha" id="inputSenha"
                                    placeholder="Sua senha...">
                         </div>
-                        <button class="btn btn-block btn-lg btn-success" type="submit" name="btnEntrar">Login</button>
+                        <button class="btn btn-block btn-lg btn-orange" type="submit" name="btnEntrar">Login</button>
                     </form>
                 </div>
             </div>

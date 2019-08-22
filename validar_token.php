@@ -15,7 +15,7 @@ include "include/navbar.php";
     <?php getAlerta(); ?>
     <div class="row">
         <div class="col">
-            <div class="card text-left mt-3">
+            <div class="card text-left mt-3 shadow">
                 <div class="card-body">
                     <h4 class="card-title text-center">Validar Token</h4>
                     <div class="row">
@@ -26,9 +26,14 @@ include "include/navbar.php";
                                     <input type="text"
                                            class="form-control form-control-lg" name="token" id="inputToken"
                                            aria-describedby="helpId" placeholder="Digite o token do cliente...">
-                                    <button class="btn btn-block btn-success btn-lg mt-3" type="submit"><i
+                                    <button class="btn btn-block btn-orange btn-lg mt-3" type="submit"><i
                                                 class="fas fa-search"></i> Verificar
                                     </button>
+                                    <div class="row">
+                                        <div class="col">
+                                            <?php getModal(); ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -41,7 +46,7 @@ include "include/navbar.php";
 
     <div class="row mt-3">
         <div class="col">
-            <div class="card">
+            <div class="card shadow">
                 <h5 class="card-header">Clientes</h5>
                 <div class="card-body">
                     <?php if (!is_null($tokens[0]['nome'])): ?>
@@ -85,25 +90,7 @@ include "include/navbar.php";
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 
