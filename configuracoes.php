@@ -21,7 +21,7 @@ include "include/navbar.php";
         <div class="row">
             <div class="col-12 mt-3">
                 <h2 class="text-center">Configuracoes</h2>
-                <form method="post" class="">
+                <form method="post" class="" id="formSalvarConfig">
                     <div class="form-group">
                         <label for="inputNomeLoja">Nome da Loja</label>
                         <input type="text"
@@ -29,8 +29,8 @@ include "include/navbar.php";
                     </div>
                     <div class="form-group">
                         <label for="inputEmailLoja">Email</label>
-                        <input type="text"
-                               class="form-control" name="email" id="inputEmailLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" disabled>
+                        <input type="email"
+                               class="form-control" name="email" id="inputEmailLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="inputSenha">Senha Atual</label>
@@ -43,7 +43,7 @@ include "include/navbar.php";
                                class="form-control" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
                         <small id="helpId" class="form-text text-muted">Se nao deseja alterar a senha deixe o campo em branco</small>
                     </div>
-                    <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar">Salvar</button>
+                    <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar" id="btnSalvarConfig"><i class="fas fa-save"></i> Salvar</button>
                 </form>
             </div>
         </div>

@@ -7,8 +7,6 @@ $site = new Site();
 
 ?>
 
-
-<div class="bg-dark">
 <div class="container">
     <div class="row p-1">
         <div class="col-12 col-md-8 offset-md-2 bg-light rounded mt-5">
@@ -38,19 +36,14 @@ $site = new Site();
                             <input type="password" class="form-control" name="inputSenha" id="inputSenha"
                                    placeholder="Sua senha...">
                         </div>
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="inputLembrarDeMim"
-                                   value="remember" name="inputRemember">
-                            <label class="custom-control-label" for="inputLembrarDeMim">Lembrar de mim</label>
-                        </div>
-                        <button class="btn btn-block btn-lg btn-outline-success">Login</button>
+                        <button class="btn btn-block btn-lg btn-success" type="submit" name="btnEntrar">Login</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
 
 <?php include "classes/footer.php" ?>
 

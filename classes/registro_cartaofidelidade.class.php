@@ -18,6 +18,14 @@ class registro_cartaoFidelidade extends Site
         // BOTAO CARIMBAR
         if (isset($_POST['formSalvarCarimbo']))
             $this->salvarCarimbo();
+        if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'dashboard') {
+            $registros = new cartaoFidelidade();
+            $registros = $registros->todosCartoesPorLoja($_SESSION['empresa_id']);
+            if (empty($registros)) {
+                setAlerta('warning', 'Voce nao posse nenhum cupom, primeiro cadastre um!');
+                header('Location: cupons_ativos.php');
+            }
+        }
     }
 
 
@@ -43,7 +51,7 @@ class registro_cartaoFidelidade extends Site
                 inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
                 inner join lojas l on cF.fk_loja = l.id
                 inner join clientes c on registro_cartaoFidelidade.fk_cliente = c.numero
-                where l.id = 1 limit 10";
+                where l.id = '$id_loja' group by fk_carimbo limit 10";
         $query = mysqli_query($this->conexao, $sql);
         if ($query)
             return mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -62,7 +70,10 @@ class registro_cartaoFidelidade extends Site
     {
         // SALVA UM NOVO CARIMBO
         $numero = $_POST['number'];
-        die(var_dump($numero));
+        $numero = str_replace('(', '', $numero);
+        $numero = str_replace(')', '', $numero);
+        $numero = str_replace(' ', '', $numero);
+        $numero = str_replace('-', '', $numero);
         $id_cupom = $_POST['cupom'];
 
         $sql = "select * from clientes where numero = '$numero'";
@@ -78,7 +89,7 @@ class registro_cartaoFidelidade extends Site
                 if ($query) {
                     if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
                         $token = new Tokens();
-                        $token->createToken($numero,$id_cupom);
+                        $token->createToken($numero, $id_cupom);
                         setAlerta('success', 'Completou cupom, token gerado!');
                         header("Location: registro_carimbos.php");
                     } else {

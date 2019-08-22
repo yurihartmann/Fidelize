@@ -56,7 +56,7 @@ include "include/navbar.php";
 
                 <h6>anexar foto</h6>
 
-                <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar" id="btnSalvarCupom">Salvar</button>
+                <button class="btn btn-success btn-lg float-right" type="submit" name="btnSalvar" id="btnSalvarCupom"><i class="fas fa-save"></i> Salvar</button>
             </form>
         </div>
     </div>

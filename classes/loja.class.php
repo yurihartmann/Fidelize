@@ -29,6 +29,7 @@ class Loja extends Site
     function updateDadosLoja()
     {
 
+
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['old_senha'];
@@ -43,6 +44,7 @@ class Loja extends Site
                 $sql = "update lojas set nome = '$nome';";
                 $query = mysqli_query($this->conexao,$sql);
                 if ($query){
+                    $_SESSION['empresa_nome'] = $nome;
                     setAlerta('success','Alteracoes salvas com sucesso!');
                     header('Location: configuracoes.php');
                 } else {

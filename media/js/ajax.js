@@ -10,7 +10,7 @@ $(document).ready(function () {
             url: 'ajax/numCartoesAtivos.php',
             type: 'POST',
             data: {
-                id_loja: '1',
+
             },
             success: function (data) {
                 view_badge.html(data);
@@ -19,7 +19,6 @@ $(document).ready(function () {
                 view_badge.html('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
             }
         });
-        console.log("badgeCuponsAtivos Carregado!")
     }
 
     let view_clientes_fidelizados = $('#painel_clientes_fidelizados');
@@ -31,7 +30,6 @@ $(document).ready(function () {
             url: 'ajax/numClientesFidelizados.php',
             type: 'POST',
             data: {
-                id_loja: '1',
             },
             success: function (data) {
                 view_clientes_fidelizados.html(data);
@@ -42,7 +40,6 @@ $(document).ready(function () {
                 view_clientes_fidelizados.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
             }
         });
-        console.log("clientesFidelizados Carregado!")
     }
 
     let view_cupons_completados = $('#painel_cupons_completados');
@@ -54,7 +51,6 @@ $(document).ready(function () {
             url: 'ajax/numCopunsCompletados.php',
             type: 'POST',
             data: {
-                id_loja: '1',
             },
             success: function (data) {
                 view_cupons_completados.html(data);

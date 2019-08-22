@@ -85,4 +85,54 @@ $(document).ready(function () {
     });
 
 
+    // INICIA A VERIFICACAO
+
+    if (typeof($("#inputNomeLoja")).val() !== "undefined"){
+        let loopverificaConfig = setInterval(verificaDadosConfig, 100);
+    }
+
+    function verificaDadosConfig() {
+        let inputNome = $('#inputNomeLoja');
+        let inputSenha = $('#inputSenha');
+        let valid = true;
+
+        if (inputNome.val().length == 0) {
+            inputNome.removeClass('is-valid');
+            inputNome.addClass('is-invalid');
+            valid = false;
+        } else {
+            inputNome.removeClass('is-invalid');
+            inputNome.addClass('is-valid');
+        }
+
+        if (inputSenha.val().length == 0) {
+            inputSenha.removeClass('is-valid');
+            inputSenha.addClass('is-invalid');
+            valid = false;
+        } else {
+            inputSenha.removeClass('is-invalid');
+            inputSenha.addClass('is-valid');
+        }
+
+        return valid;
+
+    }
+
+    // $('#btnSalvarConfig').click(function (e) {
+    //     $('#formSalvarConfig').submit();
+    //     let btnSalvarConfig = $('#btnSalvarConfig');
+    //     e.preventDefault();
+    //
+    //     if (verificaDadosConfig()) {
+    //         btnSalvarConfig.removeClass('btn-success');
+    //         btnSalvarConfig.addClass('btn-secondary');
+    //         btnSalvarConfig.attr('disabled', true);
+    //         btnSalvarConfig.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Carregando...');
+    //
+    //     }
+    //
+    //
+    // });
+
+
 });

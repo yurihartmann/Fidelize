@@ -21,7 +21,7 @@
             </li>
             <li class="nav-item <?=($ativo == "cupons_ativos") ? "active" : "" ?>">
                 <a class="nav-link" href="cupons_ativos.php"><i class="fas fa-ticket-alt"></i> Cupons Ativos <span
-                            class="badge badge-success" id="badgeCuponsAtivos">500</span></a>
+                            class="badge badge-success" id="badgeCuponsAtivos">-</span></a>
             </li>
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
@@ -58,4 +58,5 @@
         <button class="btn btn-sm btn-info"><i class="fas fa-book"></i> Manual de Utilizacao</button>
         <button class="btn btn-sm btn-danger ml-3"><i class="fas fa-exclamation-triangle"></i> Reportar Erro</button>
     </div>
+    <input id="empresa_id" value="<?=$_SESSION['empresa_id']?>" type="hidden">
 </nav>

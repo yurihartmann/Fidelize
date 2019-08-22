@@ -32,4 +32,12 @@ function __autoload($class_name) {
     }
 }
 
+function setModal(){
+
+}
+
+function getModal(){
+
+}
+
 ?>
