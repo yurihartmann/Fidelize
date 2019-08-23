@@ -14,28 +14,33 @@ include "include/navbar.php";
 <div class="container" style="margin-top: 70px; margin-bottom: 70px;">
     <?php getAlerta(); ?>
     <div class="row">
+        <div class="col text-center">
+            <h1 class="font-weight-light p-5">Dashboard - <?=$_SESSION['empresa_nome']?></h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 col-lg-4">
-            <div class="card text-white bg-orange m-1 mt-3 text-center shadow">
+            <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-users"></i> Clientes Fidelizados</h3>
+                    <h3 class="card-title font-weight-light"><i class="fas fa-users"></i> Clientes Fidelizados</h3>
                     <p class="card-text font-weight-light" id="painel_clientes_fidelizados"><span class="spinner-border spinner-border-sm" role="status"
                                                aria-hidden="true"></span></p>
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-4">
-            <div class="card text-white bg-warning m-1 mt-3 text-center shadow">
+            <div class="card text-white bg-warning m-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
+                    <h3 class="card-title font-weight-light"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
                     <p class="card-text font-weight-light"><span class="spinner-border spinner-border-sm" role="status"
                                                aria-hidden="true"></span></p>
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-4">
-            <div class="card text-white bg-success m-1 mt-3 text-center shadow">
+            <div class="card text-white bg-success m-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title"><i class="fas fa-check-circle"></i> Cupons Completados</h3>
+                    <h3 class="card-title font-weight-light"><i class="fas fa-check-circle"></i> Cupons Completos</h3>
                     <p class="card-text font-weight-light" id="painel_cupons_completados"><p>
                 </div>
             </div>

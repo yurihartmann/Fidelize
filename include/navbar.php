@@ -34,7 +34,11 @@
             <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false">
                 <span class="text-white"><?=$_SESSION['empresa_nome']?></span>
-                <img src="media/images/perfil_generico.jpg" height="40px" class="rounded-circle mx-3">
+                <?php if ($_SESSION['empresa_img'] != null && $_SESSION['empresa_img'] != ''): ?>
+                    <img style="width: 40px; height: 40px" src="uploads/<?=$_SESSION['empresa_img']?>" class="rounded-circle mx-3">
+                <?php else: ?>
+                    <img src="media/images/perfil_generico.jpg" height="40px" class="rounded-circle mx-3">
+                <?php endif;?>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="configuracoes.php"><i class="fas fa-cogs"></i> Configuracoes</a>

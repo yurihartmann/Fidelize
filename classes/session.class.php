@@ -17,7 +17,7 @@ class Session
         $this->conexao = $conexao;
 
         if (isset($_POST['btnEntrar'])) {
-            $this->Login($_POST['inputEmail'], $_POST['inputSenha']);
+            $this->Login($_POST['inputEmail'], hash('md5',$_POST['inputSenha']));
         }
         if (isset($_POST['btnSair'])) {
             $this->Logout();
@@ -33,6 +33,8 @@ class Session
             $_SESSION['empresa_logado'] = true;
             $_SESSION['empresa_nome'] = $resultado['nome'];
             $_SESSION['empresa_id'] = $resultado['id'];
+            $_SESSION['empresa_img'] = $resultado['img'];
+
             header("Location: dashboard.php");
         } else {
             $_SESSION['empresa_logado'] = false;

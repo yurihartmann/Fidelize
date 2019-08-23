@@ -29,11 +29,14 @@ class Loja extends Site
     function updateDadosLoja()
     {
 
-
+        $id_loja = $_SESSION['empresa_id'];
         $nome = $_POST['nome'];
         $email = $_POST['email'];
-        $senha = $_POST['old_senha'];
+        $senha = hash('md5',$_POST['old_senha']);
         $new_senha = $_POST['new_senha'];
+
+        $uploder = new upload('logo');
+        $logo = $uploder->upload();
 
         // VERIFICA SE A SENHA ALTUAL ESTA CORRETA PARA EFETUAR AS ALTERACOES
         $sql = "select * from lojas where email = '$email' and senha = '$senha'";
@@ -41,10 +44,18 @@ class Loja extends Site
         if (count($result) == 1) {
             if ($new_senha == '') {
                 // ALTERACAO DA LOJA SEM NOVA SENHA
-                $sql = "update lojas set nome = '$nome';";
+                if ($logo == null){
+                    $sql = "update lojas set nome = '$nome' where id = '$id_loja';";
+                } else {
+                    $logo = $logo[0]['dados']['nome_novo'];
+                    $sql = "update lojas set nome = '$nome', img = '$logo' where id = '$id_loja';";
+                }
                 $query = mysqli_query($this->conexao,$sql);
                 if ($query){
                     $_SESSION['empresa_nome'] = $nome;
+                    if ($logo != null){
+                        $_SESSION['empresa_img'] = $logo;
+                    }
                     setAlerta('success','Alteracoes salvas com sucesso!');
                     header('Location: configuracoes.php');
                 } else {
@@ -54,7 +65,13 @@ class Loja extends Site
 
             } else {
                 // ALTERACAO DA LOJA COM NOVA SENHA
-                $sql = "update lojas set nome = '$nome', senha = '$new_senha';";
+                $new_senha = hash('md5',$new_senha);
+                if ($logo == null){
+                    $sql = "update lojas set nome = '$nome', senha = '$new_senha' where id = '$id_loja';";
+                } else {
+                    $logo = $logo[0]['dados']['nome_novo'];
+                    $sql = "update lojas set nome = '$nome', senha = '$new_senha' ,img = '$logo' where id = '$id_loja';";
+                }
                 $query = mysqli_query($this->conexao,$sql);
                 if ($query){
                     setAlerta('success','Alteracoes salvas com sucesso!');

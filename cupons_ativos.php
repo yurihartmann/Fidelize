@@ -18,6 +18,11 @@ include "include/navbar.php";
 
     <div class="container" style="margin-top: 70px;">
         <?php getAlerta(); ?>
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="font-weight-light p-5">Cupons</h1>
+            </div>
+        </div>
         <?php if (!$vazio): ?>
             <div class="row">
                 <div class="col-12 col-lg-3 mt-3">

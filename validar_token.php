@@ -14,10 +14,14 @@ include "include/navbar.php";
 <div class="container" style="margin-top: 70px">
     <?php getAlerta(); ?>
     <div class="row">
+        <div class="col text-center">
+            <h1 class="font-weight-light p-5">Validar Token</h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col">
             <div class="card text-left mt-3 shadow">
                 <div class="card-body">
-                    <h4 class="card-title text-center">Validar Token</h4>
                     <div class="row">
                         <div class="col">
                             <form class="" id="formVerificarToken" method="post">
@@ -25,7 +29,7 @@ include "include/navbar.php";
                                     <input type="hidden" name="formVerificarToken" value="formVerificarToken">
                                     <input type="text"
                                            class="form-control form-control-lg" name="token" id="inputToken"
-                                           aria-describedby="helpId" placeholder="Digite o token do cliente...">
+                                           aria-describedby="helpId" placeholder="Digite o token do cliente para verificar...">
                                     <button class="btn btn-block btn-orange btn-lg mt-3" type="submit"><i
                                                 class="fas fa-search"></i> Verificar
                                     </button>
@@ -47,7 +51,7 @@ include "include/navbar.php";
     <div class="row mt-3">
         <div class="col">
             <div class="card shadow">
-                <h5 class="card-header">Clientes</h5>
+                <h5 class="card-header">Tokens</h5>
                 <div class="card-body">
                     <?php if (!is_null($tokens[0]['nome'])): ?>
                         <table class="table table-striped">

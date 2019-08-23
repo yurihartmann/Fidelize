@@ -110,7 +110,7 @@ class cartaoFidelidade extends Site
         $descricao = $_POST['descricao_cupom'];
         $premio = $_POST['premio_cupom'];
 
-        $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', objetivo = '$objetivo', descricao = '$descricao', premio = '$premio' WHERE `cartaoFidelidade`.`id` = '$id';";
+        $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao' WHERE `cartaoFidelidade`.`id` = '$id';";
         $query = mysqli_query($this->conexao, $sql);
         if ($query) {
             setAlerta('success', 'Cupom salvo com sucesso');

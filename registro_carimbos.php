@@ -13,6 +13,11 @@ include "include/navbar.php";
 <div class="container" style="margin-top: 70px; margin-bottom: 70px;">
     <?php getAlerta(); ?>
     <div class="row">
+        <div class="col text-center">
+            <h1 class="font-weight-light p-5">Registros Carimbos</h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col mt-3">
             <a class="btn btn-lg btn-orange" href="novo_carimbo.php"><i class="fas fa-plus-circle"></i> Novo Carimbo</a>
         </div>
@@ -20,7 +25,6 @@ include "include/navbar.php";
     <div class="row mt-3">
         <div class="col">
             <div class="card shadow">
-                <h5 class="card-header">Registros Carimbos</h5>
                 <div class="card-body">
                     <?php if (!is_null($registros[0]['numero'])): ?>
                     <table class="table table-striped">
