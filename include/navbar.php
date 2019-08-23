@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark mb-3">
-    <a class="navbar-brand" href=""><img src="media/images/FIDELIZE_BRANCO.png" height="45px"> </a>
+<nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-dark mb-3">
+    <a class="navbar-brand" href=""><img src="media/images/fidelize_adm_branco.png" height="45px"> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
 </nav>
 
 
-<nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-secondary d-none d-md-block">
+<nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark d-none d-md-block">
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">

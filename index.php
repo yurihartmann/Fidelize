@@ -16,8 +16,8 @@ $site = new Site();
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 offset-3 py-3 p-1 p-lg-5">
-                    <img src="media/images/FIDELIZE.png" class="img-fluid">
+                <div class="col-md-8 col-12 offset-md-2 text-center mt-5 mb-3 px-5 p-md-0">
+                    <img src="media/images/fidelize_adm_preto.png" class="img-fluid">
                     <h1></h1>
                 </div>
             </div>

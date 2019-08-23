@@ -33,7 +33,7 @@ include "include/navbar.php";
         <?php endif; ?>
         <div class="row">
             <?php foreach ($registros as $chave => $valor): ?>
-                <div class="col-12 col-lg-4 mt-3">
+                <div class="col-12 col-lg-4 mt-4 px-3">
                     <div class="card shadow">
                         <!--                <img src="..." class="card-img-top" alt="...">-->
                         <div class="bg-dark text-center text-white pt-5" style="height: 200px; width: 100%;">Capa do
