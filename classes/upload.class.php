@@ -46,7 +46,7 @@
 				 * Validações dos arquivos
 				 */
 				// Verifica o tamanho máximo permitido
-				if ($_FILES[$this->name_input]["size"][$contador] > 500000)
+				if ($_FILES[$this->name_input]["size"][$contador] > 5000000)
 					$erro = true;
 
 

@@ -23,8 +23,12 @@ include "include/navbar.php";
         </div>
     </div>
     <div class="row">
+        <div class="col text-center">
+            <h1 class="font-weight-light p-5">Novo Carimbo</h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 mt-3">
-            <h2 class="text-center">Novo Carimbo</h2>
             <form method="post" class="" id="formSalvarCarimbo">
                 <input type="hidden" name="formSalvarCarimbo" value="formSalvarCarimbo">
                 <div class="form-group">

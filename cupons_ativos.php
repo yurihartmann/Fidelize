@@ -23,22 +23,26 @@ include "include/navbar.php";
                 <h1 class="font-weight-light p-5">Cupons</h1>
             </div>
         </div>
-        <?php if (!$vazio): ?>
-            <div class="row">
-                <div class="col-12 col-lg-3 mt-3">
-                    <a class="btn btn-orange btn-lg btn-block" href="edicao_cupom.php?id=novo"><i
-                                class="fas fa-plus-circle"></i> Novo Cupom</a>
-                </div>
-            </div>
-        <?php endif; ?>
         <div class="row">
+            <?php if (!$vazio): ?>
+                <div class="col-12 col-lg-4 mt-4 px-3">
+                    <div class="card shadow h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-5 mt-5"><i class="fas fa-ticket-alt fa-10x text-orange"></i></h5>
+                            <a href="edicao_cupom.php?id=novo" class="btn btn-orange btn-block btn-lg mt-5"><i class="fas fa-plus-circle"></i> Novo Cupom</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
             <?php foreach ($registros as $chave => $valor): ?>
                 <div class="col-12 col-lg-4 mt-4 px-3">
-                    <div class="card shadow">
-                        <!--                <img src="..." class="card-img-top" alt="...">-->
-                        <div class="bg-dark text-center text-white pt-5" style="height: 200px; width: 100%;">Capa do
-                            cupom
-                        </div>
+                    <div class="card shadow h-100">
+                        <?php if ($valor['foto'] == null): ?>
+                            <img src="media/images/banner_generico.png" class="card-img-top" style="height: 200px; width: 100%;">
+                        <?php else: ?>
+                            <img src="uploads/<?=$valor['foto']?>" class="card-img-top" style="height: 200px; width: 100%;">
+                        <?php endif ?>
+
                         <div class="card-body">
                             <h5 class="card-title"><?= $valor['nome_cartao'] ?></h5>
                             <p class="card-text"><?= $valor['descricao'] ?></p>
@@ -71,12 +75,12 @@ include "include/navbar.php";
             <div class="row mt-5">
                 <div class="col text-center mt-5">
                     <i class="fas fa-times-circle fa-10x text-danger"></i>
-                    <h1 class="text-danger mt-5">Voce nao possue nenhum cupom</h1>
+                    <h1 class="text-danger mt-5">Você não possue nenhum cupom!</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 mt-5 text-center">
-                    <a class="btn btn-primary btn-lg" href="edicao_cupom.php?id=novo"><i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-orange btn-lg" href="edicao_cupom.php?id=novo"><i class="fas fa-plus-circle"></i>
                         Novo Cupom</a>
                 </div>
             </div>

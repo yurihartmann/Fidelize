@@ -51,7 +51,7 @@ class cartaoFidelidade extends Site
                 $sql = "DELETE FROM cartaoFidelidade WHERE cartaoFidelidade.id = '$id_cartao'";
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query) {
-                    setAlerta('success', 'Cupom excluido com sucesso!');
+                    setAlerta('success', 'Cupom excluído com sucesso!');
                     header("Location: cupons_ativos.php");
                 } else {
                     setAlerta('danger', 'Algo deu errado, tente novamente!');
@@ -81,6 +81,13 @@ class cartaoFidelidade extends Site
 
     function salvarNovoCupom()
     {
+
+        if ($_FILES['banner']['name'][0] != '') {
+            $uploder = new upload('banner');
+            $logo = $uploder->upload();
+            $logo = $logo[0]['dados']['nome_novo'];
+        }
+
         // SALVA UM NOVO CARTAO FIDELIDADE
         $nome_cupom = $_POST['nome_cupom'];
         $objetivo = $_POST['objetivo_cupom'];
@@ -88,7 +95,11 @@ class cartaoFidelidade extends Site
         $fk_loja = $_SESSION['empresa_id'];
         $premio = $_POST['premio_cupom'];
 
-        $sql = "INSERT INTO `cartaoFidelidade` (`id`, `nome_cartao`, `objetivo`, `fk_loja`, `foto`, `premio`, `descricao`) VALUES (NULL, '$nome_cupom', '$objetivo', '$fk_loja', NULL, '$premio', '$descricao');";
+        if (isset($logo)){
+            $sql = "INSERT INTO `cartaoFidelidade` (`id`, `nome_cartao`, `objetivo`, `fk_loja`, `foto`, `premio`, `descricao`) VALUES (NULL, '$nome_cupom', '$objetivo', '$fk_loja', '$logo', '$premio', '$descricao');";
+        } else {
+            $sql = "INSERT INTO `cartaoFidelidade` (`id`, `nome_cartao`, `objetivo`, `fk_loja`, `foto`, `premio`, `descricao`) VALUES (NULL, '$nome_cupom', '$objetivo', '$fk_loja', NULL, '$premio', '$descricao');";
+        }
         $query = mysqli_query($this->conexao, $sql);
         if ($query) {
             setAlerta('success', 'Cupom salvo com sucesso');
@@ -103,6 +114,13 @@ class cartaoFidelidade extends Site
 
     function updateCupom()
     {
+
+        if ($_FILES['banner']['name'][0] != '') {
+            $uploder = new upload('banner');
+            $logo = $uploder->upload();
+            $logo = $logo[0]['dados']['nome_novo'];
+        }
+
         // GUARDA AS ALTERACOES DE UMA CARTAO FIDELIDADE
         $id = $_POST['id'];
         $nome_cupom = $_POST['nome_cupom'];
@@ -110,10 +128,15 @@ class cartaoFidelidade extends Site
         $descricao = $_POST['descricao_cupom'];
         $premio = $_POST['premio_cupom'];
 
-        $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao' WHERE `cartaoFidelidade`.`id` = '$id';";
+
+        if (isset($logo)){
+            $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao', foto = '$logo' WHERE `cartaoFidelidade`.`id` = '$id';";
+        } else {
+            $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao' WHERE `cartaoFidelidade`.`id` = '$id';";
+        }
         $query = mysqli_query($this->conexao, $sql);
         if ($query) {
-            setAlerta('success', 'Cupom salvo com sucesso');
+            setAlerta('success', 'Cupom salvo com sucesso!');
             header("Location: cupons_ativos.php");
         } else {
             setAlerta('danger', 'Algo deu errado, tente novamente!');
@@ -121,5 +144,6 @@ class cartaoFidelidade extends Site
         }
 
     }
+
 
 }

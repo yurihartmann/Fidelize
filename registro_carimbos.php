@@ -47,7 +47,7 @@ include "include/navbar.php";
                                 <td><?= $valor['nome_cartao'] ?></td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar <?=( $porcentagem >= 70 ? 'progress-bar-striped':'' )?> <?=( $porcentagem == 100 ? 'bg-orange':'' )?>" role="progressbar"
+                                        <div class="progress-bar <?=( $porcentagem >= 70 ? 'progress-bar-striped':'' )?> <?=( $porcentagem == 100 ? 'bg-dark-orange':'bg-soft-orange' )?>" role="progressbar"
                                              style="width: <?=$porcentagem?>%"
                                              aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>/<?= $valor['objetivo'] ?>
                                         </div>

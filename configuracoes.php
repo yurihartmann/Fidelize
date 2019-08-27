@@ -12,15 +12,24 @@ include "include/navbar.php";
 
 
     <div class="container" style="margin-top: 70px;">
-        <?php getAlerta(); ?>
         <div class="row">
             <div class="col mt-4">
-                <a class="btn btn-outline-secondary" href="cupons_ativos.php"><i class="fas fa-arrow-left"></i> Voltar</a>
+                <a class="btn btn-outline-secondary" href="dashboard.php"><i class="fas fa-arrow-left"></i> Voltar</a>
             </div>
         </div>
+        <?php getAlerta(); ?>
         <div class="row">
-            <div class="col-12 mt-3">
-                <h1 class="text-center font-weight-light">Configurações</h1>
+            <div class="col-12 mt-5">
+                <h1 class="text-center font-weight-light">Minha Empresa</h1>
+                <div class="row">
+                    <div class="col text-center mt-3 mb-5">
+                        <?php if ($_SESSION['empresa_img'] != null && $_SESSION['empresa_img'] != ''): ?>
+                            <img style="width: 200px; height: 200px" src="uploads/<?=$_SESSION['empresa_img']?>" class="rounded-circle mx-3 border-orange">
+                        <?php else: ?>
+                            <img src="media/images/perfil_generico.jpg" height="100px" class="rounded-circle mx-3 border-orange">
+                        <?php endif;?>
+                    </div>
+                </div>
                 <form method="post" class="" id="formSalvarConfig" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="inputNomeLoja">Nome da Loja</label>
@@ -45,8 +54,9 @@ include "include/navbar.php";
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="inputLogo" name="logo[]" accept="image/*">
-                        <label class="custom-file-label" for="validatedCustomFile">Escolha um foto para sua logo... </label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        <label class="custom-file-label" for="inputLogo" data-browse="Escolher">Enviar Logo...</label>
+                        <small id="helpId" class="form-text text-muted">Envie uma logo com resolução de no mínimo 300x300, preferencialmente quadrada.
+                        </small>
                     </div>
                     <button class="btn btn-orange btn-lg float-right mt-5" type="submit" name="btnSalvar" id="btnSalvarConfig"><i class="fas fa-save"></i> Salvar</button>
                 </form>

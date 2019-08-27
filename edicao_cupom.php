@@ -26,9 +26,22 @@ include "include/navbar.php";
         </div>
     </div>
     <div class="row">
+        <div class="col text-center">
+            <h1 class="font-weight-light p-5">Cupom</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <?php if (is_array($registros) && $registros['foto'] == null): ?>
+                <img src="media/images/banner_generico.png" class="img-fluid border-orange rounded" height="100px">
+            <?php elseif(is_array($registros)): ?>
+                <img src="uploads/<?=$registros['foto']?>" class="img-fluid border-orange rounded" height="100px">
+            <?php endif ?>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 mt-3">
-            <h2 class="text-center">Cupom</h2>
-            <form method="post" class="" id="formSalvarCupom">
+            <form method="post" class="" id="formSalvarCupom" enctype="multipart/form-data">
                 <input class="d-none" value="<?= ( $_GET['id'] == 'novo' ? 'novo' : $_GET['id']) ?>" name="id">
                 <input class="d-none" value="formSalvarCupom" name="formSalvarCupom">
                 <div class="form-group">
@@ -53,9 +66,12 @@ include "include/navbar.php";
                            class="form-control" name="premio_cupom" id="inputPremioCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['premio'] : '') ?>" <?= (is_array($registros) ? 'disabled=""' : '') ?>>
                     <?= (!is_array($registros) ? '<small id="helpId" class="form-text text-muted">Esse valor nao podera ser alterado futuramente</small>' : '') ?>
                 </div>
-
-                <h6>anexar foto</h6>
-
+                <div class="custom-file mt-3">
+                    <input type="file" class="custom-file-input" id="inputBanner" name="banner[]" accept="image/*">
+                    <label class="custom-file-label" for="inputBanner" data-browse="Escolher">Enviar Banner...</label>
+                    <small id="helpId" class="form-text text-muted">Envie uma logo com resolução de no mínimo 200x100.
+                    </small>
+                </div>
                 <button class="btn btn-orange btn-lg float-right" type="submit" name="btnSalvar" id="btnSalvarCupom"><i class="fas fa-save"></i> Salvar</button>
             </form>
         </div>

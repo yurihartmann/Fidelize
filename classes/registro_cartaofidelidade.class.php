@@ -22,7 +22,7 @@ class registro_cartaoFidelidade extends Site
             $registros = new cartaoFidelidade();
             $registros = $registros->todosCartoesPorLoja($_SESSION['empresa_id']);
             if (empty($registros)) {
-                setAlerta('warning', 'Voce nao posse nenhum cupom, primeiro cadastre um!');
+                setAlerta('warning', 'Você não posse nenhum cupom, primeiro cadastre um!');
                 header('Location: cupons_ativos.php');
             }
         }
@@ -80,7 +80,7 @@ class registro_cartaoFidelidade extends Site
         $result = mysqli_fetch_all(mysqli_query($this->conexao, $sql));
         if (count($result) == 1) {
             if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
-                setAlerta('danger', 'Esse usuario ja completou esse cupom!');
+                setAlerta('danger', 'Esse usuário já completou esse cupom!');
                 header("Location: registro_carimbos.php");
             } else {
                 $sql = "INSERT INTO registro_cartaoFidelidade (id, fk_cliente, fk_carimbo, data_registro) 
@@ -102,7 +102,7 @@ class registro_cartaoFidelidade extends Site
                 }
             }
         } else {
-            setAlerta('danger', 'Numero nao e um usuario do sistema!');
+            setAlerta('danger', 'Número não é um usuário do sistema!');
             header("Location: novo_carimbo.php");
         }
     }
