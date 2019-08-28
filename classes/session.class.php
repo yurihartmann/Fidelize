@@ -46,7 +46,7 @@ class Session
     function veficaSession()
     {
         if (!isset($_SESSION['empresa_logado']) && $_SESSION['empresa_logado'] == false) {
-            setAlerta('info', "<strong>Voce precisa se logar!</strong>");
+            setAlerta('info', "<strong>Você precisa se logar!</strong>");
             header("Location: index.php");
         }
     }

@@ -5,10 +5,13 @@ require_once "classes/registro_cartaofidelidade.class.php";
 $registros = new registro_cartaoFidelidade();
 $cartoes = $registros->todosCartoesPorLoja($_SESSION['empresa_id']);
 
-if (empty($registros)){
-    setAlerta('warning','Voce nao possue nenhum cupom, primeiro cadastre um cupom!');
-    header("Location: registros_carimbo.php");
+
+if (empty($cartoes)) {
+    setAlerta('warning', 'Você não possue nenhum cupom ativo, primeiro cadastre um cupom!');
+    header("Location: registro_carimbos.php");
 }
+
+$data_atual = new DateTime();
 
 // INCLUINDO NAVBAR
 $ativo = "registro_carimbo";
@@ -19,7 +22,8 @@ include "include/navbar.php";
     <?php getAlerta(); ?>
     <div class="row">
         <div class="col mt-4">
-            <a class="btn btn-outline-secondary" href="registro_carimbos.php"><i class="fas fa-arrow-left"></i> Voltar</a>
+            <a class="btn btn-outline-secondary" href="registro_carimbos.php"><i class="fas fa-arrow-left"></i>
+                Voltar</a>
         </div>
     </div>
     <div class="row">
@@ -34,18 +38,23 @@ include "include/navbar.php";
                 <div class="form-group">
                     <label for="inputNumberCupom">Numero do Cliente</label>
                     <input type="text"
-                           class="form-control" name="number" id="inputNumberCupom" aria-describedby="helpId" placeholder="" >
+                           class="form-control" name="number" id="inputNumberCupom" aria-describedby="helpId"
+                           placeholder="">
                 </div>
                 <small id="helpId" class="form-text text-muted">Modelo : 99123456789 - Sem nunhuma formatacao</small>
                 <div class="form-group mt-3">
                     <label for="inputCupomNome">Cupom a receber o carimbo</label>
                     <select class="custom-select" name="cupom" id="inputCupomNome">
                         <?php foreach ($cartoes as $chave => $valor): ?>
-                        <option value="<?=$valor['id']?>"><?=$valor['nome_cartao']?> - <?=$valor['descricao']?></option>
-                        <?php endforeach; ?>
+                            <option value="<?= $valor['id'] ?>"><?= $valor['nome_cartao'] ?>
+                                - <?= $valor['descricao'] ?></option>
+                        <?php
+                        endforeach; ?>
                     </select>
                 </div>
-                <button class="btn btn-orange btn-lg float-right" id="btnSalvarCarimbo" type="submit" name="btnSalvarCarimbo">Carimbar</button>
+                <button class="btn btn-orange btn-lg float-right" id="btnSalvarCarimbo" type="submit"
+                        name="btnSalvarCarimbo">Carimbar
+                </button>
             </form>
         </div>
     </div>

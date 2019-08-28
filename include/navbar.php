@@ -20,7 +20,7 @@
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?=($ativo == "cupons_ativos") ? "active" : "" ?>">
-                <a class="nav-link" href="cupons_ativos.php"><i class="fas fa-ticket-alt"></i> Cupons Ativos <span
+                <a class="nav-link" href="cupons_ativos.php"><i class="fas fa-ticket-alt"></i> Cupons <span
                             class="badge badge-orange" id="badgeCuponsAtivos">-</span></a>
             </li>
             <li class="nav-item d-none d-lg-block">

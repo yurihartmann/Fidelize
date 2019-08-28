@@ -63,4 +63,27 @@ $(document).ready(function () {
         });
     }
 
+
+    let view_cupons_ativos = $('#painel_cupons_ativos');
+    cuponsAtivos();
+    setInterval(cuponsAtivos, 10000);
+
+    function cuponsAtivos() {
+        $.ajax({
+            url: 'ajax/numCartoesAtivos.php',
+            type: 'POST',
+            data: {
+
+            },
+            success: function (data) {
+                view_cupons_ativos.html(data);
+                view_cupons_ativos.addClass('h2');
+            },
+            beforeSend: function () {
+                view_cupons_ativos.removeClass('h2');
+                view_cupons_ativos.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+            }
+        });
+    }
+
 });

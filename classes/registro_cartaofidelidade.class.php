@@ -2,6 +2,8 @@
 
 require_once "site.class.php";
 
+use Aws\Sns\SnsClient;
+
 class registro_cartaoFidelidade extends Site
 {
 
@@ -44,6 +46,21 @@ class registro_cartaoFidelidade extends Site
             return false;
     }
 
+    public function clientePorLoja($id_loja, $numero)
+    {
+        // CONTA E TRAZ OS DADOS DO CARTAO FIDELIDADE E DO CLIENTE EM QUESTAO, CONTANDO O NUMERO DE CARIMBOS JA RESGISTRADOS
+        $sql = "select *, count(fk_cliente) from registro_cartaoFidelidade
+                inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
+                inner join lojas l on cF.fk_loja = l.id
+                inner join clientes c on registro_cartaoFidelidade.fk_cliente = c.numero
+                where l.id = '$id_loja' and fk_cliente = '$numero' group by fk_carimbo";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return false;
+    }
+
     public function clientesPorLojaLimit10($id_loja)
     {
         // CONTA E TRAZ OS DADOS DO CARTAO FIDELIDADE E DO CLIENTE EM QUESTAO, CONTANDO O NUMERO DE CARIMBOS JA RESGISTRADOS COM LIMITE DE 10
@@ -61,9 +78,14 @@ class registro_cartaoFidelidade extends Site
 
     function todosCartoesPorLoja($id_loja)
     {
-        // PEGA OS CARTOES QUE A LOJA POSSUE
-        $cartao = new cartaoFidelidade();
-        return $cartao->todosCartoesPorLoja($id_loja);
+        $sql = "select * from cartaoFidelidade where fk_loja = '$id_loja'
+                and data_inicio < now() and data_fim > now() ";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return "";
+
     }
 
     function salvarCarimbo()
@@ -87,9 +109,16 @@ class registro_cartaoFidelidade extends Site
                     VALUES (NULL, '$numero', '$id_cupom', CURRENT_TIME());";
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query) {
+                    $dados = $this->clientePorLoja($_SESSION['empresa_id'],$numero);
+                    if ($dados[0]["count(fk_cliente)"] == 1){
+                        $this->sendSMS($numero,"Parabéns, Você completou 1/".$dados[0]['objetivo']. " do cupom: "
+                        . ucfirst($dados[0]['nome_cartao']). " - Acesse cliente.fidelize.ga para ver seu progreso!");
+                    }
                     if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
                         $token = new Tokens();
                         $token->createToken($numero, $id_cupom);
+                        $this->sendSMS($numero,"Parabéns, Você completou o cupom: "
+                            . ucfirst($dados[0]['nome_cartao']). " e ganhou: ". ucfirst($dados[0]['premio']) ." - Acesse cliente.fidelize.ga para ver seu token!");
                         setAlerta('success', 'Completou cupom, token gerado!');
                         header("Location: registro_carimbos.php");
                     } else {
@@ -120,6 +149,38 @@ class registro_cartaoFidelidade extends Site
         } else {
             return false;
         }
+
+    }
+
+    function sendSMS($number, $msg)
+    {
+        require 'vendor/autoload.php';
+
+        $sdk = new Aws\Sns\SnsClient(['region' => 'eu-west-1',
+            'version' => 'latest',
+            'credentials' => ['key' => 'AKIA2ZZM2LL4FW3JSEQ2', 'secret' => '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']]);
+
+
+        try {
+            $result = $sdk->SetSMSAttributes(['attributes' => ['DefaultSMSType' => 'Transactional',],]);
+        } catch
+        (AwsException $e) {
+            // output error message if fails
+            error_log($e->getMessage());
+        }
+
+
+        $sql = "insert into sms_enviados value (null,'$number','$msg',current_time ())";
+        $query = mysqli_query($this->conexao, $sql);
+
+        $msg = "FIDELIZE: " . $msg;
+        $number = "+55" . $number;
+
+
+        $result = $sdk->publish([
+            'Message' => $msg,
+            'PhoneNumber' => $number,
+        ]);
 
     }
 

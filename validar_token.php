@@ -84,7 +84,7 @@ include "include/navbar.php";
                         <div class="row">
                             <div class="col-6 offset-3 text-warning text-center">
                                 <i class="fas fa-exclamation-triangle fa-5x"></i>
-                                <h3 class="mt-3">Nenhuma informacao para exibir</h3>
+                                <h3 class="mt-3">Nenhuma informação para exibir</h3>
                             </div>
                         </div>
                     <?php endif; ?>

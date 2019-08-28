@@ -73,7 +73,7 @@ where token = '$token' and l.id = '$id_loja'";
                 setAlerta('danger','Esse token ja foi utilizado');
                 header("Location: validar_token.php");
             } else {
-                $sql = "UPDATE `tokens` SET `usado` = '1' WHERE token = '$token';";
+                $sql = "UPDATE `tokens` SET `usado` = '1', data_usado = current_time WHERE token = '$token';";
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query){
                     $sql = "select * from tokens inner join cartaoFidelidade cF on tokens.fk_carimbo = cF.id

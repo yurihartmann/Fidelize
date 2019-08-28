@@ -49,4 +49,5 @@ function setModal($dados){
     setcookie('modal', serialize($modal), time() + (60 * 10));
 }
 
+
 ?>

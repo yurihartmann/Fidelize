@@ -32,7 +32,7 @@ include "include/navbar.php";
             <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
                     <h3 class="card-title font-weight-light"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
-                    <p class="card-text font-weight-light"><span class="spinner-border spinner-border-sm" role="status"
+                    <p class="card-text font-weight-light" id="painel_cupons_ativos"><span class="spinner-border spinner-border-sm" role="status"
                                                aria-hidden="true"></span></p>
                 </div>
             </div>
@@ -89,7 +89,7 @@ include "include/navbar.php";
                     <div class="row">
                         <div class="col-6 offset-3 text-warning text-center">
                             <i class="fas fa-exclamation-triangle fa-5x"></i>
-                            <h3 class="mt-3">Nenhuma informacao para exibir</h3>
+                            <h3 class="mt-3">Nenhuma informação para exibir</h3>
                         </div>
                     </div>
                     <?php endif; ?>
