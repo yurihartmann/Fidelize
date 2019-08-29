@@ -111,14 +111,12 @@ class registro_cartaoFidelidade extends Site
                 if ($query) {
                     $dados = $this->clientePorLoja($_SESSION['empresa_id'],$numero);
                     if ($dados[0]["count(fk_cliente)"] == 1){
-                        $this->sendSMS($numero,"Parabéns, Você completou 1/".$dados[0]['objetivo']. " do cupom: "
-                        . ucfirst($dados[0]['nome_cartao']). " - Acesse cliente.fidelize.ga para ver seu progreso!");
+                        $this->sendSMS($numero,"Parabéns, Você inicio um novo cupom - Acesse cliente.fidelize.ga para ver seu progreso!");
                     }
                     if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
                         $token = new Tokens();
                         $token->createToken($numero, $id_cupom);
-                        $this->sendSMS($numero,"Parabéns, Você completou o cupom: "
-                            . ucfirst($dados[0]['nome_cartao']). " e ganhou: ". ucfirst($dados[0]['premio']) ." - Acesse cliente.fidelize.ga para ver seu token!");
+                        $this->sendSMS($numero,"Parabéns, Você completou um cupom - Acesse cliente.fidelize.ga para ver seu token!");
                         setAlerta('success', 'Completou cupom, token gerado!');
                         header("Location: registro_carimbos.php");
                     } else {
@@ -154,33 +152,39 @@ class registro_cartaoFidelidade extends Site
 
     function sendSMS($number, $msg)
     {
-        require 'vendor/autoload.php';
+        require_once "vendor/autoload.php";
 
-        $sdk = new Aws\Sns\SnsClient(['region' => 'eu-west-1',
+        $sdk = new Aws\Sns\SnsClient([
+            'region'  => 'eu-west-1',
             'version' => 'latest',
-            'credentials' => ['key' => 'AKIA2ZZM2LL4FW3JSEQ2', 'secret' => '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']]);
+            'credentials' => ['key' => 'AKIA2ZZM2LL4FW3JSEQ2', 'secret' => '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']
+        ]);
 
 
         try {
-            $result = $sdk->SetSMSAttributes(['attributes' => ['DefaultSMSType' => 'Transactional',],]);
-        } catch
-        (AwsException $e) {
+            $result = $sdk->SetSMSAttributes([
+                'attributes' => [
+                    'DefaultSMSType' => 'Transactional',
+                ],
+            ]);
+        } catch (AwsException $e) {
             // output error message if fails
             error_log($e->getMessage());
+            $result = false;
         }
-
-
-        $sql = "insert into sms_enviados value (null,'$number','$msg',current_time ())";
-        $query = mysqli_query($this->conexao, $sql);
 
         $msg = "FIDELIZE: " . $msg;
         $number = "+55" . $number;
+
+        $number = "+5547996385544";
+        $msg = "FIDELIZE: alooodoaskdo dioadsnsodia asoindi";
 
 
         $result = $sdk->publish([
             'Message' => $msg,
             'PhoneNumber' => $number,
         ]);
+
 
     }
 
