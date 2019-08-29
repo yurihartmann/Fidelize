@@ -118,7 +118,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         if (verificaDadosCupom()) {
-            btnSalvarCupom.removeClass('btn-success');
+            btnSalvarCupom.removeClass('btn-orange');
             btnSalvarCupom.addClass('btn-secondary');
             btnSalvarCupom.attr('disabled', true);
             btnSalvarCupom.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Carregando...');
@@ -149,9 +149,10 @@ $(document).ready(function () {
     function verificaDadosConfig() {
         let inputNome = $('#inputNomeLoja');
         let inputSenha = $('#inputSenha');
+        let inputSenhaNova = $('#inputSenhaNova');
         let valid = true;
 
-        if (inputNome.val().length == 0) {
+        if (inputNome.val().length < 2) {
             inputNome.removeClass('is-valid');
             inputNome.addClass('is-invalid');
             valid = false;
@@ -169,25 +170,36 @@ $(document).ready(function () {
             inputSenha.addClass('is-valid');
         }
 
+        if (inputSenhaNova.val().length < 8 && inputSenhaNova.val().length > 0) {
+            inputSenhaNova.removeClass('is-valid');
+            inputSenhaNova.addClass('is-invalid');
+            valid = false;
+        } else if (inputSenhaNova.val().length == 0) {
+            inputSenhaNova.removeClass('is-invalid');
+            inputSenhaNova.removeClass('is-valid');
+        } else {
+            inputSenhaNova.removeClass('is-invalid');
+            inputSenhaNova.addClass('is-valid');
+        }
+
         return valid;
 
     }
 
-    // $('#btnSalvarConfig').click(function (e) {
-    //     $('#formSalvarConfig').submit();
-    //     let btnSalvarConfig = $('#btnSalvarConfig');
-    //     e.preventDefault();
-    //
-    //     if (verificaDadosConfig()) {
-    //         btnSalvarConfig.removeClass('btn-success');
-    //         btnSalvarConfig.addClass('btn-secondary');
-    //         btnSalvarConfig.attr('disabled', true);
-    //         btnSalvarConfig.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Carregando...');
-    //
-    //     }
-    //
-    //
-    // });
+    $('#btnSalvarConfig').click(function (e) {
+        let btnSalvarConfig = $('#btnSalvarConfig');
+        e.preventDefault();
+
+        if (verificaDadosConfig()) {
+            btnSalvarConfig.removeClass('btn-success');
+            btnSalvarConfig.addClass('btn-secondary');
+            btnSalvarConfig.attr('disabled', true);
+            btnSalvarConfig.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Carregando...');
+            $('#formSalvarConfig').submit();
+        }
+
+
+    });
 
     if ($("#showModal").val() == "true"){
         $('#exampleModal').modal('show')

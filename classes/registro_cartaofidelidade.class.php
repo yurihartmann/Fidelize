@@ -38,7 +38,7 @@ class registro_cartaoFidelidade extends Site
                 inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
                 inner join lojas l on cF.fk_loja = l.id
                 inner join clientes c on registro_cartaoFidelidade.fk_cliente = c.numero
-                where l.id = '$id_loja' group by fk_carimbo";
+                where l.id = '$id_loja' group by fk_carimbo, fk_cliente";
         $query = mysqli_query($this->conexao, $sql);
         if ($query)
             return mysqli_fetch_all($query, MYSQLI_ASSOC);

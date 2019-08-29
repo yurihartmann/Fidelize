@@ -10,7 +10,7 @@ class Loja extends Site
         parent::__construct();
 
         // BOTAO SALVAR DA TELA DE CONFIGURACOES
-        if (isset($_POST['btnSalvar'])) {
+        if (isset($_POST['email'])) {
             $this->updateDadosLoja();
         }
     }
