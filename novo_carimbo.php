@@ -53,6 +53,7 @@ include "include/navbar.php";
                         <?php
                         endforeach; ?>
                     </select>
+
                 </div>
                 <button class="btn btn-orange btn-lg float-right" id="btnSalvarCarimbo" type="submit"
                         name="btnSalvarCarimbo">Carimbar

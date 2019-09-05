@@ -76,14 +76,14 @@ function sendSMS($numero, $mensagem){
 
     $SnSclient = new SnsClient([
         'credentials' => ['key' => 'AKIA2ZZM2LL4FW3JSEQ2', 'secret' => '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'],
-        'region' => 'us-east-1',
+        'region' => 'us-west-2',
         'version' => '2010-03-31'
     ]);
 
     $phone = $numero;
     $phone = "+55" .$phone;
-    $message = "Fidelize: " . $mensagem;
-    $message = limitaTexto(130, $message);
+    $message = $mensagem;
+//    $message = limitaTexto(130, $message);
 
     try {
         $result = $SnSclient->SetSMSAttributes([

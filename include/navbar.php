@@ -10,20 +10,20 @@
             <li class="nav-item <?=($ativo == "dashboard") ? "active" : "" ?>">
                 <a class="nav-link" href="dashboard.php"><i class="fas fa-home"></i> Inicio</a>
             </li>
-            <li class="nav-item d-none d-lg-block">
+            <li class="nav-item d-none d-xl-block">
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?=($ativo == "registro_carimbo") ? "active" : "" ?>">
                 <a class="nav-link" href="registro_carimbos.php"><i class="fas fa-check-circle"></i> Registros Carimbos</a>
             </li>
-            <li class="nav-item d-none d-lg-block">
+            <li class="nav-item d-none d-xl-block">
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?=($ativo == "cupons_ativos") ? "active" : "" ?>">
                 <a class="nav-link" href="cupons_ativos.php"><i class="fas fa-ticket-alt"></i> Cupons <span
                             class="badge badge-orange" id="badgeCuponsAtivos">-</span></a>
             </li>
-            <li class="nav-item d-none d-lg-block">
+            <li class="nav-item d-none d-xl-block">
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?=($ativo == "validar_token") ? "active" : "" ?>">
