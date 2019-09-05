@@ -2,7 +2,7 @@
 
 require_once "site.class.php";
 
-class Session
+class session
 {
 
     private $id;

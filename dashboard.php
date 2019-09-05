@@ -1,10 +1,15 @@
 <?php
 
-require_once "classes/registro_cartaofidelidade.class.php";
+require_once "classes/registro_cartaofidelidade.php";
 
-$registros = new registro_cartaoFidelidade();
-$registros = $registros->clientesPorLojaLimit10($_SESSION['empresa_id']);
+$registros = new registro_cartaofidelidade();
+$dados = $registros->clientesPorLojaLimit10($_SESSION['empresa_id']);
 
+$dados_grafico = array_reverse($registros->desempenhoSemanal());
+//echo "<pre>";
+//die(var_dump($dados_grafico));
+
+include "include/header.php";
 
 // INCLUINDO NAVBAR
 $ativo = "dashboard";
@@ -15,7 +20,7 @@ include "include/navbar.php";
     <?php getAlerta(); ?>
     <div class="row">
         <div class="col text-center">
-            <h1 class="font-weight-light p-5">Dashboard - <?=$_SESSION['empresa_nome']?></h1>
+            <h1 class="font-weight-light p-5">Dashboard - <?= $_SESSION['empresa_nome'] ?></h1>
         </div>
     </div>
     <div class="row">
@@ -23,8 +28,9 @@ include "include/navbar.php";
             <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
                     <h3 class="card-title font-weight-light"><i class="fas fa-users"></i> Clientes Fidelizados</h3>
-                    <p class="card-text font-weight-light" id="painel_clientes_fidelizados"><span class="spinner-border spinner-border-sm" role="status"
-                                               aria-hidden="true"></span></p>
+                    <p class="card-text font-weight-light" id="painel_clientes_fidelizados"><span
+                                class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span></p>
                 </div>
             </div>
         </div>
@@ -32,8 +38,9 @@ include "include/navbar.php";
             <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
                     <h3 class="card-title font-weight-light"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
-                    <p class="card-text font-weight-light" id="painel_cupons_ativos"><span class="spinner-border spinner-border-sm" role="status"
-                                               aria-hidden="true"></span></p>
+                    <p class="card-text font-weight-light" id="painel_cupons_ativos"><span
+                                class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span></p>
                 </div>
             </div>
         </div>
@@ -41,64 +48,122 @@ include "include/navbar.php";
             <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
                     <h3 class="card-title font-weight-light"><i class="fas fa-check-circle"></i> Cupons Completos</h3>
-                    <p class="card-text font-weight-light" id="painel_cupons_completados"><p>
+                    <p class="card-text font-weight-light" id="painel_cupons_completados">
+                    <p>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <div class="row mt-3">
+    <div class="row">
         <div class="col">
             <div class="card shadow">
-                <h5 class="card-header">Registros Carimbos</h5>
-                <div class="card-body">
-                    <?php if (!is_null($registros[0]['numero'])): ?>
-                    <table class="table table-striped">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col"><i class="fas fa-phone-alt"></i> Numero</th>
-                            <th scope="col"><i class="fas fa-user"></i> Cliente</th>
-                            <th scope="col"><i class="fas fa-ticket-alt"></i> Nome do Cupom</th>
-                            <th scope="col" class="text-center"><i class="fas fa-running"></i> Andamento</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($registros as $chave => $valor):
-                            $ppv = 100/$valor['objetivo'];
-                            $porcentagem = $ppv * $valor['count(fk_cliente)'];
-                            ?>
-                            <tr>
-                                <th scope="row"><?= $valor['numero'] ?></th>
-                                <td><?= $valor['nome'] ?></td>
-                                <td><?= $valor['nome_cartao'] ?></td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar <?=( $porcentagem >= 70 ? 'progress-bar-striped':'' )?> <?=( $porcentagem == 100 ? 'bg-dark-orange':'bg-soft-orange' )?>" role="progressbar"
-                                             style="width: <?=$porcentagem?>%"
-                                             aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>/<?= $valor['objetivo'] ?>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                    <a href="registro_carimbos.php" class="btn btn-outline-dark float-right">Ver Tudo</a>
-                    <?php else: ?>
-                    <div class="row">
-                        <div class="col-6 offset-3 text-warning text-center">
-                            <i class="fas fa-exclamation-triangle fa-5x"></i>
-                            <h3 class="mt-3">Nenhuma informação para exibir</h3>
-                        </div>
+                <div class="row">
+                    <div class="col text-center p-3">
+                        <h1 class="font-weight-light">Desenpenho da Semana</h1><small> (7 dias atras)</small>
                     </div>
-                    <?php endif; ?>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="" id="curve_chart" style="width: 100%; height: 500px"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<?php include "classes/footer.php" ?>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-1 shadow-sm">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <strong><i class="fas fa-phone"></i> Número</strong>
+                        </div>
+                        <div class="col-3">
+                            <strong>Nome</strong>
+                        </div>
+                        <div class="col-3 text-center">
+                            <strong>Cupom</strong>
+                        </div>
+                        <div class="col-3 text-center">
+                            <strong>Progressão</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php foreach ($dados as $chave => $valor):
+                $ppv = 100 / $valor['objetivo'];
+                $porcentagem = $ppv * $valor['count(fk_cliente)'];
+                ?>
+
+                <div class="card mb-1 shadow-sm">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <?= formatacaoCelular($valor['numero']) ?>
+                            </div>
+                            <div class="col-3">
+                                <?php if ($valor['img'] != null && $valor['img'] != ''): ?>
+                                    <img style="width: 40px; height: 40px" src="http://cliente.fidelize.ga/uploads/<?= $valor['img'] ?>"
+                                         class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
+                                <?php else: ?>
+                                    <img src="media/images/perfil_generico.jpg" height="40px"
+                                         class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
+                                <?php endif; ?>
+                                <?= limitaTexto(30,$valor['nome']) ?>
+                            </div>
+                            <div class="col-3 text-center">
+                                <?= limitaTexto(40,$valor['nome_cartao']) ?>
+                            </div>
+                            <div class="col-3">
+                                <div class="progress">
+                                    <div class="progress-bar <?= ($porcentagem >= 70 ? 'progress-bar-striped' : '') ?> <?= ($porcentagem == 100 ? 'bg-dark-orange' : 'bg-soft-orange') ?>"
+                                         role="progressbar"
+                                         style="width: <?= $porcentagem ?>%"
+                                         aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>
+                                        /<?= $valor['objetivo'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+                    <a href="registro_carimbos.php" class="btn btn-outline-secondary float-right mt-2">Ver Tudo</a>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="media/js/chart_google.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Dia', 'Numero de Carimbos Registrados'],
+                <?php
+                    foreach ($dados_grafico as $chave => $valor){
+                        echo "['" . formatacaoData($valor['dia']) . " ' , " .  $valor['count'] . "]";
+                        if ($chave != 6 ){
+                            echo ",";
+                        }
+                    }
+                ?>
+            ]);
+
+            var options = {
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <?php include "include/footer.php" ?>
 
 

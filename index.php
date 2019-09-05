@@ -4,6 +4,7 @@
 require_once "classes/site.class.php";
 $site = new Site();
 
+include "include/header.php";
 
 ?>
 
@@ -45,6 +46,6 @@ $site = new Site();
 </div>
 
 
-<?php include "classes/footer.php" ?>
+<?php include "include/footer.php" ?>
 
 

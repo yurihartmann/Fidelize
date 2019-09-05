@@ -2,7 +2,6 @@
 
 require_once "conecao.php";
 
-sleep(1);
 session_start();
 $id_loja =  $_SESSION['empresa_id'];
 

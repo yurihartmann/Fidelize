@@ -22,6 +22,9 @@ class Site
     public function __construct()
     {
 
+        require_once "vendor/autoload.php";
+
+
         if (!isset($_SESSION))
             session_start();
 
@@ -41,13 +44,11 @@ class Site
         require_once("include/config.php");
         require_once("include/functions.php");
 
-        $session = new Session($this->conexao);
+        $session = new session($this->conexao);
         if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index')
             $session->veficaSession();
 
         // Poderia ser utilizado aqui também para incluir o HEADER do site
-        include "header.php";
-
     }
 
     public function Conexao()

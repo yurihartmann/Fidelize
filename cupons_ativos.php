@@ -1,8 +1,8 @@
 <?php
 
-require_once "classes/cartaofidelidade.class.php";
+require_once "classes/cartaofidelidade.php";
 
-$registros = new cartaoFidelidade();
+$registros = new cartaofidelidade();
 $registros = array_reverse($registros->todosCartoesPorLoja($_SESSION['empresa_id']));
 
 if (empty($registros)) {
@@ -12,6 +12,9 @@ if (empty($registros)) {
 }
 
 $data_atual = new DateTime();
+
+
+include "include/header.php";
 
 // INCLUINDO NAVBAR
 $ativo = "cupons_ativos";
@@ -67,14 +70,14 @@ include "include/navbar.php";
 
                                 ?>
 
-                                <?= $valor['nome_cartao'] ?></h5>
-                            <p class="card-text"><?= $valor['descricao'] ?></p>
+                                <?= limitaTexto(40,$valor['nome_cartao']) ?></h5>
+                            <p class="card-text"><?= limitaTexto(60,$valor['descricao']) ?></p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></li>
-                            <li class="list-group-item"><strong>Premio:</strong> <?= $valor['premio'] ?></li>
-                            <li class="list-group-item"><strong>Data Inicio:</strong> <?= $valor['data_inicio'] ?></li>
-                            <li class="list-group-item"><strong>Data Fim:</strong> <?= $valor['data_fim'] ?></li>
+                            <li class="list-group-item"><strong>Premio:</strong> <?= limitaTexto(30,$valor['premio']) ?></li>
+                            <li class="list-group-item"><strong>Data Inicio:</strong> <?= formatacaoDataHora($valor['data_inicio']) ?></li>
+                            <li class="list-group-item"><strong>Data Fim:</strong> <?= formatacaoDataHora($valor['data_fim']) ?></li>
                         </ul>
                         <?php if ($data_atual < $data_inicio): ?>
                             <div class="card-body">
@@ -86,8 +89,8 @@ include "include/navbar.php";
                                         </a>
                                         <form method="post" class="float-right">
                                             <input type="hidden" value="<?= $valor['id'] ?>" name="id_cupom">
-                                            <button class="btn btn-outline-danger" name="btnExcluir" type="submit"><i
-                                                        class="fas fa-trash"></i>
+                                            <button class="btn btn-outline-danger" name="btnExcluir" type="submit" >
+                                            <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
                                     </div>
@@ -114,4 +117,4 @@ include "include/navbar.php";
         <?php endif; ?>
     </div>
 
-<?php include "classes/footer.php" ?>
+<?php include "include/footer.php" ?>

@@ -2,7 +2,7 @@
 
 require_once "site.class.php";
 
-class Tokens extends Site {
+class tokens extends Site {
 
     private $token;
 

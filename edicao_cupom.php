@@ -1,8 +1,8 @@
 <?php
 
-require_once "classes/cartaofidelidade.class.php";
+require_once "classes/cartaofidelidade.php";
 
-$registros = new cartaoFidelidade();
+$registros = new cartaofidelidade();
 
 if (isset($_GET['id']) && ($_GET['id'] != 'novo')) {
     $registros = $registros->dadosCartaoFidelidadePorId($_GET['id']);
@@ -17,6 +17,10 @@ if (isset($_GET['id']) && ($_GET['id'] != 'novo')) {
         header("Location: cupons_ativos.php");
     }
 }
+
+
+include "include/header.php";
+
 // INCLUINDO NAVBAR
 $ativo = "cupons_ativos";
 include "include/navbar.php";
@@ -98,4 +102,4 @@ include "include/navbar.php";
 </div>
 
 
-<?php include "classes/footer.php" ?>
+<?php include "include/footer.php" ?>

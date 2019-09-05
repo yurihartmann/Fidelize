@@ -1,10 +1,12 @@
 <?php
 
-require_once "classes/loja.class.php";
+require_once "classes/loja.php";
 
-$loja = new Loja();
+$loja = new loja();
 $registros = $loja->dadosLoja($_SESSION['empresa_id']);
 $registros = $registros[0];
+
+include "include/header.php";
 
 // INCLUINDO NAVBAR
 include "include/navbar.php";
@@ -65,4 +67,4 @@ include "include/navbar.php";
     </div>
 
 
-<?php include "classes/footer.php" ?>
+<?php include "include/footer.php" ?>

@@ -42,7 +42,7 @@ $(document).ready(function () {
                 inputDescricaoCupom.removeClass('is-invalid');
                 inputDescricaoCupom.addClass('is-valid');
             }
-            if (inputObjetivoCupom.val().length == 0) {
+            if (inputObjetivoCupom.val() < 1) {
                 inputObjetivoCupom.removeClass('is-valid');
                 inputObjetivoCupom.addClass('is-invalid');
                 valid = false;
@@ -137,6 +137,7 @@ $(document).ready(function () {
         btnSalvarCarimbo.attr('disabled', true);
         btnSalvarCarimbo.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Carregando...');
         $('#formSalvarCarimbo').submit();
+
     });
 
 

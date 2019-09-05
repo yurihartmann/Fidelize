@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-black mb-3">
-    <a class="navbar-brand" href=""><img src="media/images/fidelize_adm_branco.png" height="55px"> </a>
+    <a class="navbar-brand" href=""><img src="media/images/fidelize_adm_branco.png" height="40px"> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
                aria-expanded="false">
                 <span class="text-white"><?=$_SESSION['empresa_nome']?></span>
                 <?php if ($_SESSION['empresa_img'] != null && $_SESSION['empresa_img'] != ''): ?>
-                    <img style="width: 60px; height: 60px" src="uploads/<?=$_SESSION['empresa_img']?>" class="rounded-circle mx-3 border-orange">
+                    <img style="width: 40px; height: 40px" src="uploads/<?=$_SESSION['empresa_img']?>" class="rounded-circle mx-3 border-orange">
                 <?php else: ?>
                     <img src="media/images/perfil_generico.jpg" height="40px" class="rounded-circle mx-3 border-orange">
                 <?php endif;?>

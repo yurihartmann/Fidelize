@@ -1,8 +1,8 @@
 <?php
 
-require_once "classes/registro_cartaofidelidade.class.php";
+require_once "classes/registro_cartaofidelidade.php";
 
-$registros = new registro_cartaoFidelidade();
+$registros = new registro_cartaofidelidade();
 $cartoes = $registros->todosCartoesPorLoja($_SESSION['empresa_id']);
 
 
@@ -12,6 +12,8 @@ if (empty($cartoes)) {
 }
 
 $data_atual = new DateTime();
+
+include "include/header.php";
 
 // INCLUINDO NAVBAR
 $ativo = "registro_carimbo";
@@ -39,15 +41,15 @@ include "include/navbar.php";
                     <label for="inputNumberCupom">Numero do Cliente</label>
                     <input type="text"
                            class="form-control" name="number" id="inputNumberCupom" aria-describedby="helpId"
-                           placeholder="">
+                           placeholder="" inputmode="numeric">
                 </div>
                 <small id="helpId" class="form-text text-muted">Modelo : 99123456789 - Sem nunhuma formatacao</small>
                 <div class="form-group mt-3">
                     <label for="inputCupomNome">Cupom a receber o carimbo</label>
                     <select class="custom-select" name="cupom" id="inputCupomNome">
                         <?php foreach ($cartoes as $chave => $valor): ?>
-                            <option value="<?= $valor['id'] ?>"><?= $valor['nome_cartao'] ?>
-                                - <?= $valor['descricao'] ?></option>
+                            <option value="<?= $valor['id'] ?>"><?= limitaTexto(40,$valor['nome_cartao']) ?>
+                                - <?= limitaTexto(50,$valor['descricao']) ?></option>
                         <?php
                         endforeach; ?>
                     </select>
@@ -61,4 +63,4 @@ include "include/navbar.php";
 </div>
 
 
-<?php include "classes/footer.php" ?>
+<?php include "include/footer.php" ?>

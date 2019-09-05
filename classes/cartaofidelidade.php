@@ -2,7 +2,7 @@
 
 require_once "site.class.php";
 
-class cartaoFidelidade extends Site
+class cartaofidelidade extends Site
 {
 
     private $nome_cartao;
