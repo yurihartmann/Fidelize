@@ -2,6 +2,12 @@
 <html lang="pt-br">
 <head>
     <title>ADM Fidelize</title>
+    <?php if (
+    substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index'
+    ): ?>
+        <meta name="theme-color" content="#000000">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+    <?php endif; ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

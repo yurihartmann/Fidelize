@@ -55,16 +55,16 @@ include "include/navbar.php";
             <div class="card mb-1 shadow-sm">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-3 col-5">
                             <strong>Numero</strong>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 d-none d-md-block">
                             <strong>Nome</strong>
                         </div>
                         <div class="col-3 text-center">
                             <strong>Cupom</strong>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3 col-4 text-center">
                             <strong>Usado</strong>
                         </div>
                     </div>
@@ -74,10 +74,11 @@ include "include/navbar.php";
                 <div class="card mb-1 shadow-sm">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-md-3 col-5">
                                 <?= formatacaoCelular($valor['numero']) ?>
+                                <span class="d-block d-md-none"><?= limitaTexto(30,$valor['nome']) ?></span>
                             </div>
-                            <div class="col-3">
+                            <div class="col-3 d-none d-md-block">
                                 <?php if ($valor['img'] != null && $valor['img'] != ''): ?>
                                     <img style="width: 40px; height: 40px" src="http://cliente.fidelize.ga/uploads/<?= $valor['img'] ?>"
                                          class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
@@ -90,7 +91,7 @@ include "include/navbar.php";
                             <div class="col-3 text-center">
                                 <?= $valor['nome_cartao'] ?>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3 col-4">
                                 <?php if ($valor['usado'] == 0): ?>
                                     <h5><span class="badge badge-success">Disponivel</span></h5>
                                 <?php else: ?>

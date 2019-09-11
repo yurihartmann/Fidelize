@@ -29,12 +29,12 @@ include "include/header.php";
                         <div class="form-group">
                             <label for="inputEmail">Email</label>
                             <input type="email"
-                                   class="form-control" name="inputEmail" id="inputEmail"
+                                   class="form-control rounded-0" name="inputEmail" id="inputEmail"
                                    placeholder="Digite seu email...">
                         </div>
                         <div class="form-group">
                             <label for="inputSenha">Senha</label>
-                            <input type="password" class="form-control" name="inputSenha" id="inputSenha"
+                            <input type="password" class="form-control rounded-0" name="inputSenha" id="inputSenha"
                                    placeholder="Sua senha...">
                         </div>
                         <button class="btn btn-block btn-lg btn-orange" type="submit" name="btnEntrar">Login</button>

@@ -25,7 +25,7 @@ include "include/navbar.php";
     </div>
     <div class="row">
         <div class="col-12 col-lg-4">
-            <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
+            <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
                     <h3 class="card-title font-weight-light"><i class="fas fa-users"></i> Clientes Fidelizados</h3>
                     <p class="card-text font-weight-light" id="painel_clientes_fidelizados"><span
@@ -35,7 +35,7 @@ include "include/navbar.php";
             </div>
         </div>
         <div class="col-12 col-lg-4">
-            <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
+            <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
                     <h3 class="card-title font-weight-light"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
                     <p class="card-text font-weight-light" id="painel_cupons_ativos"><span
@@ -45,7 +45,7 @@ include "include/navbar.php";
             </div>
         </div>
         <div class="col-12 col-lg-4">
-            <div class="card text-white bg-orange m-1 mt-3 text-center shadow h-75">
+            <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
                     <h3 class="card-title font-weight-light"><i class="fas fa-check-circle"></i> Cupons Completos</h3>
                     <p class="card-text font-weight-light" id="painel_cupons_completados">
@@ -57,9 +57,9 @@ include "include/navbar.php";
 
     <div class="row">
         <div class="col">
-            <div class="card shadow">
+            <div class="shadow bg-white">
                 <div class="row">
-                    <div class="col text-center p-3">
+                    <div class="col text-center pt-5">
                         <h1 class="font-weight-light">Desenpenho da Semana</h1><small> (7 dias atras)</small>
                     </div>
                 </div>
@@ -74,16 +74,16 @@ include "include/navbar.php";
 
     <div class="row mt-4">
         <div class="col-12">
-            <div class="card mb-1 shadow-sm">
+            <div class="mb-1 shadow bg-white">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-3 col-5">
                             <strong><i class="fas fa-phone"></i> Número</strong>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 d-none d-md-block">
                             <strong>Nome</strong>
                         </div>
-                        <div class="col-3 text-center">
+                        <div class="col-md-3 col-4 text-center">
                             <strong>Cupom</strong>
                         </div>
                         <div class="col-3 text-center">
@@ -95,15 +95,19 @@ include "include/navbar.php";
             <?php foreach ($dados as $chave => $valor):
                 $ppv = 100 / $valor['objetivo'];
                 $porcentagem = $ppv * $valor['count(fk_cliente)'];
+
+                if (empty($valor['nome']))
+                    $valor['nome'] = "Usuário Temporário";
                 ?>
 
-                <div class="card mb-1 shadow-sm">
+                <div class="bg-white mb-1 shadow-sm">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-3">
-                                <?= formatacaoCelular($valor['numero']) ?>
+                            <div class="col-md-3 col-5">
+                                <?= formatacaoCelular($valor['numero']) ?><br>
+                                <span class="d-block d-md-none"><?= limitaTexto(30,$valor['nome']) ?></span>
                             </div>
-                            <div class="col-3">
+                            <div class="col-3 d-none d-md-block">
                                 <?php if ($valor['img'] != null && $valor['img'] != ''): ?>
                                     <img style="width: 40px; height: 40px" src="http://cliente.fidelize.ga/uploads/<?= $valor['img'] ?>"
                                          class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
@@ -113,7 +117,7 @@ include "include/navbar.php";
                                 <?php endif; ?>
                                 <?= limitaTexto(30,$valor['nome']) ?>
                             </div>
-                            <div class="col-3 text-center">
+                            <div class="col-md-3 col-4 text-center">
                                 <?= limitaTexto(40,$valor['nome_cartao']) ?>
                             </div>
                             <div class="col-3">

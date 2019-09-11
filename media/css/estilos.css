@@ -56,3 +56,7 @@
 .bg-black{
     background-color: #191919;
 }
+
+.btn {
+    border-radius: 0 !important;
+}
