@@ -30,13 +30,8 @@
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
             </li>
-<<<<<<< HEAD
-            <li class="nav-item <?= ($ativo == "") ? "active" : "" ?>">
-                <a class="nav-link" href=""><i class="fas fa-star"></i> Avaliação</a>
-=======
             <li class="nav-item <?= ($ativo == "avaliacao") ? "active" : "" ?>">
                 <a class="nav-link" href="avaliacao.php"><i class="fas fa-star"></i> Avaliação</a>
->>>>>>> fc9125226299f8d357804dc0da06c2734d722506
             </li>
         </ul>
         <div class="dropdown">
