@@ -30,8 +30,8 @@
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
             </li>
-            <li class="nav-item <?= ($ativo == "validar_token") ? "active" : "" ?>">
-                <a class="nav-link" href=""><i class="fas fa-star"></i> Avaliação</a>
+            <li class="nav-item <?= ($ativo == "avaliacao") ? "active" : "" ?>">
+                <a class="nav-link" href="avaliacao.php"><i class="fas fa-star"></i> Avaliação</a>
             </li>
         </ul>
         <div class="dropdown">

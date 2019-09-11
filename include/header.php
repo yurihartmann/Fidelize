@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="media/css/estilos.css">
     <link rel="stylesheet" href="media/css/radios.css">
     <script src="media/js/font_awesome.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 </head>
 <body class="bg-light" style="margin-bottom: 80px;">
 
