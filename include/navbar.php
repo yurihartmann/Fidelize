@@ -13,7 +13,7 @@
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?= ($ativo == "registro_carimbo") ? "active" : "" ?>">
-                <a class="nav-link" href="registro_carimbos.php"><i class="fas fa-check-circle"></i> Registros Carimbos</a>
+                <a class="nav-link" href="registro_carimbos.php"><i class="fas fa-check-circle"></i> Carimbos</a>
             </li>
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
@@ -25,12 +25,12 @@
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?= ($ativo == "validar_token") ? "active" : "" ?>">
-                <a class="nav-link" href="validar_token.php"><i class="far fa-calendar-check"></i> Validar Token</a>
+                <a class="nav-link" href="validar_token.php"><i class="far fa-calendar-check"></i> Tokens</a>
             </li>
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
             </li>
-            <li class="nav-item <?= ($ativo == "validar_token") ? "active" : "" ?>">
+            <li class="nav-item <?= ($ativo == "") ? "active" : "" ?>">
                 <a class="nav-link" href=""><i class="fas fa-star"></i> Avaliação</a>
             </li>
         </ul>
