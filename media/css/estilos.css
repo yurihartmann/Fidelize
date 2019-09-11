@@ -31,8 +31,8 @@
 }
 
 .text-orange {
-     color: #ff763b;
- }
+    color: #ff763b;
+}
 
 .bg-soft-orange {
     background-color: rgba(255, 126, 59, 0.8);
@@ -42,18 +42,20 @@
     background-color: #ff620d;
 }
 
-.border-orange{
+.border-orange {
     border: 3px solid #ff620d;
 }
+
 .badge-orange {
     background-color: #ff763b;
     color: #ffffff;
 }
-.nav-item{
+
+.nav-item {
     font-size: 18px !important;
 }
 
-.bg-black{
+.bg-black {
     background-color: #191919;
 }
 

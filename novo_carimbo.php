@@ -39,24 +39,21 @@ include "include/navbar.php";
                 <input type="hidden" name="formSalvarCarimbo" value="formSalvarCarimbo">
                 <div class="form-group">
                     <label for="inputNumberCupom">Numero do Cliente</label>
-                    <input type="text"
-                           class="form-control" name="number" id="inputNumberCupom" aria-describedby="helpId"
-                           placeholder="" inputmode="numeric">
+                    <input type="text" class="form-control" name="number" id="inputNumberCupom" aria-describedby="helpId" placeholder="" inputmode="numeric">
                 </div>
                 <small id="helpId" class="form-text text-muted">Modelo : 99123456789 - Sem nunhuma formatacao</small>
                 <div class="form-group mt-3">
                     <label for="inputCupomNome">Cupom a receber o carimbo</label>
                     <select class="custom-select" name="cupom" id="inputCupomNome">
-                        <?php foreach ($cartoes as $chave => $valor): ?>
-                            <option value="<?= $valor['id'] ?>"><?= limitaTexto(40,$valor['nome_cartao']) ?>
-                                - <?= limitaTexto(50,$valor['descricao']) ?></option>
+                        <?php foreach ($cartoes as $chave => $valor) : ?>
+                            <option value="<?= $valor['id'] ?>"><?= limitaTexto(40, $valor['nome_cartao']) ?>
+                                - <?= limitaTexto(50, $valor['descricao']) ?></option>
                         <?php
                         endforeach; ?>
                     </select>
 
                 </div>
-                <button class="btn btn-orange btn-lg float-right" id="btnSalvarCarimbo" type="submit"
-                        name="btnSalvarCarimbo">Carimbar
+                <button class="btn btn-orange btn-lg float-right" id="btnSalvarCarimbo" type="submit" name="btnSalvarCarimbo">Carimbar
                 </button>
             </form>
         </div>

@@ -1,0 +1,15 @@
+.cupom {
+  -webkit-appearance: none;
+}
+
+.label {
+  border: 6px solid #18f98d;
+  color: #18f98d;
+  transition: 0.5s;
+}
+
+.cupom:checked + .label {
+  background-color: #18f98d;
+  color: white;
+  box-shadow: 0 15px 45px rgba(24, 249, 141, 0.2);
+}
