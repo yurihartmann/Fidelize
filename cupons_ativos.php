@@ -48,20 +48,19 @@ include "include/navbar.php";
                 ?>
                 <div class="col-12 col-lg-4 mt-4 px-3">
                     <div class="card shadow h-100">
-                        <?php if ($valor['foto'] == null): ?>
-                            <img src="media/images/banner_generico.png" class="card-img-top"
-                                 style="height: 200px; width: 100%;">
-                        <?php else: ?>
-                            <img src="uploads/<?= $valor['foto'] ?>" class="card-img-top"
-                                 style="height: 200px; width: 100%;">
-                        <?php endif ?>
-
+                        <div class="text-center">
+                            <?php if ($valor['foto'] == null): ?>
+                                <img src="media/images/banner_generico.png" class="card-img-top banner banner-generico">
+                            <?php else: ?>
+                                <img src="uploads/<?= $valor['foto'] ?>" class="card-img-top banner">
+                            <?php endif ?>
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <?php
-                                if ($data_atual < $data_inicio){
+                                if ($data_atual < $data_inicio) {
                                     echo '<span class="badge badge-warning">Inativo</span>';
-                                } else if ($data_atual > $data_inicio && $data_atual < $data_fim){
+                                } else if ($data_atual > $data_inicio && $data_atual < $data_fim) {
                                     echo '<span class="badge badge-success">Ativo</span>';
                                 } else {
                                     echo '<span class="badge badge-secondary">Finalizado</span>';
@@ -70,14 +69,17 @@ include "include/navbar.php";
 
                                 ?>
 
-                                <?= limitaTexto(40,$valor['nome_cartao']) ?></h5>
-                            <p class="card-text"><?= limitaTexto(60,$valor['descricao']) ?></p>
+                                <?= limitaTexto(40, $valor['nome_cartao']) ?></h5>
+                            <p class="card-text"><?= limitaTexto(60, $valor['descricao']) ?></p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></li>
-                            <li class="list-group-item"><strong>Premio:</strong> <?= limitaTexto(30,$valor['premio']) ?></li>
-                            <li class="list-group-item"><strong>Data Inicio:</strong> <?= formatacaoDataHora($valor['data_inicio']) ?></li>
-                            <li class="list-group-item"><strong>Data Fim:</strong> <?= formatacaoDataHora($valor['data_fim']) ?></li>
+                            <li class="list-group-item">
+                                <strong>Premio:</strong> <?= limitaTexto(30, $valor['premio']) ?></li>
+                            <li class="list-group-item"><strong>Data
+                                    Inicio:</strong> <?= formatacaoDataHora($valor['data_inicio']) ?></li>
+                            <li class="list-group-item"><strong>Data
+                                    Fim:</strong> <?= formatacaoDataHora($valor['data_fim']) ?></li>
                         </ul>
                         <?php if ($data_atual < $data_inicio): ?>
                             <div class="card-body">
@@ -89,8 +91,8 @@ include "include/navbar.php";
                                         </a>
                                         <form method="post" class="float-right">
                                             <input type="hidden" value="<?= $valor['id'] ?>" name="id_cupom">
-                                            <button class="btn btn-outline-danger" name="btnExcluir" type="submit" >
-                                            <i class="fas fa-trash"></i>
+                                            <button class="btn btn-outline-danger" name="btnExcluir" type="submit">
+                                                <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
                                     </div>

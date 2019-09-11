@@ -23,7 +23,7 @@ include "include/navbar.php";
     </div>
     <div class="row">
         <div class="col">
-            <div class="card text-left mt-3 shadow">
+            <div class="card text-left mt-3 shadow rounded-0">
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
@@ -31,7 +31,7 @@ include "include/navbar.php";
                                 <div class="form-group">
                                     <input type="hidden" name="formVerificarToken" value="formVerificarToken">
                                     <input type="text"
-                                           class="form-control form-control-lg" name="token" id="inputToken"
+                                           class="form-control form-control-lg rounded-0" name="token" id="inputToken"
                                            aria-describedby="helpId" placeholder="Digite o token do cliente para verificar...">
                                     <button class="btn btn-block btn-orange btn-lg mt-3" type="submit"><i
                                                 class="fas fa-search"></i> Verificar
@@ -52,7 +52,7 @@ include "include/navbar.php";
 
     <div class="row mt-4">
         <div class="col-12">
-            <div class="card mb-1 shadow-sm">
+            <div class="card mb-1 shadow-sm rounded-0">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3 col-5">
@@ -71,7 +71,7 @@ include "include/navbar.php";
                 </div>
             </div>
             <?php foreach ($tokens as $chave => $valor): ?>
-                <div class="card mb-1 shadow-sm">
+                <div class="card mb-1 shadow-sm rounded-0">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 col-5">

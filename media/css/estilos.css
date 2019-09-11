@@ -62,3 +62,18 @@
 .btn {
     border-radius: 0 !important;
 }
+
+
+.banner-generico{
+    opacity: 0.06;
+}
+
+.banner{
+    width: auto;
+    height: 200px;
+    max-width: 350px;
+}
+
+.nav-link{
+    font-size: 14px !important;
+}

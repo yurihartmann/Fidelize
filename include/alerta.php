@@ -4,7 +4,7 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <?=$alerta['msg']?>
+            <span class="font-weight-light"><?=$alerta['msg']?></span>
         </div>
     </div>
 </div>

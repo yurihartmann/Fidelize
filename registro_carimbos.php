@@ -27,7 +27,7 @@ include "include/navbar.php";
     </div>
     <div class="row mt-4">
         <div class="col-12">
-            <div class="card mb-1 shadow-sm">
+            <div class="card mb-1 shadow-sm rounded-0">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3 col-5">
@@ -54,7 +54,7 @@ include "include/navbar.php";
 
             ?>
 
-                <div class="card mb-1 shadow-sm">
+                <div class="card mb-1 shadow-sm rounded-0">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 col-5">
