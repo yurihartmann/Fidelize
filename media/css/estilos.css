@@ -64,18 +64,21 @@
 }
 
 
-.banner-generico{
+.banner-generico {
     opacity: 0.06;
 }
 
-.banner{
+.banner {
     width: auto;
     height: 200px;
-    max-width: 350px;
+    max-width: 100%;
 }
 
-.nav-link{
+.nav-link {
     font-size: 14px !important;
+<<<<<<< HEAD
+}
+=======
 }
 
 .stars-outer {
@@ -108,3 +111,4 @@
     color: #ff8933;
 
 }
+>>>>>>> fc9125226299f8d357804dc0da06c2734d722506
