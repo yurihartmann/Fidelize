@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="media/css/bootstrap.min.css">
     <link rel="stylesheet" href="media/css/estilos.css">
+    <link rel="stylesheet" href="media/css/radios.css">
     <script src="media/js/font_awesome.js"></script>
 </head>
 <body class="bg-light" style="margin-bottom: 80px;">
