@@ -36,13 +36,13 @@ class Site
          */
 
 
-
         // Iniciando a Conexão
         $this->Conexao();
 
         // Includes de configurações e funções globais do projeto
         require_once("include/config.php");
         require_once("include/functions.php");
+        clearAlerta();
 
         $session = new session($this->conexao);
         if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index')

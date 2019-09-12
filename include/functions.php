@@ -20,10 +20,13 @@ function getAlerta()
 {
     if (isset($_COOKIE['alerta']) && !is_null($_COOKIE['alerta'])) {
         $alerta = unserialize($_COOKIE['alerta']);
-        setcookie('alerta');
         include "alerta.php";
     }
 
+}
+
+function clearAlerta(){
+    setcookie('alerta');
 }
 
 function getModal()
