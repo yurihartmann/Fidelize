@@ -37,7 +37,7 @@ include "include/navbar.php";
                             <strong>Nome</strong>
                         </div>
                         <div class="col-md-3 col-4 text-center">
-                            <strong>Cupom</strong>
+                            <strong>Cartões</strong>
                         </div>
                         <div class="col-3 text-center">
                             <strong>Progressão</strong>

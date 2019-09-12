@@ -42,7 +42,7 @@ include "include/navbar.php";
                     <input type="text" class="form-control rounded-0" name="number" id="inputNumberCupom" aria-describedby="helpId" placeholder="" inputmode="numeric">
                 </div>
                 <div class="form-group mt-3">
-                    <label for="inputCupomNome">Cupom a receber o carimbo</label>
+                    <label for="inputCupomNome">Cartão a receber o carimbo</label>
                     <select class="custom-select rounded-0" name="cupom" id="inputCupomNome">
                         <?php foreach ($cartoes as $chave => $valor) : ?>
                             <option value="<?= $valor['id'] ?>"><?= limitaTexto(40, $valor['nome_cartao']) ?>

@@ -36,7 +36,7 @@ include "include/navbar.php";
     </div>
     <div class="row">
         <div class="col text-center">
-            <h1 class="font-weight-light p-5">Cupom</h1>
+            <h1 class="font-weight-light p-5">Cartão Fidelidade</h1>
         </div>
     </div>
     <div class="row">
@@ -54,12 +54,12 @@ include "include/navbar.php";
                 <input class="d-none" value="<?= ( $_GET['id'] == 'novo' ? 'novo' : $_GET['id']) ?>" name="id">
                 <input class="d-none" value="formSalvarCupom" name="formSalvarCupom">
                 <div class="form-group">
-                    <label for="inputNomeCupom">Nome do Cupom</label>
+                    <label for="inputNomeCupom">Nome do Cartões</label>
                     <input type="text"
                            class="form-control" name="nome_cupom" id="inputNomeCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome_cartao'] : '') ?>">
                 </div>
                 <div class="form-group">
-                    <label for="inputDescricaoCupom">Descricao do Cupom</label>
+                    <label for="inputDescricaoCupom">Descricao do Cartões</label>
                     <input type="text"
                            class="form-control" name="descricao_cupom" id="inputDescricaoCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['descricao'] : '') ?>">
                 </div>

@@ -36,27 +36,27 @@ include "include/navbar.php";
                     <div class="form-group">
                         <label for="inputNomeLoja">Nome da Loja</label>
                         <input type="text"
-                               class="form-control" name="nome" id="inputNomeLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome'] : '') ?>">
+                               class="form-control rounded-0" name="nome" id="inputNomeLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome'] : '') ?>">
                     </div>
                     <div class="form-group">
                         <label for="inputEmailLoja">Email</label>
                         <input type="email"
-                               class="form-control" name="email" id="inputEmailLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" readonly>
+                               class="form-control rounded-0" name="email" id="inputEmailLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="inputSenha">Senha Atual</label>
                         <input type="password"
-                               class="form-control" name="old_senha" id="inputSenha" aria-describedby="helpId" placeholder="" value="">
+                               class="form-control rounded-0" name="old_senha" id="inputSenha" aria-describedby="helpId" placeholder="" value="">
                     </div>
                     <div class="form-group">
                         <label for="inputSenhaNova">Senha Nova</label>
                         <input type="password"
-                               class="form-control" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
+                               class="form-control rounded-0" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
                         <small id="helpId" class="form-text text-muted">Se nao deseja alterar a senha deixe o campo em branco.</small>
                     </div>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputLogo" name="logo[]" accept="image/*">
-                        <label class="custom-file-label" for="inputLogo" data-browse="Escolher">Enviar Logo...</label>
+                        <input type="file" class="custom-file-input rounded-0" id="inputLogo" name="logo[]" accept="image/*">
+                        <label class="custom-file-label rounded-0" for="inputLogo" data-browse="Escolher">Enviar Logo...</label>
                         <small id="helpId" class="form-text text-muted">Envie uma logo com resolução de no mínimo 300x300, preferencialmente quadrada.
                         </small>
                     </div>

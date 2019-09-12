@@ -19,7 +19,7 @@
                 <span class="nav-link">|</span>
             </li>
             <li class="nav-item <?= ($ativo == "cupons_ativos") ? "active" : "" ?>">
-                <a class="nav-link" href="cupons_ativos.php"><i class="fas fa-ticket-alt"></i> Cupons <span class="badge badge-orange" id="badgeCuponsAtivos">-</span></a>
+                <a class="nav-link" href="cupons_ativos.php"><i class="fas fa-ticket-alt"></i> Cartões <span class="badge badge-orange" id="badgeCuponsAtivos">-</span></a>
             </li>
             <li class="nav-item d-none d-lg-block">
                 <span class="nav-link">|</span>
@@ -45,7 +45,7 @@
                     <img src="media/images/perfil_generico.jpg" height="45px" class="rounded-circle mx-3 border-orange">
                 <?php endif; ?>
             </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <div class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="configuracoes.php"><i class="fas fa-cogs"></i> Minha Empresa</a>
                 <div class="dropdown-divider"></div>
                 <form method="post">

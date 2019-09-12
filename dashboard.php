@@ -37,7 +37,7 @@ include "include/navbar.php";
         <div class="col-12 col-lg-4">
             <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title font-weight-light"><i class="fas fa-ticket-alt"></i> Cupons Abertos</h3>
+                    <h3 class="card-title font-weight-light"><i class="fas fa-ticket-alt"></i> Cartões Abertos</h3>
                     <p class="card-text font-weight-light" id="painel_cupons_ativos"><span
                                 class="spinner-border spinner-border-sm" role="status"
                                 aria-hidden="true"></span></p>
@@ -47,7 +47,7 @@ include "include/navbar.php";
         <div class="col-12 col-lg-4">
             <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title font-weight-light"><i class="fas fa-check-circle"></i> Cupons Completos</h3>
+                    <h3 class="card-title font-weight-light"><i class="fas fa-check-circle"></i> Cartões Completos</h3>
                     <p class="card-text font-weight-light" id="painel_cupons_completados">
                     <p>
                 </div>
@@ -84,7 +84,7 @@ include "include/navbar.php";
                             <strong>Nome</strong>
                         </div>
                         <div class="col-md-3 col-4 text-center">
-                            <strong>Cupom</strong>
+                            <strong>Cartões</strong>
                         </div>
                         <div class="col-3 text-center">
                             <strong>Progressão</strong>

@@ -24,7 +24,7 @@ include "include/navbar.php";
         <?php getAlerta(); ?>
         <div class="row">
             <div class="col text-center">
-                <h1 class="font-weight-light p-5">Cupons</h1>
+                <h1 class="font-weight-light p-5">Cartões Fidelidades</h1>
             </div>
         </div>
         <div class="row">
@@ -35,7 +35,7 @@ include "include/navbar.php";
                             <h5 class="card-title text-center mb-5 mt-5"><i
                                         class="fas fa-ticket-alt fa-10x text-orange"></i></h5>
                             <a href="edicao_cupom.php?id=novo" class="btn btn-orange btn-block btn-lg mt-5"><i
-                                        class="fas fa-plus-circle"></i> Novo Cupom</a>
+                                        class="fas fa-plus-circle"></i> Novo Cartão Fidelidade</a>
                         </div>
                     </div>
                 </div>
