@@ -38,7 +38,6 @@ include "include/navbar.php";
         </div>
     </div>
     <script>
-
         // Get percentage
         let starPercentage = (<?= round($avaliacao->avaliacaoMedia(), 1); ?> / 5) * 100;
 
@@ -48,26 +47,44 @@ include "include/navbar.php";
 
         // Set width of stars.inner to percentage
         document.querySelector(".stars-inner").style.width = starPercentageRounded;
-
     </script>
     <div class="row bg-white shadow mt-3">
         <div class="col-12">
             <div class="row">
-                <div class="col-12 text-center">
-                    <h1 class="font-weight-light p-5">Alguns Comentários</h1>
+                <div class="col-12 text-center mt-5 mb-3">
+                    <h1 class="font-weight-light">Alguns Comentários</h1>
+                    <small class="text-muted">(os comentarios são anônimos para proteger a privacidade dos clientes)</small>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
+
+            <!-- Comentarios -->
             <div class="row">
-                <?php foreach ($cometarios as $chave => $valor):?>
-                    <div class="card col-12 col-md-2 p-4 m-2 rounded-0">
-                        <?=$valor['comentario']?>
+                <?php foreach ($cometarios as $chave => $valor) : ?>
+                    <div class="col-4 h-100">
+
+                        <div class="card text-center shadow my-4 border-0">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <span class="icon fa fa-quote-left fa-4x mb-5 text-orange"></span>
+
+                                    <div class="card-text">
+                                        <span class="text-black-50 description"><?= limitatexto(150, $valor['comentario']) ?></span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 <?php endforeach; ?>
+
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
 </div>
 
 

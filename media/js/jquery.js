@@ -9,7 +9,7 @@ $(document).ready(function () {
     $('#inputDataFinal').mask('00/00/0000 00:00');
 
     // INICIA A VERIFICACAO
-    if (typeof($("#inputNomeCupom")).val() !== "undefined"){
+    if (typeof ($("#inputNomeCupom")).val() !== "undefined") {
         let loopverifica = setInterval(verificaDadosCupom, 100);
     }
 
@@ -26,87 +26,87 @@ $(document).ready(function () {
         let valid = true;
 
 
-            if (inputNomeCupom.val().length == 0) {
-                inputNomeCupom.removeClass('is-valid');
-                inputNomeCupom.addClass('is-invalid');
-                valid = false;
-            } else {
-                inputNomeCupom.removeClass('is-invalid');
-                inputNomeCupom.addClass('is-valid');
-            }
-            if (inputDescricaoCupom.val().length == 0) {
-                inputDescricaoCupom.removeClass('is-valid');
-                inputDescricaoCupom.addClass('is-invalid');
-                valid = false;
-            } else {
-                inputDescricaoCupom.removeClass('is-invalid');
-                inputDescricaoCupom.addClass('is-valid');
-            }
-            if (inputObjetivoCupom.val() < 1) {
-                inputObjetivoCupom.removeClass('is-valid');
-                inputObjetivoCupom.addClass('is-invalid');
-                valid = false;
-            } else {
-                inputObjetivoCupom.removeClass('is-invalid');
-                inputObjetivoCupom.addClass('is-valid');
-            }
-            if (inputPremioCupom.val().length == 0) {
-                inputPremioCupom.removeClass('is-valid');
-                inputPremioCupom.addClass('is-invalid');
-                valid = false;
-            } else {
-                inputPremioCupom.removeClass('is-invalid');
-                inputPremioCupom.addClass('is-valid');
-            }
-            if (inputDataInicio.val().length < 16) {
-                inputDataInicio.removeClass('is-valid');
-                inputDataInicio.addClass('is-invalid');
-                inputDataInicioFeedback.html("A data de inicio deve ser maior que a data atual!");
-                valid = false;
-            } else {
-                if (inputDataInicio.val().length == 16){
-                    let entradaDataInicio = inputDataInicio.val();
-                    entradaDataInicio = entradaDataInicio.split(" ");
-                    let dataInicio = entradaDataInicio[0].split("/");
-                    let horaInicio = entradaDataInicio[1].split(":");
-                    var dateInicio = new Date(dataInicio[2],(dataInicio[1] - 1),dataInicio[0],horaInicio[0],dataInicio[1]);
-                    var dateAtual = new Date();
+        if (inputNomeCupom.val().length == 0) {
+            inputNomeCupom.removeClass('is-valid');
+            inputNomeCupom.addClass('is-invalid');
+            valid = false;
+        } else {
+            inputNomeCupom.removeClass('is-invalid');
+            inputNomeCupom.addClass('is-valid');
+        }
+        if (inputDescricaoCupom.val().length == 0) {
+            inputDescricaoCupom.removeClass('is-valid');
+            inputDescricaoCupom.addClass('is-invalid');
+            valid = false;
+        } else {
+            inputDescricaoCupom.removeClass('is-invalid');
+            inputDescricaoCupom.addClass('is-valid');
+        }
+        if (inputObjetivoCupom.val() < 1) {
+            inputObjetivoCupom.removeClass('is-valid');
+            inputObjetivoCupom.addClass('is-invalid');
+            valid = false;
+        } else {
+            inputObjetivoCupom.removeClass('is-invalid');
+            inputObjetivoCupom.addClass('is-valid');
+        }
+        if (inputPremioCupom.val().length == 0) {
+            inputPremioCupom.removeClass('is-valid');
+            inputPremioCupom.addClass('is-invalid');
+            valid = false;
+        } else {
+            inputPremioCupom.removeClass('is-invalid');
+            inputPremioCupom.addClass('is-valid');
+        }
+        if (inputDataInicio.val().length < 16) {
+            inputDataInicio.removeClass('is-valid');
+            inputDataInicio.addClass('is-invalid');
+            inputDataInicioFeedback.html("A data de inicio deve ser maior que a data atual!");
+            valid = false;
+        } else {
+            if (inputDataInicio.val().length == 16) {
+                let entradaDataInicio = inputDataInicio.val();
+                entradaDataInicio = entradaDataInicio.split(" ");
+                let dataInicio = entradaDataInicio[0].split("/");
+                let horaInicio = entradaDataInicio[1].split(":");
+                var dateInicio = new Date(dataInicio[2], (dataInicio[1] - 1), dataInicio[0], horaInicio[0], dataInicio[1]);
+                var dateAtual = new Date();
 
-                    console.log(dateInicio);
+                console.log(dateInicio);
 
-                    if (dateAtual.getTime() < dateInicio.getTime()){
-                        inputDataInicio.removeClass('is-invalid');
-                        inputDataInicio.addClass('is-valid');
-                        inputDataInicioFeedback.html("A data de inicio deve ser maior que a data atual!");
-                    } else {
-                        valid = false;
-                        inputDataInicioFeedback.html("");
-                    }
-                }
-            }
-            if (inputDataFinal.val().length < 16) {
-                inputDataFinal.removeClass('is-valid');
-                inputDataFinal.addClass('is-invalid');
-                valid = false;
-                inputDataFinalFeedback.html("A data final deve ser maior que a data de inicio!");
-            } else {
-                if (inputDataFinal.val().length == 16){
-                    let entradaDataFinal = inputDataFinal.val();
-                    entradaDataFinal = entradaDataFinal.split(" ");
-                    let dataFinal = entradaDataFinal[0].split("/");
-                    let horaFinal = entradaDataFinal[1].split(":");
-                    var dateFinal = new Date(dataFinal[2],(dataFinal[1] - 1),dataFinal[0],horaFinal[0],horaFinal[1]);
-
-                    if (dateFinal.getTime() > dateInicio.getTime() + 10000000){
-                        inputDataFinal.removeClass('is-invalid');
-                        inputDataFinal.addClass('is-valid');
-                        inputDataFinalFeedback.html("");
-                    }
+                if (dateAtual.getTime() < dateInicio.getTime()) {
+                    inputDataInicio.removeClass('is-invalid');
+                    inputDataInicio.addClass('is-valid');
+                    inputDataInicioFeedback.html("A data de inicio deve ser maior que a data atual!");
                 } else {
                     valid = false;
-                    inputDataFinalFeedback.html("A data final deve ser maior que a data de inicio!");
+                    inputDataInicioFeedback.html("");
                 }
             }
+        }
+        if (inputDataFinal.val().length < 16) {
+            inputDataFinal.removeClass('is-valid');
+            inputDataFinal.addClass('is-invalid');
+            valid = false;
+            inputDataFinalFeedback.html("A data final deve ser maior que a data de inicio!");
+        } else {
+            if (inputDataFinal.val().length == 16) {
+                let entradaDataFinal = inputDataFinal.val();
+                entradaDataFinal = entradaDataFinal.split(" ");
+                let dataFinal = entradaDataFinal[0].split("/");
+                let horaFinal = entradaDataFinal[1].split(":");
+                var dateFinal = new Date(dataFinal[2], (dataFinal[1] - 1), dataFinal[0], horaFinal[0], horaFinal[1]);
+
+                if (dateFinal.getTime() > dateInicio.getTime() + 10000000) {
+                    inputDataFinal.removeClass('is-invalid');
+                    inputDataFinal.addClass('is-valid');
+                    inputDataFinalFeedback.html("");
+                }
+            } else {
+                valid = false;
+                inputDataFinalFeedback.html("A data final deve ser maior que a data de inicio!");
+            }
+        }
 
         return valid;
 
@@ -143,7 +143,7 @@ $(document).ready(function () {
 
     // INICIA A VERIFICACAO
 
-    if (typeof($("#inputNomeLoja")).val() !== "undefined"){
+    if (typeof ($("#inputNomeLoja")).val() !== "undefined") {
         let loopverificaConfig = setInterval(verificaDadosConfig, 100);
     }
 
@@ -202,7 +202,9 @@ $(document).ready(function () {
 
     });
 
-    if ($("#showModal").val() == "true"){
+    if ($("#showModal").val() == "true") {
         $('#exampleModal').modal('show')
     }
+
+
 });
