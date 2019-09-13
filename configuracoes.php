@@ -6,6 +6,8 @@ $loja = new loja();
 $registros = $loja->dadosLoja($_SESSION['empresa_id']);
 $registros = $registros[0];
 
+$segmento = $loja->todosSegmentos();
+
 include "include/header.php";
 
 // INCLUINDO NAVBAR
@@ -54,7 +56,16 @@ include "include/navbar.php";
                                class="form-control rounded-0" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
                         <small id="helpId" class="form-text text-muted">Se nao deseja alterar a senha deixe o campo em branco.</small>
                     </div>
-                    <div class="custom-file">
+
+                    <div class="form-group">
+                        <label for="">Segmento da Empresa</label>
+                        <select class="custom-select" name="segmento" id="">
+                            <?php foreach ($segmento as $chave => $valor):?>
+                            <option value="<?=$valor['id']?>" <?= ($registros['segmento'] == $valor['id'])? 'selected ': '' ?>><?=$valor['nome_segmento']?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="custom-file mt-3">
                         <input type="file" class="custom-file-input rounded-0" id="inputLogo" name="logo[]" accept="image/*">
                         <label class="custom-file-label rounded-0" for="inputLogo" data-browse="Escolher">Enviar Logo...</label>
                         <small id="helpId" class="form-text text-muted">Envie uma logo com resolução de no mínimo 300x300, preferencialmente quadrada.

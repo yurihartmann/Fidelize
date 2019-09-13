@@ -28,4 +28,16 @@ class avaliacao extends Site
         else
             return false;
     }
+
+    function avaliacaoMediaSegmento($id_segmento){
+        $sql = "select avg(nota) from avaliacao
+                inner join lojas l on avaliacao.fk_loja = l.id
+                inner  join segmento s on l.segmento = s.id
+                where s.id = '$id_segmento'";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return false;
+    }
 }

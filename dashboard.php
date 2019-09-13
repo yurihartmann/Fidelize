@@ -60,7 +60,7 @@ include "include/navbar.php";
             <div class="shadow bg-white">
                 <div class="row">
                     <div class="col text-center pt-5">
-                        <h1 class="font-weight-light">Desenpenho da Semana</h1><small> (7 dias atras)</small>
+                        <h1 class="font-weight-light">Desempenho da Semana</h1><small> (7 dias atrás)</small>
                     </div>
                 </div>
                 <div class="row">
@@ -146,7 +146,7 @@ include "include/navbar.php";
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Dia', 'Numero de Carimbos Registrados'],
+                ['Dia', 'Número de Carimbos Registrados'],
                 <?php
                     foreach ($dados_grafico as $chave => $valor){
                         echo "['" . formatacaoData($valor['dia']) . " ' , " .  $valor['count'] . "]";

@@ -34,6 +34,7 @@ class loja extends Site
         $email = $_POST['email'];
         $senha = hash('md5', $_POST['old_senha']);
         $new_senha = $_POST['new_senha'];
+        $segmento = $_POST['segmento'];
 
 
         if ($_FILES['logo']['name'][0] != '') {
@@ -48,10 +49,10 @@ class loja extends Site
             if ($new_senha == '') {
                 // ALTERACAO DA LOJA SEM NOVA SENHA
                 if ($logo == null) {
-                    $sql = "update lojas set nome = '$nome' where id = '$id_loja';";
+                    $sql = "update lojas set nome = '$nome', segmento = '$segmento' where id = '$id_loja';";
                 } else {
                     $logo = $logo[0]['dados']['nome_novo'];
-                    $sql = "update lojas set nome = '$nome', img = '$logo' where id = '$id_loja';";
+                    $sql = "update lojas set nome = '$nome', segmento = '$segmento' ,img = '$logo' where id = '$id_loja';";
                 }
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query) {
@@ -70,10 +71,10 @@ class loja extends Site
                 // ALTERACAO DA LOJA COM NOVA SENHA
                 $new_senha = hash('md5', $new_senha);
                 if ($logo == null) {
-                    $sql = "update lojas set nome = '$nome', senha = '$new_senha' where id = '$id_loja';";
+                    $sql = "update lojas set nome = '$nome', segmento = '$segmento' ,senha = '$new_senha' where id = '$id_loja';";
                 } else {
                     $logo = $logo[0]['dados']['nome_novo'];
-                    $sql = "update lojas set nome = '$nome', senha = '$new_senha' ,img = '$logo' where id = '$id_loja';";
+                    $sql = "update lojas set nome = '$nome', segmento = '$segmento' ,senha = '$new_senha' ,img = '$logo' where id = '$id_loja';";
                 }
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query) {
@@ -95,6 +96,26 @@ class loja extends Site
         }
 
 
+    }
+
+    function todosSegmentos(){
+        $sql = "select * from segmento";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return false;
+    }
+
+    function segmentoDaLoja($id_loja){
+        $sql = "select segmento.id as id, segmento.nome_segmento as nome_segmento from segmento
+                inner join lojas l on segmento.id = l.segmento
+                where l.id = '$id_loja'";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return false;
     }
 
 }
