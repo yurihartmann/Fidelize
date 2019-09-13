@@ -7,6 +7,9 @@ $(document).ready(function () {
     $('#inputNumberCupom').mask('(00) 00000-0000');
     $('#inputDataInicio').mask('00/00/0000 00:00');
     $('#inputDataFinal').mask('00/00/0000 00:00');
+    $('#inputValorPremio').mask('000.000.000.000.000,00', {
+        reverse: true
+    });
 
     // INICIA A VERIFICACAO
     if (typeof ($("#inputNomeCupom")).val() !== "undefined") {
@@ -18,6 +21,7 @@ $(document).ready(function () {
         let inputDescricaoCupom = $('#inputDescricaoCupom');
         let inputObjetivoCupom = $('#inputObjetivoCupom');
         let inputPremioCupom = $('#inputPremioCupom');
+        let inputValorPremio = $('#inputValorPremio');
         let inputDataInicio = $('#inputDataInicio');
         let inputDataFinal = $('#inputDataFinal');
 
@@ -57,6 +61,13 @@ $(document).ready(function () {
         } else {
             inputPremioCupom.removeClass('is-invalid');
             inputPremioCupom.addClass('is-valid');
+        }
+        if (inputValorPremio.val().length == 0) {
+            inputValorPremio.removeClass('is-valid');
+            inputValorPremio.addClass('is-invalid');
+        } else {
+            inputValorPremio.removeClass('is-invalid');
+            inputValorPremio.addClass('is-valid');
         }
         if (inputDataInicio.val().length < 16) {
             inputDataInicio.removeClass('is-valid');
