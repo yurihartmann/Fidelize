@@ -15,8 +15,9 @@ class loja extends Site
         }
     }
 
-    function dadosLoja($id_loja)
+    function dadosLoja()
     {
+        $id_loja = $_SESSION['empresa_id'];
         // PEGA OS DADOS ATUAIS DA LOJA
         $sql = "select * from lojas where id = '$id_loja'";
         $query = mysqli_query($this->conexao, $sql);
@@ -55,6 +56,7 @@ class loja extends Site
                     $sql = "update lojas set nome = '$nome', segmento = '$segmento' ,img = '$logo' where id = '$id_loja';";
                 }
                 $query = mysqli_query($this->conexao, $sql);
+
                 if ($query) {
                     $_SESSION['empresa_nome'] = $nome;
                     if ($logo != null) {

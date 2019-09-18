@@ -3,7 +3,8 @@
 require_once "classes/cartaofidelidade.php";
 
 $registros = new cartaofidelidade();
-$registros = array_reverse($registros->todosCartoesPorLoja($_SESSION['empresa_id']));
+$cartao = new cartaofidelidade();
+$registros = array_reverse($registros->todosCartoesPorLoja());
 
 if (empty($registros)) {
     $vazio = true;
@@ -34,7 +35,7 @@ include "include/navbar.php";
                         <div class="card-body">
                             <h5 class="card-title text-center mb-5 mt-5"><i
                                         class="fas fa-ticket-alt fa-10x text-orange"></i></h5>
-                            <a href="edicao_cupom.php?id=novo" class="btn btn-orange btn-block btn-lg mt-5"><i
+                            <a href="edicao_cartao.php?id=novo" class="btn btn-orange btn-block btn-lg mt-5"><i
                                         class="fas fa-plus-circle"></i> Novo Cartão Fidelidade</a>
                         </div>
                     </div>
@@ -55,6 +56,26 @@ include "include/navbar.php";
                                 <img src="uploads/<?= $valor['foto'] ?>" class="card-img-top banner">
                             <?php endif ?>
                         </div>
+                        <?php
+                        $estilo = "alo";
+                        switch ($valor['fk_destaque']):
+                            case "1":
+                                $estilo = "bg-secondary text-white";
+                                break;
+                            case "2":
+                                $estilo = "bg-light text-dark";
+                                break;
+                            case "3":
+                                $estilo = "bg-ouro text-white";
+                                break;
+                            case "4":
+                                $estilo = "bg-diamante text-white";
+                                break;
+                         endswitch; ?>
+                        <div class="<?=$estilo?> p-1 ml-2 text-center p-2"
+                             style="margin-top: -40px; width: 120px; position: relative">
+                            <strong><?=$cartao->getDestaqueCartao($valor['id'])?>!</strong>
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <?php
@@ -66,11 +87,11 @@ include "include/navbar.php";
                                     echo '<span class="badge badge-secondary">Finalizado</span>';
                                 }
 
-
+//                                var_dump($valor['fk_destaque']);
                                 ?>
 
                                 <?= limitaTexto(40, $valor['nome_cartao']) ?></h5>
-                            <p class="card-text"><?= limitaTexto(60, $valor['descricao']) ?></p>
+                            <p class="card-text"><?= limitaTexto(120, $valor['descricao']) ?></p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></li>
@@ -85,7 +106,7 @@ include "include/navbar.php";
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="edicao_cupom.php?id=<?= $valor['id'] ?>">
+                                        <a href="edicao_cartao.php?id=<?= $valor['id'] ?>">
                                             <button class="btn btn-outline-primary"><i class="fas fa-edit"></i> Editar
                                             </button>
                                         </a>
@@ -112,7 +133,7 @@ include "include/navbar.php";
             </div>
             <div class="row">
                 <div class="col-12 mt-5 text-center">
-                    <a class="btn btn-orange btn-lg" href="edicao_cupom.php?id=novo"><i class="fas fa-plus-circle"></i>
+                    <a class="btn btn-orange btn-lg" href="edicao_cartao.php?id=novo"><i class="fas fa-plus-circle"></i>
                         Novo Cupom</a>
                 </div>
             </div>

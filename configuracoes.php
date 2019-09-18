@@ -3,7 +3,7 @@
 require_once "classes/loja.php";
 
 $loja = new loja();
-$registros = $loja->dadosLoja($_SESSION['empresa_id']);
+$registros = $loja->dadosLoja();
 $registros = $registros[0];
 
 $segmento = $loja->todosSegmentos();
@@ -53,7 +53,7 @@ include "include/navbar.php";
                     <div class="form-group">
                         <label for="inputSenhaNova">Senha Nova</label>
                         <input type="password"
-                               class="form-control rounded-0" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
+             $id_loja                  class="form-control rounded-0" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
                         <small id="helpId" class="form-text text-muted">Se nao deseja alterar a senha deixe o campo em branco.</small>
                     </div>
 

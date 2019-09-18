@@ -3,7 +3,7 @@
 require_once "classes/registro_cartaofidelidade.php";
 
 $registros = new registro_cartaofidelidade();
-$cartoes = $registros->todosCartoesPorLoja($_SESSION['empresa_id']);
+$cartoes = $registros->todosCartoesPorLoja();
 
 
 if (empty($cartoes)) {

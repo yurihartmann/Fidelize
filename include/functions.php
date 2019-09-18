@@ -116,6 +116,20 @@ function limitaTexto($quantidade_caracteres, $texto){
 
     return $texto;
 }
+function formatarDataParaSalvar($data){
+    // ageita a hora para salvar
+    $inicio = explode(" ",$data);
+    $inicio_data = explode("/",$inicio[0]);
+    $inicio_data = $inicio_data[2] . "-" . $inicio_data[1] . "-" . $inicio_data[0];
+    $inicio_hora = $inicio[1];
+    return $inicio_data . " " . $inicio_hora;
+}
 
+function limpaMascaraNumero($numero){
+    $numero = str_replace('(', '', $numero);
+    $numero = str_replace(')', '', $numero);
+    $numero = str_replace(' ', '', $numero);
+    return str_replace('-', '', $numero);
+}
 
 ?>

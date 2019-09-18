@@ -4,9 +4,12 @@ require_once "classes/cartaofidelidade.php";
 
 $registros = new cartaofidelidade();
 
+$destaque = $registros->todosDestaques();
+
 if (isset($_GET['id']) && ($_GET['id'] != 'novo')) {
     $registros = $registros->dadosCartaoFidelidadePorId($_GET['id']);
     $registros = $registros[0];
+
 
     $data_atual = new DateTime();
     $data_inicio = new DateTime($registros['data_inicio']);
@@ -14,9 +17,11 @@ if (isset($_GET['id']) && ($_GET['id'] != 'novo')) {
 
     if ($registros['fk_loja'] != $_SESSION['empresa_id']  || $data_atual > $data_inicio) {
         setAlerta('info', 'Você não pode acessar esse cartão!');
-        header("Location: cupons_ativos.php");
+        header("Location: cartoes.php");
     }
 }
+
+
 
 
 include "include/header.php";
@@ -31,7 +36,7 @@ include "include/navbar.php";
     <?php getAlerta(); ?>
     <div class="row">
         <div class="col mt-4">
-            <a class="btn btn-outline-secondary" href="cupons_ativos.php"><i class="fas fa-arrow-left"></i> Voltar</a>
+            <a class="btn btn-outline-secondary" href="cartoes.php"><i class="fas fa-arrow-left"></i> Voltar</a>
         </div>
     </div>
     <div class="row">
@@ -42,9 +47,9 @@ include "include/navbar.php";
     <div class="row">
         <div class="col-6 offset-3 text-center">
             <?php if (is_array($registros) && $registros['foto'] == null) : ?>
-                <img src="media/images/banner_generico.png" class="img-fluid border-orange rounded" style="max-height: 300px">
+                <img src="media/images/banner_generico.png" class="img-fluid rounded banner-generico" style="max-height: 300px">
             <?php elseif (is_array($registros)) : ?>
-                <img src="uploads/<?= $registros['foto'] ?>" class="img-fluid border-orange rounded" style="max-height: 300px">
+                <img src="uploads/<?= $registros['foto'] ?>" class="img-fluid rounded" style="max-height: 300px">
             <?php endif ?>
         </div>
     </div>
@@ -54,11 +59,11 @@ include "include/navbar.php";
                 <input class="d-none" value="<?= ($_GET['id'] == 'novo' ? 'novo' : $_GET['id']) ?>" name="id">
                 <input class="d-none" value="formSalvarCupom" name="formSalvarCupom">
                 <div class="form-group">
-                    <label for="inputNomeCupom">Nome do Cartões</label>
+                    <label for="inputNomeCupom">Nome do Cartão</label>
                     <input type="text" class="form-control rounded-0" name="nome_cupom" id="inputNomeCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome_cartao'] : '') ?>">
                 </div>
                 <div class="form-group">
-                    <label for="inputDescricaoCupom">Descricao do Cartões</label>
+                    <label for="inputDescricaoCupom">Descricao do Cartão</label>
                     <input type="text" class="form-control rounded-0" name="descricao_cupom" id="inputDescricaoCupom" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['descricao'] : '') ?>">
                 </div>
                 <div class="form-group">
@@ -104,6 +109,22 @@ include "include/navbar.php";
                         </div>
                     </div>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h3 class="font-weight-light">Adicione um destaque para seu Cartão Fidelidade</h3>
+                        <p>Um destaque ajuda no desenpenho do seu cartão fidelidade, tendo mais destaque e aparecendo por primeiro.</p>
+                        <div class="form-group">
+                            <label for="">Destaque do cartão fidelidade:</label>
+                            <select class="custom-select" name="destaque" id="">
+                                <?php foreach ($destaque as $chave => $valor):?>
+                                    <option value="<?=$valor['id']?>" <?=(is_array($registros) && $registros['fk_destaque'] == $valor['id']) ? "selected" : ""?>><?=$valor['nome_destaque']?> - R$ <?=$valor['valor_destaque']?>  por dia</option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <div class="custom-file mt-3">
                     <input type="file" class="custom-file-input rounded-0" id="inputBanner" name="banner[]" accept="image/*">
                     <label class="custom-file-label rounded-0" for="inputBanner" data-browse="Escolher">Enviar Banner...</label>

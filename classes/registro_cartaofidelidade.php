@@ -20,23 +20,40 @@ class registro_cartaofidelidade extends Site
             $this->salvarCarimbo();
         if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'dashboard') {
             $registros = new cartaofidelidade();
-            $registros = $registros->todosCartoesPorLoja($_SESSION['empresa_id']);
+            $registros = $registros->todosCartoesPorLoja();
             if (empty($registros)) {
                 setAlerta('warning', 'Você não posse nenhum cupom, primeiro cadastre um!');
-                header('Location: cupons_ativos.php');
+                header('Location: cartoes.php');
             }
         }
     }
 
 
-    public function clientesPorLoja($id_loja)
+    public function clientesPorLoja()
     {
+        $id_loja = $_SESSION['empresa_id'];
         // CONTA E TRAZ OS DADOS DO CARTAO FIDELIDADE E DO CLIENTE EM QUESTAO, CONTANDO O NUMERO DE CARIMBOS JA RESGISTRADOS
         $sql = "select *, count(fk_cliente) from registro_cartaoFidelidade
                 inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
                 inner join lojas l on cF.fk_loja = l.id
                 inner join clientes c on registro_cartaoFidelidade.fk_cliente = c.numero
                 where l.id = '$id_loja' group by fk_carimbo, fk_cliente";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return false;
+    }
+
+    public function clientesPorLojaLimit10()
+    {
+        $id_loja = $_SESSION['empresa_id'];
+        // CONTA E TRAZ OS DADOS DO CARTAO FIDELIDADE E DO CLIENTE EM QUESTAO, CONTANDO O NUMERO DE CARIMBOS JA RESGISTRADOS COM LIMITE DE 10
+        $sql = "select *, count(fk_cliente) from registro_cartaoFidelidade
+                inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
+                inner join lojas l on cF.fk_loja = l.id
+                inner join clientes c on registro_cartaoFidelidade.fk_cliente = c.numero
+                where l.id = '$id_loja' group by fk_carimbo, fk_cliente limit 4";
         $query = mysqli_query($this->conexao, $sql);
         if ($query)
             return mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -59,22 +76,7 @@ class registro_cartaofidelidade extends Site
             return false;
     }
 
-    public function clientesPorLojaLimit10($id_loja)
-    {
-        // CONTA E TRAZ OS DADOS DO CARTAO FIDELIDADE E DO CLIENTE EM QUESTAO, CONTANDO O NUMERO DE CARIMBOS JA RESGISTRADOS COM LIMITE DE 10
-        $sql = "select *, count(fk_cliente) from registro_cartaoFidelidade
-                inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
-                inner join lojas l on cF.fk_loja = l.id
-                inner join clientes c on registro_cartaoFidelidade.fk_cliente = c.numero
-                where l.id = '$id_loja' group by fk_carimbo, fk_cliente limit 4";
-        $query = mysqli_query($this->conexao, $sql);
-        if ($query)
-            return mysqli_fetch_all($query, MYSQLI_ASSOC);
-        else
-            return false;
-    }
-
-    function todosCartoesPorLoja($id_loja)
+    public function todosCartoesPorLoja($id_loja)
     {
         $sql = "select * from cartaoFidelidade where fk_loja = '$id_loja'
                 and data_inicio < now() and data_fim > now() ";
@@ -86,14 +88,10 @@ class registro_cartaofidelidade extends Site
 
     }
 
-    function salvarCarimbo()
+    public function salvarCarimbo()
     {
         // SALVA UM NOVO CARIMBO
-        $numero = $_POST['number'];
-        $numero = str_replace('(', '', $numero);
-        $numero = str_replace(')', '', $numero);
-        $numero = str_replace(' ', '', $numero);
-        $numero = str_replace('-', '', $numero);
+        $numero = limpaMascaraNumero($_POST['number']);
         $id_cupom = $_POST['cupom'];
 
         $sql = "select * from clientes where numero = '$numero'";
@@ -114,8 +112,8 @@ class registro_cartaofidelidade extends Site
                     if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
                         $token = new tokens();
                         $token->createToken($numero, $id_cupom);
-                        sendSMS($numero,"Parabéns, Você completou um cupom - Acesse cliente.fidelize.ga para ver seu token!");
                         setAlerta('success', 'Completou cupom, token gerado!');
+                        sendSMS($numero,"Parabéns, Você completou um cupom - Acesse cliente.fidelize.ga para ver seu token!");
                         header("Location: registro_carimbos.php");
                     } else {
                         setAlerta('success', 'Carimbo registrado!');
@@ -151,7 +149,7 @@ class registro_cartaofidelidade extends Site
         }
     }
 
-    function verificaSeCompletouCupom($number_cliente, $id_cupom)
+    public function verificaSeCompletouCupom($number_cliente, $id_cupom)
     {
         // VERIFICA SE O CUPOM JA FOI COMPLETADO PELO USUARIO EM QUESTAO
         $sql = "select count(*) as num, cF.objetivo from registro_cartaoFidelidade
@@ -167,15 +165,29 @@ class registro_cartaofidelidade extends Site
 
     }
 
-    function desempenhoSemanal(){
+    public function desempenhoSemanal(){
         $id_loja = $_SESSION['empresa_id'];
         $sql = "CALL carimbos_7_dias('$id_loja')";
         $query = mysqli_query($this->conexao, $sql);
-        if ($query)
-            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        if ($query){
+            $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+            mysqli_free_result($query);
+            return $result;
+        }
         else
             return false;
     }
 
+     public function numClientesPorLoja(){
+        $id_loja = $_SESSION['empresa_id'];
+        $sql = "select count(distinct fk_cliente) as num from registro_cartaoFidelidade
+                inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id 
+                inner join lojas l on cF.fk_loja = l.id where l.id = '$id_loja'";
+         $query = mysqli_query($this->conexao, $sql);
+         $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+         return $result[0]['num'];
+
+
+     }
 
 }

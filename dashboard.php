@@ -2,12 +2,23 @@
 
 require_once "classes/registro_cartaofidelidade.php";
 
+
 $registros = new registro_cartaofidelidade();
-$dados = $registros->clientesPorLojaLimit10($_SESSION['empresa_id']);
+$cartoes = new cartaofidelidade();
+
+
+$numClientesPorLoja = $registros->numClientesPorLoja();
+
+$numCartoesAtivos = $cartoes->numCartoesAtivos();
+
+$numCartoesCompletados = $cartoes->numCartoesCompletados();
+
+
+$dados = $registros->clientesPorLojaLimit10();
 
 $dados_grafico = array_reverse($registros->desempenhoSemanal());
-//echo "<pre>";
-//die(var_dump($dados_grafico));
+
+
 
 include "include/header.php";
 
@@ -27,29 +38,27 @@ include "include/navbar.php";
         <div class="col-12 col-lg-4">
             <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title font-weight-light"><i class="fas fa-users"></i> Clientes Fidelizados</h3>
-                    <p class="card-text font-weight-light" id="painel_clientes_fidelizados"><span
-                                class="spinner-border spinner-border-sm" role="status"
-                                aria-hidden="true"></span></p>
+                    <h2 class="card-title font-weight-light">Clientes Fidelizados</h2>
+                    <div class="h3 counter" data-count="<?=$numClientesPorLoja?>">0</div>
+                    <i class="fas fa-users fa-6x icon-fundo"></i>
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-4">
             <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title font-weight-light"><i class="fas fa-ticket-alt"></i> Cartões Abertos</h3>
-                    <p class="card-text font-weight-light" id="painel_cupons_ativos"><span
-                                class="spinner-border spinner-border-sm" role="status"
-                                aria-hidden="true"></span></p>
+                    <h2 class="card-title font-weight-light">Cartões Abertos</h2>
+                    <div class="h3 counter" data-count="<?=$numCartoesAtivos?>">0</div>
+                    <i class="fas fa-ticket-alt fa-6x icon-fundo"></i>
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-4">
             <div class="text-white bg-orange m-1 p-1 mt-3 text-center shadow h-75">
                 <div class="card-body">
-                    <h3 class="card-title font-weight-light"><i class="fas fa-check-circle"></i> Cartões Completos</h3>
-                    <p class="card-text font-weight-light" id="painel_cupons_completados">
-                    <p>
+                    <h2 class="card-title font-weight-light">Cartões Completos</h2>
+                    <div class="h3 counter" data-count="<?=$numCartoesCompletados?>">0</div>
+                    <i class="fas fa-check-circle fa-6x icon-fundo"></i>
                 </div>
             </div>
         </div>

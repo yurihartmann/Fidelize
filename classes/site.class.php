@@ -1,4 +1,21 @@
-<?php
+<?php    function numClientesFidelizadosPorLoja(){
+        $id_loja =  $_SESSION['empresa_id'];
+        $sql = "select count(*) as num from registro_cartaoFidelidade
+        inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
+        inner  join lojas l on cF.fk_loja = l.id
+        where l.id = '$id_loja'";
+        $query = mysqli_query($this->conexao, $sql);
+        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+
+
+
+        if ($query)
+            $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            $result['num'] = 0;
+        return $result['num'];
+    }
 
 /**
  * CLASSE "Site"
@@ -21,6 +38,9 @@ class Site
      */
     public function __construct()
     {
+
+        if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) == '')
+            header("Location: index.php");
 
         require_once "vendor/autoload.php";
 

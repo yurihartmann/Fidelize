@@ -117,3 +117,17 @@
   /* opacity: 0.9; */
   letter-spacing: -1px;
 }
+.icon-fundo{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0.3;
+}
+
+.bg-diamante{
+  background-color: #03b5ff;
+}
+
+.bg-ouro{
+  background-color: #ffce41;
+}

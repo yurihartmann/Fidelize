@@ -24,8 +24,9 @@ class cartaofidelidade extends Site
             $this->updateCupom();
     }
 
-    function todosCartoesPorLoja($id_loja)
+    function todosCartoesPorLoja()
     {
+        $id_loja = $_SESSION['empresa_id'];
         // RETORNA TODOS OS CARTOES RELACIONADO COM O ID DA LOJA
         $sql = "select * from cartaoFidelidade where fk_loja like '$id_loja'";
         $query = mysqli_query($this->conexao, $sql);
@@ -51,19 +52,19 @@ class cartaofidelidade extends Site
                 $sql = "DELETE FROM cartaoFidelidade WHERE cartaoFidelidade.id = '$id_cartao'";
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query) {
-                    setAlerta('success', 'Cupom excluído com sucesso!');
-                    header("Location: cupons_ativos.php");
+                    setAlerta('success', 'Cartão excluído com sucesso!');
+                    header("Location: cartoes.php");
                 } else {
                     setAlerta('danger', 'Algo deu errado, tente novamente!');
-                    header("Location: cupons_ativos.php");
+                    header("Location: cartoes.php");
                 }
             } else {
                 setAlerta('danger', 'Algo deu errado, tente novamente!');
-                header("Location: cupons_ativos.php");
+                header("Location: cartoes.php");
             }
         } else {
             setAlerta('danger', 'Algo deu errado, tente novamente!');
-            header("Location: cupons_ativos.php");
+            header("Location: cartoes.php");
         }
     }
 
@@ -114,32 +115,27 @@ class cartaofidelidade extends Site
         $premio = $_POST['premio_cupom'];
         $data_inicio = $_POST['data_inicio'];
         $data_final = $_POST['data_final'];
+        $valor = $_POST['valor_premio'];
+        $valor = str_replace(".","", $valor);
+        $valor = str_replace(",",".", $valor);
+        $destaque = $_POST['destaque'];
 
         // ageita a hora para salvar
-        $inicio = explode(" ",$data_inicio);
-        $inicio_data = explode("/",$inicio[0]);
-        $inicio_data = $inicio_data[2] . "-" . $inicio_data[1] . "-" . $inicio_data[0];
-        $inicio_hora = $inicio[1];
-        $data_inicio = $inicio_data . " " . $inicio_hora;
-
-        $fim = explode(" ",$data_final);
-        $fim_data = explode("/", $fim[0]);
-        $fim_data = $fim_data[2] . "-" . $fim_data[1] . "-" . $fim_data[0];
-        $fim_hora = $fim[1];
-        $data_final = $fim_data . " " . $fim_hora;
+        $data_inicio = formatarDataParaSalvar($data_inicio);
+        $data_final = formatarDataParaSalvar($data_final);
 
         if (isset($logo)){
-            $sql = "INSERT INTO `cartaoFidelidade` (`id`, `nome_cartao`, `objetivo`, `fk_loja`, `foto`, `premio`, `descricao`, data_inicio, data_fim ) VALUES (NULL, '$nome_cupom', '$objetivo', '$fk_loja', '$logo', '$premio', '$descricao', '$data_inicio', '$data_final');";
+            $sql = "INSERT INTO `cartaoFidelidade` (`id`, `nome_cartao`, `objetivo`, `fk_loja`, `foto`, `premio`, `descricao`, data_inicio, data_fim, valor, fk_destaque ) VALUES (NULL, '$nome_cupom', '$objetivo', '$fk_loja', '$logo', '$premio', '$descricao', '$data_inicio', '$data_final','$valor', '$destaque');";
         } else {
-            $sql = "INSERT INTO `cartaoFidelidade` (`id`, `nome_cartao`, `objetivo`, `fk_loja`, `foto`, `premio`, `descricao`, data_inicio, data_fim) VALUES (NULL, '$nome_cupom', '$objetivo', '$fk_loja', NULL, '$premio', '$descricao', '$data_inicio', '$data_final');";
+            $sql = "INSERT INTO `cartaoFidelidade` (`id`, `nome_cartao`, `objetivo`, `fk_loja`, `foto`, `premio`, `descricao`, data_inicio, data_fim, valor , fk_destaque) VALUES (NULL, '$nome_cupom', '$objetivo', '$fk_loja', NULL, '$premio', '$descricao', '$data_inicio', '$data_final', '$valor', '$destaque');";
         }
         $query = mysqli_query($this->conexao, $sql);
         if ($query) {
-            setAlerta('success', 'Cupom salvo com sucesso');
-            header("Location: cupons_ativos.php");
+            setAlerta('success', 'Cartão salvo com sucesso!');
+            header("Location: cartoes.php");
         } else {
             setAlerta('danger', 'Algo deu errado, tente novamente!');
-            header("Location: cupons_ativos.php");
+            header("Location: cartoes.php");
         }
 
 
@@ -162,33 +158,28 @@ class cartaofidelidade extends Site
         $premio = $_POST['premio_cupom'];
         $data_inicio = $_POST['data_inicio'];
         $data_final = $_POST['data_final'];
+        $valor = $_POST['valor_premio'];
+        $valor = str_replace(".","", $valor);
+        $valor = str_replace(",",".", $valor);
+        $destaque = $_POST['destaque'];
 
         // ageita a hora para salvar
-        $inicio = explode(" ",$data_inicio);
-        $inicio_data = explode("/",$inicio[0]);
-        $inicio_data = $inicio_data[2] . "-" . $inicio_data[1] . "-" . $inicio_data[0];
-        $inicio_hora = $inicio[1];
-        $data_inicio = $inicio_data . " " . $inicio_hora;
-
-        $fim = explode(" ",$data_final);
-        $fim_data = explode("/", $fim[0]);
-        $fim_data = $fim_data[2] . "-" . $fim_data[1] . "-" . $fim_data[0];
-        $fim_hora = $fim[1];
-        $data_final = $fim_data . " " . $fim_hora;
+        $data_inicio = formatarDataParaSalvar($data_inicio);
+        $data_final = formatarDataParaSalvar($data_final);
 
 
         if (isset($logo)){
-            $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao', foto = '$logo', data_inicio = '$data_inicio', data_fim = '$data_final' WHERE `cartaoFidelidade`.`id` = '$id';";
+            $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao', foto = '$logo', data_inicio = '$data_inicio', data_fim = '$data_final', valor = '$valor' WHERE `cartaoFidelidade`.`id` = '$id';";
         } else {
-            $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao', data_inicio = '$data_inicio', data_fim = '$data_final' WHERE `cartaoFidelidade`.`id` = '$id';";
+            $sql = "UPDATE `cartaoFidelidade` SET `nome_cartao` = '$nome_cupom', descricao = '$descricao', data_inicio = '$data_inicio', data_fim = '$data_final', valor = '$valor', fk_destaque = '$destaque' WHERE `cartaoFidelidade`.`id` = '$id';";
         }
         $query = mysqli_query($this->conexao, $sql);
         if ($query) {
-            setAlerta('success', 'Cupom salvo com sucesso!');
-            header("Location: cupons_ativos.php");
+            setAlerta('success', 'Cartão salvo com sucesso!');
+            header("Location: cartoes.php");
         } else {
             setAlerta('danger', 'Algo deu errado, tente novamente!');
-            header("Location: cupons_ativos.php");
+            header("Location: cartoes.php");
         }
 
     }
@@ -206,6 +197,51 @@ class cartaofidelidade extends Site
             return false;
         }
     }
+
+    function numCartoesAtivos(){
+        $id_loja =  $_SESSION['empresa_id'];
+
+        $sql = "select count(*) as num from cartaoFidelidade where fk_loja = '$id_loja' and data_inicio < now() and data_fim > now()";
+        $query = mysqli_query($this->conexao,$sql);
+        $result = mysqli_fetch_assoc($query);
+
+        return $result['num'];
+    }
+
+    function numCartoesCompletados(){
+        $id_loja =  $_SESSION['empresa_id'];
+
+        $sql = "select count(*) from tokens 
+    inner join cartaoFidelidade cF on tokens.fk_carimbo = cF.id
+    inner join lojas l on cF.fk_loja = l.id where l.id = '$id_loja'";
+        $query = mysqli_query($this->conexao,$sql);
+        $result = mysqli_fetch_assoc($query);
+
+        return $result['count(*)'];
+    }
+
+    function todosDestaques(){
+        $sql = "select * from destaque";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return false;
+    }
+
+    function getDestaqueCartao($id_cartao){
+        $sql = "select d.nome_destaque as nome from cartaoFidelidade cF
+                inner join destaque d on cF.fk_destaque = d.id
+                where cF.id = '$id_cartao'";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query){
+            $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+            return $result[0]['nome'];
+        }
+        else
+            return "false";
+    }
+
 
 
 }
