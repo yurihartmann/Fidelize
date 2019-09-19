@@ -1,22 +1,4 @@
-<?php    function numClientesFidelizadosPorLoja(){
-        $id_loja =  $_SESSION['empresa_id'];
-        $sql = "select count(*) as num from registro_cartaoFidelidade
-        inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
-        inner  join lojas l on cF.fk_loja = l.id
-        where l.id = '$id_loja'";
-        $query = mysqli_query($this->conexao, $sql);
-        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-
-
-
-        if ($query)
-            $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
-        else
-            $result['num'] = 0;
-        return $result['num'];
-    }
-
+<?php
 /**
  * CLASSE "Site"
  * Classe principal do projeto.
@@ -26,9 +8,9 @@ class Site
 
     public $conexao;
 
-    const LOCAL = 'fidelize.ga';
-    const USER = 'fidelize';
-    const PASS = '1qaz2wsxentra21';
+    const LOCAL = 'localhost';
+    const USER = 'root';
+    const PASS = '';
     const DB = 'fidelize_master';
 
     /**

@@ -85,7 +85,8 @@ include "include/navbar.php";
                                 <span class="input-group-text  rounded-0">R$</span>
                             </div>
 
-                            <input type="text" class="form-control rounded-0" name="valor_premio" id="inputValorPremio" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['valor'] : '') ?>">
+                            <input type="text" class="form-control rounded-0" name="valor_premio" id="inputValorPremio" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['valor'] : '') ?>"
+                                   inputmode="numeric">
                         </div>
                         <small id="inputPremioCupom" class="form-text text-muted">O valor é somente para fins estátiscos.</small>
                     </div>
@@ -96,14 +97,16 @@ include "include/navbar.php";
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
                         <label for="inputDataInicio">Data Início</label>
-                        <input type="text" class="form-control rounded-0" name="data_inicio" id="inputDataInicio" aria-describedby="helpId" placeholder="DD/MM/AAAA HH:MM" value="<?= (is_array($registros) ? $registros['mask_data_inicio'] : '') ?>">
+                        <input type="text" class="form-control rounded-0" name="data_inicio" id="inputDataInicio" aria-describedby="helpId" placeholder="DD/MM/AAAA HH:MM" value="<?= (is_array($registros) ? $registros['mask_data_inicio'] : '') ?>"
+                               inputmode="numeric">
                         <div class="invalid-feedback" id="inputDataInicioFeedback">
                             A data de início deve ser maior que a data atual!
                         </div>
                     </div>
                     <div class="form-group col-12 col-md-6 ">
                         <label for="inputDataFinal">Data Final</label>
-                        <input type="text" class="form-control rounded-0" name="data_final" id="inputDataFinal" aria-describedby="helpId" placeholder="DD/MM/AAAA HH:MM" value="<?= (is_array($registros) ? $registros['mask_data_fim'] : '') ?>">
+                        <input type="text" class="form-control rounded-0" name="data_final" id="inputDataFinal" aria-describedby="helpId" placeholder="DD/MM/AAAA HH:MM" value="<?= (is_array($registros) ? $registros['mask_data_fim'] : '') ?>"
+                               inputmode="numeric">
                         <div class="invalid-feedback" id="inputDataFinalFeedback">
                             A data final deve ser maior que a data de início!
                         </div>
@@ -113,7 +116,7 @@ include "include/navbar.php";
                 <div class="row">
                     <div class="col">
                         <h3 class="font-weight-light">Adicione um destaque para seu Cartão Fidelidade</h3>
-                        <p>Um destaque ajuda no desenpenho do seu cartão fidelidade, tendo mais destaque e aparecendo por primeiro.</p>
+                        <p>Um destaque ajuda no desempenho do seu cartão fidelidade, tendo mais destaque e aparecendo por primeiro.</p>
                         <div class="form-group">
                             <label for="">Destaque do cartão fidelidade:</label>
                             <select class="custom-select" name="destaque" id="">

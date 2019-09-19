@@ -22,7 +22,7 @@ class registro_cartaofidelidade extends Site
             $registros = new cartaofidelidade();
             $registros = $registros->todosCartoesPorLoja();
             if (empty($registros)) {
-                setAlerta('warning', 'Você não posse nenhum cupom, primeiro cadastre um!');
+                setAlerta('warning', 'Você não posse nenhum cartão, primeiro cadastre um!');
                 header('Location: cartoes.php');
             }
         }
@@ -98,7 +98,7 @@ class registro_cartaofidelidade extends Site
         $result = mysqli_fetch_all(mysqli_query($this->conexao, $sql));
         if (count($result) == 1) {
             if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
-                setAlerta('danger', 'Esse usuário já completou esse cupom!');
+                setAlerta('danger', 'Esse usuário já completou esse cartão!');
                 header("Location: registro_carimbos.php");
             } else {
                 $sql = "INSERT INTO registro_cartaoFidelidade (id, fk_cliente, fk_carimbo, data_registro) 
@@ -112,8 +112,8 @@ class registro_cartaofidelidade extends Site
                     if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
                         $token = new tokens();
                         $token->createToken($numero, $id_cupom);
-                        setAlerta('success', 'Completou cupom, token gerado!');
-                        sendSMS($numero,"Parabéns, Você completou um cupom - Acesse cliente.fidelize.ga para ver seu token!");
+                        setAlerta('success', 'Completou cartão, token gerado!');
+                        sendSMS($numero,"Parabéns, Você completou um cartão - Acesse cliente.fidelize.ga para ver seu token!");
                         header("Location: registro_carimbos.php");
                     } else {
                         setAlerta('success', 'Carimbo registrado!');
