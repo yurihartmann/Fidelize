@@ -40,7 +40,7 @@
             <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="text-white"><?= $_SESSION['empresa_nome'] ?></span>
                 <?php if ($_SESSION['empresa_img'] != null && $_SESSION['empresa_img'] != '') : ?>
-                    <img style="width: 45px; height: 45px" src="uploads/<?= $_SESSION['empresa_img'] ?>" class="rounded-circle mx-3 border-orange">
+                    <img style="width: 45px; height: 45px" src="../uploads/<?= $_SESSION['empresa_img'] ?>" class="rounded-circle mx-3 border-orange">
                 <?php else : ?>
                     <img src="../media/images/perfil_generico.jpg" height="45px" class="rounded-circle mx-3 border-orange">
                 <?php endif; ?>

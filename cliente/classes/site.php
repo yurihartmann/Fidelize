@@ -45,6 +45,7 @@ class Site
         // Includes de configurações e funções globais do projeto
         require_once("../include/config.php");
         require_once("../include/functions.php");
+        require_once("include/sms.php");
 
         clearAlerta();
 

@@ -76,8 +76,9 @@ class registro_cartaofidelidade extends Site
             return false;
     }
 
-    public function todosCartoesPorLoja($id_loja)
+    public function todosCartoesPorLoja()
     {
+        $id_loja = $_SESSION['empresa_id'];
         $sql = "select * from cartaoFidelidade where fk_loja = '$id_loja'
                 and data_inicio < now() and data_fim > now() ";
         $query = mysqli_query($this->conexao, $sql);
@@ -107,13 +108,13 @@ class registro_cartaofidelidade extends Site
                 if ($query) {
                     $dados = $this->clientePorLoja($_SESSION['empresa_id'],$numero,$id_cupom);
                     if ($dados[0]["count(fk_cliente)"] == '1'){
-                        sendSMS($numero,"Parabéns, Você inicio um novo cupom - Acesse cliente.fidelize.ga para ver seu progreso!");
+                        sendSMS($numero,"Parabéns, Você inicio um novo cartão - Acesse cliente.fidelize.ga para ver seu progreso!");
                     }
                     if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
                         $token = new tokens();
                         $token->createToken($numero, $id_cupom);
-                        setAlerta('success', 'Completou cartão, token gerado!');
                         sendSMS($numero,"Parabéns, Você completou um cartão - Acesse cliente.fidelize.ga para ver seu token!");
+                        setAlerta('success', 'Completou cartão, token gerado!');
                         header("Location: registro_carimbos.php");
                     } else {
                         setAlerta('success', 'Carimbo registrado!');
@@ -135,7 +136,7 @@ class registro_cartaofidelidade extends Site
                     VALUES (NULL, '$numero', '$id_cupom', CURRENT_TIME());";
                 $query = mysqli_query($this->conexao, $sql);
                 if ($query){
-                    sendSMS($numero,"Ola, percebemos que voce nao tem conta, por favor se cadastre para receber os carimbos - https://cliente.fidelize.ga/cadastro.php");
+                    sendSMS($numero,"Ola, percebemos que voce nao tem conta, por favor se cadastre para receber os carimbos - http://fidelize.ga/cliente/cadastro.php");
                     setAlerta('success', 'Carimbo registrado! - Usuário temporário criado, peça para o cliente se cadastra o mais breve possível!');
                     header("Location: registro_carimbos.php");
                 } else {

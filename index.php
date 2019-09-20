@@ -1,3 +1,3 @@
 <?php
-header("Location fidelize/index.php");
+header("Location: fidelize/index.php");
 ?>

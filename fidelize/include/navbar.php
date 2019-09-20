@@ -38,6 +38,12 @@
             <li class="nav-item <?= (basename($_SERVER['PHP_SELF'], '.php') == 'somos' ? 'active' : '') ?>">
                 <a class="nav-link" href="somos.php">Quem Somos</a>
             </li>
+            <li class="nav-item active  d-none d-lg-block">
+                <span class="nav-link font-weight-light">|</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../adm/index.php">Painel Empresa</a>
+            </li>
         </ul>
     </div>
     </ul>

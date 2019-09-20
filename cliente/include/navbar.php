@@ -35,7 +35,7 @@
         <div class="dropdown">
             <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php if ($_SESSION['cliente_img'] != null && $_SESSION['cliente_img'] != '') : ?>
-                    <img style="width: 35px; height: 35px" src="uploads/<?= $_SESSION['cliente_img'] ?>" class="rounded-circle mx-3 border-light">
+                    <img style="width: 35px; height: 35px" src="../uploads/<?= $_SESSION['cliente_img'] ?>" class="rounded-circle mx-3 border-light">
                 <?php else : ?>
                     <img src="../media/images/perfil_generico.jpg" style="width: 35px; height: 35px" class="rounded-circle mx-3 border-light">
                 <?php endif; ?>
@@ -63,7 +63,7 @@
         <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="text-white"><?= limitaTexto(20, ucfirst($_SESSION['cliente_nome'])) ?></span>
             <?php if ($_SESSION['cliente_img'] != null && $_SESSION['cliente_img'] != '') : ?>
-                <img style="width:38.5px; height: 38.5px;" src="uploads/<?= $_SESSION['cliente_img'] ?>" class="rounded-circle mx-3 border-light">
+                <img style="width:38.5px; height: 38.5px;" src="../uploads/<?= $_SESSION['cliente_img'] ?>" class="rounded-circle mx-3 border-light">
             <?php else : ?>
                 <img src="../media/images/perfil_generico.jpg" style="width: 38.5px; height: 38.5px" class="rounded-circle mx-3 border-light">
             <?php endif; ?>
