@@ -76,8 +76,8 @@ include "include/navbar.php";
                                         <input type="radio" name="plano" id="avancado" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "avancado") ? "checked" : "" ?>> Avançado
                                     </label>
                                 </div>
-                                <div class="text-center">
-                                    <small><a href="http://localhost/fidelize/fidelizar.php" class=" text-muted">Alguma dúvida de pacotes clique aqui!</a></small>
+                                <div class="text-center p-2">                                    
+                                    <small><a class="btn-sm btn-light text-muted" id="buttonfidelizar" >Alguma dúvida de pacotes clique aqui!</a></small>
                                 </div>
                             </form>
                             <div class="text-center my-2">

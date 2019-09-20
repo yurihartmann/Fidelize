@@ -6,7 +6,7 @@
 				<img id="ico" class="mt-3 mb-2" src="../media/images/fidelize_preto.png">
 			</div>
 			<div class="col-12">
-				<p class="text-monospace"><small>Faça parte do nosso grupo, </small><a href="#" class="badge badge-light mt-5">Fidelize</a></p>
+				<p class="text-monospace"><small>Faça parte do nosso grupo, </small><a href="fidelizar.php" class="badge badge-light mt-5">Fidelize</a></p>
 			</div>
 			<div class="container">
 				<div class="btn-group-lg mb-5" role="group" aria-label="Exemplo básico">

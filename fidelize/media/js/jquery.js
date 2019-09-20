@@ -96,9 +96,45 @@ $(document).ready(function () {
 		var email = document.getElementById('email').value;
 		var nome = document.getElementById('nome').value;
 		var mensagem = document.getElementById('mensagem').value;
-		var tipo = document.getElementsByName('tipo');
+		var plano = document.getElementsByName('plano');
 
-		if (email.length > 0 && nome.length > 0 && mensagem.length > 0 && tipo.length > 0) {
+		var planovalue = "";
+
+		if (plano[0].checked) {
+			planovalue = "Gratuito";
+		}
+
+		if (plano[1].checked) {
+			planovalue = "Básico";
+		}
+
+		if (plano[2].checked) {
+			planovalue = "Intermediário";
+		}
+
+		if (plano[3].checked) {
+			planovalue = "Avançado";
+		}
+
+		if (plano[4].checked) {
+			planovalue = "Gratuito";
+		}
+
+		if (plano[5].checked) {
+			planovalue = "Básico";
+		}
+
+		if (plano[6].checked) {
+			planovalue = "Intermediário";
+		}
+
+		if (plano[7].checked) {
+			tipovalue = "Avançado";
+		}
+
+
+
+		if (email.length > 0 && nome.length > 0 && mensagem.length > 0 && plano.length > 0) {
 
 			$.ajax({
 				//Alert de sucesso
@@ -108,7 +144,7 @@ $(document).ready(function () {
 					'email': email,
 					'nome': nome,
 					'mensagem': mensagem,
-					'tipo': tipovalue,
+					'plano': planovalue,
 
 				},
 				success: function (resultado) {
@@ -204,4 +240,24 @@ $(document).ready(function () {
 		$("#" + $(this).attr("alt")).addClass("active");
 	});
 
+
+
+	$('#buttonfidelizar').click(function () {
+		swal({
+			text: "Você pode tirar suas dúvidas pelo Suporte, podemos redirecionar para à página?",
+			buttons: {
+				cancel: "Sair",
+				confirm: {
+					value: 1,
+				},
+			},
+		}).then((value) => {
+			if (value == 1) {
+				window.location.href = 'suporte.php';
+			}
+		});
+	});
+
 });
+
+
