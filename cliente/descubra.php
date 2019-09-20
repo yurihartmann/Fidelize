@@ -32,7 +32,9 @@ include "include/navbar.php";
         </div>
     </div>
     <div class="row">
-        <?php foreach ($descubra as $chave => $valor): ?>
+        <?php
+        if (!$vazio):
+        foreach ($descubra as $chave => $valor): ?>
             <div class="col-12 col-lg-4 mt-3">
                 <div class="shadow h-100">
                     <div class="text-center">
@@ -60,25 +62,27 @@ include "include/navbar.php";
                             $estilo = "bg-diamante text-white";
                             break;
                     endswitch; ?>
-                    <div title="Esse é um cartão patrocinado!" class="<?=$estilo?> p-1 ml-2 text-center p-2"
+                    <div title="Esse é um cartão patrocinado!" class="<?= $estilo ?> p-1 ml-2 text-center p-2"
                          style="margin-top: -40px; width: 200px;position: relative">
-                        <strong>Cartão: <?=$cartaoFidelidade->getDestaqueCartao($valor['id'])?></strong>
+                        <strong>Cartão: <?= $cartaoFidelidade->getDestaqueCartao($valor['id']) ?></strong>
                     </div>
 
                     <div class="card-body">
-                        <a href="loja.php?id_loja=<?=$valor['id_loja']?>">
-                            <p class="card-text text-orange font-weight-bold float-left"><i class="fas fa-store-alt"></i> <?= limitaTexto(20,$valor['nome']) ?></p>
+                        <a href="loja.php?id_loja=<?= $valor['id_loja'] ?>">
+                            <p class="card-text text-orange font-weight-bold float-left"><i
+                                        class="fas fa-store-alt"></i> <?= limitaTexto(20, $valor['nome']) ?></p>
                         </a>
                         <?php if ((int)$avaliacao->avaliacaoMedia($valor['id_loja']) > 0): ?>
-                        <div class="text-right star<?= $valor['id'] ?>">
-                            <div class="stars-sm-outer">
-                                <div class="stars-sm-inner stars-inner<?= $valor['id'] ?>"></div>
+                            <div class="text-right star<?= $valor['id'] ?>">
+                                <div class="stars-sm-outer">
+                                    <div class="stars-sm-inner stars-inner<?= $valor['id'] ?>"></div>
+                                </div>
                             </div>
-                        </div>
                         <?php else: ?>
-                        <span class="text-orange float-right mb-3">Novo!</span>
+                            <span class="text-orange float-right mb-3">Novo!</span>
                         <?php endif; ?>
-                        <h4 class="card-title font-weight-bold text-center" style="clear: both; margin-top: 10px"><?= $valor['nome_cartao'] ?></h4>
+                        <h4 class="card-title font-weight-bold text-center"
+                            style="clear: both; margin-top: 10px"><?= $valor['nome_cartao'] ?></h4>
                         <p class="card-text font-weight-light"><?= $valor['descricao'] ?></p>
                         <p class="font-weight-light"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></p>
                         <p class="font-weight-light"><strong>Prêmio:</strong> <?= $valor['premio'] ?></p>
@@ -86,7 +90,7 @@ include "include/navbar.php";
                 </div>
             </div>
 
- <?php if ((int)$avaliacao->avaliacaoMedia($valor['id_loja']) > 0): ?>
+        <?php if ((int)$avaliacao->avaliacaoMedia($valor['id_loja']) > 0): ?>
             <script>
 
                 // Get percentage
@@ -102,7 +106,9 @@ include "include/navbar.php";
             </script>
         <?php endif; ?>
 
-        <?php endforeach; ?>
+        <?php endforeach;
+            endif;
+        ?>
     </div>
 </div>
 
