@@ -1,0 +1,258 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-orange {
+    background-color: #ff763b;
+    color: #fff;
+}
+
+.btn-orange:hover {
+    background-color: #d06734;
+    color: #fff;
+}
+
+.btn-outline-orange {
+    color: #ff763b;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ff763b;
+}
+
+.btn-outline-orange:hover {
+    background-color: #ff763b;
+    background-image: none;
+    border-color: #ff763b;
+    color: #fff;
+}
+
+.bg-orange {
+    background-color: #ff763b;
+}
+
+.text-orange {
+    color: #ff763b;
+}
+
+.bg-soft-orange {
+    background-color: rgba(255, 126, 59, 0.8);
+}
+
+.bg-dark-orange {
+    background-color: #ff620d;
+}
+
+.border-orange {
+    border: 3px solid #ff620d;
+}
+
+.border-black {
+    border: 3px solid #000000;
+}
+
+.border-light {
+    border: 3px solid #fbfbfb;
+}
+
+.badge-orange {
+    background-color: #ff763b;
+    color: #ffffff;
+}
+
+.nav-item {
+    font-size: 18px !important;
+}
+
+.bg-black {
+    background-color: #191919;
+}
+
+.font-weight-bold {
+    letter-spacing: 1px;
+}
+
+.btn {
+    border-radius: 0 !important;
+}
+
+strong {
+    letter-spacing: 0.04em;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+/* Login responsive */
+#coluna1 {
+    background: url("../banner_index.jpg") no-repeat center center scroll;
+    opacity: 0.9;
+    background-size: cover;
+    -moz-backface-size: cover;
+    -o-background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 75%;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+}
+
+#coluna1 .text-fidelize {
+    position: absolute;
+    top: 65%;
+    margin-left: 1%;
+    margin-right: 5%;
+
+}
+
+/* digitação */
+.line {
+    position: relative;
+    width: 19.5em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Animation */
+.anim-typewriter {
+    animation: typewriter 4s steps(40) 1s 1 normal both,
+        blinkTextCursor 500ms steps(40) infinite normal;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 19.5em;
+    }
+}
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
+
+#coluna1 img {
+    opacity: 0.9;
+}
+
+#coluna2 {
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 90%;
+
+
+
+}
+
+#enterPage {
+    float: left;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+@media (max-width: 993px) {
+    #coluna1 {
+        width: 50%;
+    }
+}
+
+@media (max-width: 790px) {
+    #coluna1 {
+        width: 50%;
+    }
+
+    .text-fidelize {
+        margin-right: 30px;
+    }
+}
+
+
+@media (max-width: 725px) {
+    #coluna1 {
+        width: 50%;
+    }
+}
+
+@media (max-width: 740px) {
+    .text-fidelize img {
+        height: 100px;
+    }
+
+}
+
+@media (max-width: 650px) {
+    #coluna1 {
+        width: 50%;
+    }
+
+    .text-fidelize img {
+        height: 90px;
+    }
+
+    .text-fidelize h2 {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width: 575px) {
+    #coluna1 {
+        display: none;
+    }
+
+
+}
+
+@media screen and (max-width: 760px) {
+    .bg-index {
+        background-image: none;
+    }
+
+    .icon-fundo {
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        opacity: 0.3;
+    }
+}
+
+.icon-fundo {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    opacity: 0.3;
+}
+
+.menu-disable {
+    color: #000000;
+    opacity: 0.4;
+}
+
+.menu-activated {
+    color: #000000;
+    opacity: 1;
+}
+
+
+.bg-diamante{
+    background-color: #03b5ff;
+}
+
+.bg-ouro{
+    background-color: #ffce41;
+}

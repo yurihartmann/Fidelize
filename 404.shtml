@@ -1,0 +1,26 @@
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <title>404 - Fidelize</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="media/images/logo.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="media/css/estilos.css">
+</head>
+<body class="bg-light">
+<section>
+    <div class="container-fluid pt-5">
+        <div class="container text-center">
+            <img class="img-transparence" src="https://fidelize.ga/media/images/fidelizetransparence.png">
+            <p class="mt-5 display-4">Ooops... ERROR 404!</p>
+            <span class="text-black-50">Desculpe, esta página não está aqui</span>
+            <hr class="my-5">
+            <a class="btn btn-orange mt-1" href="index.php" role="button">Voltar a página de Inicio</a>
+        </div>
+    </div>
+</section>
+</body>
