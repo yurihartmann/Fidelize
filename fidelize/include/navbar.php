@@ -44,7 +44,7 @@
     </div>
     <div class="float-right mr-3 d-none d-lg-block">
         <a href="../cliente/index.php" id="a" class="text-decoration-none"><span class="pr-2">Login</span></a>
-        <a href="../cliente/cadastro.php" class="btn btn-orange rounded-0" style="width: 130px;"><strong>Cadastrar-se</strong></a>
+        <a href="../cliente/cadastro.php" class="btn btn-orange rounded-0" style="width: 160px;"><strong>Cadastrar-se</strong></a>
     </div>
 </nav>
 <div class="container-flex d-block  d-lg-none">
