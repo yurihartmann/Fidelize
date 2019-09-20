@@ -49,31 +49,31 @@ include "include/navbar.php";
                                 </div>
 
                                 <div class="btn-group btn-group-toggle d-none d-lg-block text-center" data-toggle="buttons">
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='gratuito') ?'active':''?>" title="Teste grátis" >
-                                        <input type="radio" name="plano" id="gratuito" class=""  autocomplete="off" <?=(isset($_GET['plano']) && $_GET['plano']=="gratuito") ? "checked":""?>> Gratuito
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'gratuito') ? 'active' : '' ?>" title="Teste grátis">
+                                        <input type="radio" name="plano" id="gratuito" class="" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "gratuito") ? "checked" : "" ?>> Gratuito
                                     </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='basico') ?'active':''?>"  title="R$ 1,50">
-                                        <input type="radio" name="plano" id="basico" class=""autocomplete="off" <?=(isset($_GET['plano']) && $_GET['plano']=="basico") ?"checked":""?>> Básico
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'basico') ? 'active' : '' ?>" title="R$ 1,50">
+                                        <input type="radio" name="plano" id="basico" class="" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "basico") ? "checked" : "" ?>> Básico
                                     </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='intermediario') ?'active':''?>" title="R$ 15,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="intermediario" autocomplete="off" <?=(isset($_GET['plano']) && $_GET['plano']=="intermediario") ?"checked":""?>> Intermediário
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'intermediario') ? 'active' : '' ?>" title="R$ 15,90 + R$ 1,50">
+                                        <input type="radio" name="plano" id="intermediario" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "intermediario") ? "checked" : "" ?>> Intermediário
                                     </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='avancado') ?'active':''?>" title="R$ 199,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="avancado" autocomplete="off" <?=(isset($_GET['plano']) && $_GET['plano']=="avancado") ?"checked":""?>> Avançado
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'avancado') ? 'active' : '' ?>" title="R$ 199,90 + R$ 1,50">
+                                        <input type="radio" name="plano" id="avancado" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "avancado") ? "checked" : "" ?>> Avançado
                                     </label>
                                 </div>
                                 <div class="btn-group-vertical btn-group-toggle d-block d-lg-none" data-toggle="buttons">
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='gratuito') ?'active':''?>" title="Teste grátis">
-                                        <input type="radio" name="plano" id="gratuito" autocomplete="off" <?=(isset($_GET["plano"]) && $_GET["plano"]=="gratuito") ? "checked":""?>> Gratuito
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'gratuito') ? 'active' : '' ?>" title="Teste grátis">
+                                        <input type="radio" name="plano" id="gratuito" autocomplete="off" <?= (isset($_GET["plano"]) && $_GET["plano"] == "gratuito") ? "checked" : "" ?>> Gratuito
                                     </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='basico') ?'active':''?>" title="R$ 1,50">
-                                        <input type="radio" name="plano" id="basico" autocomplete="off" <?=(isset($_GET['plano']) && $_GET['plano']=="basico") ?"checked":""?>> Básico
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'basico') ? 'active' : '' ?>" title="R$ 1,50">
+                                        <input type="radio" name="plano" id="basico" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "basico") ? "checked" : "" ?>> Básico
                                     </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='intermediario') ?'active':''?>" title="R$ 15,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="intermediario" autocomplete="off" <?=(isset($_GET['plano']) && $_GET['plano']=="intermediario") ?"checked":""?>> Intermediário
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'intermediario') ? 'active' : '' ?>" title="R$ 15,90 + R$ 1,50">
+                                        <input type="radio" name="plano" id="intermediario" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "intermediario") ? "checked" : "" ?>> Intermediário
                                     </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?=(isset($_GET['plano']) && $_GET['plano']=='avancado') ?'active':''?>" title="R$ 199,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="avancado" autocomplete="off" <?=(isset($_GET['plano']) && $_GET['plano']=="avancado") ?"checked":""?>> Avançado
+                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'avancado') ? 'active' : '' ?>" title="R$ 199,90 + R$ 1,50">
+                                        <input type="radio" name="plano" id="avancado" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "avancado") ? "checked" : "" ?>> Avançado
                                     </label>
                                 </div>
                                 <div class="text-center">
@@ -93,7 +93,7 @@ include "include/navbar.php";
                             <h5 class="card-text my-5">Um jeito prático e fácil para aumentar suas vendas. O que o cliente quer é sentir-se reconhecido e conhecido por você. Quando ele percebe que suas necessidades e desejos são compreendidos por sua empresa, que você sabe exatamente o que ele precisa e quando precisa, com certeza ele vai ter suas expectativas superadas. Esta é a melhor maneira de como fidelizar clientes: conhecer o máximo possível sobre eles e atender suas demandas de forma a surpreendê-los.</h5>
                         </div>
                         <div class="col-12 d-none d-lg-block">
-                            <img class="img-transparence" src="media/images/fidelizetransparence.png">
+                            <img class="img-transparence" src="../media/images/fidelize_preto.png">
                         </div>
 
                     </div>
@@ -104,10 +104,5 @@ include "include/navbar.php";
 
         </div>
     </div>
-<<<<<<< HEAD
-</div>
-=======
-    </div>
->>>>>>> 6c2376e85dcac1d05e8940cb8df31fb39e2009d9
 </content>
 <?php include "include/footer.php" ?>
