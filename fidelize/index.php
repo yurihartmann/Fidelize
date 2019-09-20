@@ -260,7 +260,7 @@ include "include/painel.php";
               Nossa clientela vem tendo muitas notificações de nossas ofertas, a cada dia conseguimos bater nossas metas de vendas e tudo isso graças ao FIDELIZE!
             </p>
             <hr />
-            <span class="description">Donizete-Imoveis</span>
+            <span class="description">Donizete-Móveis</span>
           </div>
                     
           <div class="testimonial" id="test-6">
