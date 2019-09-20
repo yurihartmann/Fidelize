@@ -13,7 +13,7 @@ include "include/header.php";
         <div class="col-12 col-md-8 offset-md-2 bg-light rounded mt-5">
             <div class="row">
                 <div class="col px-4 ml-4 pt-4">
-                    <a href="http://fidelize.ga" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Voltar</a>
+                    <a href="../fidelize/index.php" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Voltar</a>
                 </div>
             </div>
             <div class="row">
