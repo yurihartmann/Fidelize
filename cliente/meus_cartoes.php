@@ -49,7 +49,7 @@ include "include/navbar.php";
             <div class="text-center shadow p-5 bg-orange text-white">
                 <h2>Ainda pode economizar<br>
                     <div class="counter font-weight-bold"
-                         data-count="<?=number_format($registros->quantiaAindaParaEconomizar(), 2)?>">
+                         data-count="<?= number_format($registros->quantiaAindaParaEconomizar(), 2) ?>">
                         R$ 0
                     </div>
                 </h2>
@@ -89,18 +89,20 @@ include "include/navbar.php";
                             $estilo = "bg-diamante text-white";
                             break;
                     endswitch; ?>
-                    <div title="Esse e um cartao patrocinado!" class="<?=$estilo?> p-1 ml-2 text-center p-2"
+                    <div title="Esse e um cartao patrocinado!" class="<?= $estilo ?> p-1 ml-2 text-center p-2"
                          style="margin-top: -40px; width: 200px;position: relative">
-                        <strong>Cartão: <?=$cartaoFidelidade->getDestaqueCartao($valor['id_cartao'])?></strong>
+                        <strong>Cartão: <?= $cartaoFidelidade->getDestaqueCartao($valor['id_cartao']) ?></strong>
                     </div>
                     <div class="card-body">
-                        <a href="loja.php?id_loja=<?=$valor['id_loja']?>" class="text-decoration-none">
-                            <p class="card-text text-orange font-weight-bold"><i class="fas fa-store-alt"></i> <?= limitaTexto(25,$valor['nome_loja']) ?></p>
+                        <a href="loja.php?id_loja=<?= $valor['id_loja'] ?>" class="text-decoration-none">
+                            <p class="card-text text-orange font-weight-bold"><i
+                                        class="fas fa-store-alt"></i> <?= limitaTexto(25, $valor['nome_loja']) ?></p>
                         </a>
                         <h4 class="card-title font-weight-bold text-center mt-3"><?= $valor['nome_cartao'] ?></h4>
-                        <p class="card-text font-weight-light"><?= limitaTexto(140,$valor['descricao']) ?></p>
+                        <p class="card-text font-weight-light"><?= limitaTexto(140, $valor['descricao']) ?></p>
                         <p class="font-weight-light"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></p>
-                        <p class="font-weight-light"><strong>Prêmio:</strong> <?= limitaTexto(50,$valor['premio']) ?></p>
+                        <p class="font-weight-light"><strong>Prêmio:</strong> <?= limitaTexto(50, $valor['premio']) ?>
+                        </p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item h4">
