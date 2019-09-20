@@ -64,6 +64,12 @@
 
 }
 
+.img-transparence {
+    opacity: 0.5;
+
+
+}
+
 .header h1 {
     font-size: 60px;
     letter-spacing: 1px;
