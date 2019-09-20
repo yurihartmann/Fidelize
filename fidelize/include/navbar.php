@@ -36,7 +36,7 @@
                 <span class="nav-link font-weight-light">|</span>
             </li>
             <li class="nav-item <?= (basename($_SERVER['PHP_SELF'], '.php') == 'somos' ? 'active' : '') ?>">
-                <a class="nav-link" href="somos.php">Quem somos</a>
+                <a class="nav-link" href="somos.php">Quem Somos</a>
             </li>
             </ul>
     </div>

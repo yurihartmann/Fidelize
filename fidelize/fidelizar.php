@@ -104,10 +104,5 @@ include "include/navbar.php";
 
         </div>
     </div>
-<<<<<<< HEAD
-</div>
-=======
-    </div>
->>>>>>> 6c2376e85dcac1d05e8940cb8df31fb39e2009d9
 </content>
 <?php include "include/footer.php" ?>
