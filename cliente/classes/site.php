@@ -9,9 +9,9 @@ class Site
 
     public $conexao;
 
-    const LOCAL = 'localhost';
-    const USER = 'root';
-    const PASS = '';
+    const LOCAL = 'pojigo.tk';
+    const USER = 'fidelize';
+    const PASS = '1qaz2wsxentra21';
     const DB = 'fidelize_master';
 
     /**

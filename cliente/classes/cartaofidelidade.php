@@ -7,15 +7,24 @@ class cartaofidelidade extends Site
 
     function descubra()
     {
+        if (!isset($_GET['page']) || !is_numeric($_GET['page'])){
+            $page= 1;
+        } else {
+            $page = $_GET['page'];
+        }
+
         $num_cliente = $_SESSION["cliente_id"];
+
         $sql = "select
                 cF.*, l.nome, l.id as id_loja,
                 (select count(*) from registro_cartaoFidelidade where registro_cartaoFidelidade.fk_cliente = '$num_cliente' and fk_carimbo = cF.id ) as total_registro
                 from cartaoFidelidade cF
                 inner join lojas l on cF.fk_loja = l.id
                 having total_registro = 0 and data_inicio < now() and data_fim > now()
-                order by cF.fk_destaque desc ";
+                order by cF.fk_destaque desc limit $page, 9";
+        var_dump($sql);
         $query = mysqli_query($this->conexao, $sql);
+
         if ($query)
             return mysqli_fetch_all($query, MYSQLI_ASSOC);
         else
