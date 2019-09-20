@@ -1,23 +1,24 @@
 $(document).ready(function () {
 
-    $('.counter').each(function() {
+    $('.counter').each(function () {
         var $this = $(this),
             countTo = $this.attr('data-count');
 
-        $({ countNum: $this.text()}).animate({
-                countNum: countTo
+        $({
+            countNum: $this.text()
+        }).animate({
+            countNum: countTo
+        }, {
+            duration: 1500,
+            easing: 'swing',
+            step: function () {
+                $this.text("R$ " + Math.floor(this.countNum).toFixed(2).toString().replace('.', ','));
             },
-            {
-                duration: 1500,
-                easing:'swing',
-                step: function() {
-                    $this.text("R$ " + Math.floor(this.countNum).toFixed(2).toString().replace('.',','));
-                },
-                complete: function() {
-                    $this.text( "R$ " + this.countNum.toFixed(2).toString().replace('.',','));
-                }
+            complete: function () {
+                $this.text("R$ " + this.countNum.toFixed(2).toString().replace('.', ','));
+            }
 
-            });
+        });
 
     });
 
@@ -40,6 +41,7 @@ $(document).ready(function () {
         let inputSenha = $('#inputSenha');
         let inputConfirmaSenha = $('#inputCSenha');
 
+
         let valid = true;
 
         if (inputPhone.val().length < 15) {
@@ -51,16 +53,19 @@ $(document).ready(function () {
             inputPhone.addClass('is-valid');
         }
 
-        if (inputNome.val().length < 2) {
+
+        if (inputNome.val().length < 2 || inputNome.val().indexOf(" ") == 0 || inputNome.val().indexOf(" ") == 1) {
             inputNome.removeClass('is-valid');
             inputNome.addClass('is-invalid');
             valid = false;
         } else {
+
             inputNome.removeClass('is-invalid');
             inputNome.addClass('is-valid');
         }
 
-        if (inputEmail.val().length == 0 || inputEmail.val().indexOf('@') == -1 || inputEmail.val().indexOf('.') == -1) {
+
+        if (inputEmail.val().length == 0 || inputEmail.val().indexOf('@') == -1 || inputEmail.val().indexOf('.') == -1 || inputEmail.val().search(/\s/g) > -1) {
             inputEmail.removeClass('is-valid');
             inputEmail.addClass('is-invalid');
             valid = false;
@@ -87,6 +92,7 @@ $(document).ready(function () {
             inputConfirmaSenha.addClass('is-valid');
         }
 
+
         return valid;
 
     }
@@ -94,8 +100,13 @@ $(document).ready(function () {
     $('#btnCadastrar').click(function (e) {
         let btnCadastrar = $('#btnCadastrar');
         e.preventDefault();
+        let inputNome = $('#inputNome');
+        let inputEmail = $('#inputEmail');
 
         if (verificaCadastro()) {
+            inputNome.val(inputNome.val().trim());
+            inputEmail.val(inputEmail.val().trim());
+
             btnCadastrar.removeClass('btn-orange');
             btnCadastrar.addClass('btn-secondary');
             btnCadastrar.attr('disabled', true);

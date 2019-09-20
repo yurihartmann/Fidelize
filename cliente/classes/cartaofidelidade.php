@@ -7,12 +7,6 @@ class cartaofidelidade extends Site
 
     function descubra()
     {
-        if (!isset($_GET['page']) || !is_numeric($_GET['page'])){
-            $page= 1;
-        } else {
-            $page = $_GET['page'];
-        }
-
         $num_cliente = $_SESSION["cliente_id"];
 
         $sql = "select
@@ -21,8 +15,7 @@ class cartaofidelidade extends Site
                 from cartaoFidelidade cF
                 inner join lojas l on cF.fk_loja = l.id
                 having total_registro = 0 and data_inicio < now() and data_fim > now()
-                order by cF.fk_destaque desc limit $page, 9";
-        var_dump($sql);
+                order by cF.fk_destaque desc limit 1,15";
         $query = mysqli_query($this->conexao, $sql);
 
         if ($query)
