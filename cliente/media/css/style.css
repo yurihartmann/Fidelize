@@ -14,7 +14,7 @@
 
 .stars-outer::before {
     content: "\f005 \f005 \f005 \f005 \f005";
-    font-family: fontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 40px;
     color: #ccc;
@@ -22,7 +22,7 @@
 
 .stars-inner::before {
     content: "\f005 \f005 \f005 \f005 \f005";
-    font-family: fontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 40px;
     color: #ff8933;
@@ -45,7 +45,7 @@
 
 .stars-sm-outer::before {
     content: "\f005 \f005 \f005 \f005 \f005";
-    font-family: fontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-weight: 500;
     font-size: 16px;
     color: #ccc;
@@ -53,7 +53,7 @@
 
 .stars-sm-inner::before {
     content: "\f005 \f005 \f005 \f005 \f005";
-    font-family: fontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-weight: 500;
     font-size: 16px;
     color: #ff8933;

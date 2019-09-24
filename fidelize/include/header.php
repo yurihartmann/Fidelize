@@ -9,8 +9,8 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="../media/css/bootstrap.min.css">
 	<link rel="stylesheet" href="media/css/estilos.css">
-	<script src="../media/js/font_awesome.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../media/css/font_awesome.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
  	<!-- Carousel CSS -->  
     <link rel="stylesheet" type="text/css" href="media/slick/slick.css" />
