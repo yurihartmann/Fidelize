@@ -96,4 +96,16 @@ function limpaMascaraNumero($numero){
     return str_replace('-', '', $numero);
 }
 
+function setEmailDigitado($email){
+    $email['email'] = $email;
+    setcookie('email_digitado', serialize($email), time() + 30);
+}
+
+function getEmailDigitado(){
+    if (isset($_COOKIE['email_digitado']) && !is_null($_COOKIE['email_digitado'])) {
+        $email = unserialize($_COOKIE['email_digitado']);
+        return $email;
+    }
+}
+
 ?>

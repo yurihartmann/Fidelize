@@ -73,7 +73,7 @@ include "include/navbar.php";
                                 break;
                          endswitch; ?>
                         <div class="<?=$estilo?> p-1 ml-2 text-center p-2"
-                             style="margin-top: -40px; width: 120px; position: relative">
+                             style="margin-top: -40px; width: 130px; position: relative">
                             <strong><?=$cartao->getDestaqueCartao($valor['id'])?>!</strong>
                         </div>
                         <div class="card-body">

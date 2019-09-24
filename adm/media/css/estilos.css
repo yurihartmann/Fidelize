@@ -93,7 +93,7 @@
 
 .stars-outer::before {
   content: "\f005 \f005 \f005 \f005 \f005";
-  font-family: fontAwesome;
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-size: 40px;
   color: #ccc;
@@ -101,7 +101,7 @@
 
 .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
-  font-family: fontAwesome;
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-size: 40px;
   color: #ff8933;
@@ -119,8 +119,8 @@
 }
 .icon-fundo{
   position: absolute;
-  right: 30px;
-  bottom: 30px;
+  right: 35px;
+  bottom: 40px;
   opacity: 0.3;
 }
 

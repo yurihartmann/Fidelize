@@ -28,15 +28,8 @@ class Site
         require_once "vendor/autoload.php";
 
 
-        if (!isset($_SESSION))
-            session_start();
 
-        /* AUTOLOAD
-         * Metodo mágico que vai carregar os arquivos
-         * das classes automaticamente com base no nome
-         * da classe. O nome do arquivo php deve ter o
-         * mesmo nome da classe.
-         */
+        session_start();
 
 
         // Iniciando a Conexão
@@ -57,8 +50,6 @@ class Site
             $session->veficaSession();
         else
             $session->vericaSeJaLogado();
-
-        // Poderia ser utilizado aqui também para incluir o HEADER do site
 
 
     }

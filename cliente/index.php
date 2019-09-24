@@ -2,6 +2,8 @@
 require_once "classes/site.php";
 $site = new Site();
 
+$email_digitado = getEmailDigitado();
+
 include "include/header.php";
 ?>
 
@@ -36,7 +38,8 @@ include "include/header.php";
                     <form method="post">
                         <div class="form-group">
                             <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control rounded-0" name="inputEmail" id="inputEmail" placeholder="Digite seu email...">
+                            <input type="email" class="form-control rounded-0" name="inputEmail" id="inputEmail"
+                                   placeholder="Digite seu email..." value="<?=(isset($email_digitado) ? $email_digitado : "")?>">
                         </div>
                         <div class="form-group">
                             <label for="inputSenha">Senha</label>
@@ -55,4 +58,5 @@ include "include/header.php";
 </div>
 
 <?php
+
 include_once "include/footer.php" ?>

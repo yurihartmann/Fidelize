@@ -19,6 +19,7 @@ $cartaoFidelidade = new cartaofidelidade();
 
 include "include/header.php";
 // INCLUINDO NAVBAR
+$ativo = "nada";
 include "include/navbar.php";
 ?>
 
@@ -35,7 +36,7 @@ include "include/navbar.php";
             <?php if (empty($dados['img'])): ?>
                 <img src="../media/images/perfil_generico.jpg" class="img-fluid rounded-circle border-orange" style="width: 200px; height: 200px">
             <?php else: ?>
-                <img src="https://adm.fidelize.ga/uploads/<?= $dados['img'] ?>"
+                <img src="../uploads/<?= $dados['img'] ?>"
                      class="img-fluid rounded-circle border-orange" style="width: 200px; height: 200px">
             <?php endif; ?>
         </div>
@@ -98,6 +99,27 @@ include "include/navbar.php";
                                  class="card-img-top rounded-0 banner">
                         <?php endif ?>
                     </div>
+                    <?php
+                    $estilo = "alo";
+                    switch ($valor['fk_destaque']):
+                        case "1":
+                            $estilo = "d-none";
+                            break;
+                        case "2":
+                            $estilo = "bg-light text-dark";
+                            break;
+                        case "3":
+                            $estilo = "bg-ouro text-white";
+                            break;
+                        case "4":
+                            $estilo = "bg-diamante text-white";
+                            break;
+                    endswitch; ?>
+                    <div title="Esse é um cartão patrocinado!" class="<?= $estilo ?> p-1 ml-2 text-center p-2"
+                         style="margin-top: -44px; width: 200px;position: relative">
+                        <strong>Cartão: <?= $cartaoFidelidade->getDestaqueCartao($valor['id']) ?></strong>
+                    </div>
+
                     <div class="card-body">
                         <h4 class="card-title font-weight-bold text-center" style="clear: both"><?= $valor['nome_cartao'] ?></h4>
                         <p class="card-text font-weight-light"><?= $valor['descricao'] ?></p>

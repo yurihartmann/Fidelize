@@ -30,7 +30,7 @@ include "include/header.php";
                             <label for="inputEmail">Email</label>
                             <input type="email"
                                    class="form-control rounded-0" name="inputEmail" id="inputEmail"
-                                   placeholder="Digite seu email...">
+                                   placeholder="Digite seu email..." value="<?=(isset($_SESSION['email_digitado'])? $_SESSION['email_digitado'] : "")?>">
                         </div>
                         <div class="form-group">
                             <label for="inputSenha">Senha</label>
