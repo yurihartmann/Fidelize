@@ -83,7 +83,7 @@ $(document).ready(function () {
             inputSenha.addClass('is-valid');
         }
 
-        if (inputConfirmaSenha.val() != inputSenha.val() || inputConfirmaSenha.val().length < 8) {
+        if (inputConfirmaSenha.val() !== inputSenha.val() || inputConfirmaSenha.val().length < 8) {
             inputConfirmaSenha.removeClass('is-valid');
             inputConfirmaSenha.addClass('is-invalid');
             valid = false;

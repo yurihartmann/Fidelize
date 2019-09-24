@@ -47,6 +47,7 @@ class session
             header("Location: descubra.php");
         } else {
             $_SESSION['cliente_logado'] = false;
+            setEmailDigitado($email);
             setAlerta('danger', "<strong>Email ou senha inválidos</strong>, tente novamente");
             header("Location: index.php");
         }
