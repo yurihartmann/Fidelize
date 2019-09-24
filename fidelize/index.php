@@ -208,12 +208,13 @@ include "include/painel.php";
 			<div class="inner-widht">
 				<h1>O que empresas Fidelizadas dizem</h1>
 				<div class="testimonial-pics">
-					<img src="../media/images/emp1.png" alt="test-1" class="active m-3" />
-					<img src="../media/images/emp2.png" alt="test-2" />
-					<img src="../media/images/emp3.png" alt="test-3" />
-					<img src="../media/images/emp4.png" alt="test-4" />
-					<img src="../media/images/emp5.png" alt="test-5" />
-					<img src="../media/images/emp6.png" alt="test-6" />
+					<img src="../media/images/emp1.png" alt="test-1" class="active my-1" />
+					<img src="../media/images/emp2.png" alt="test-2" class="my-1" />
+					<img src="../media/images/emp3.png" alt="test-3" class="my-1" />
+					<img src="../media/images/emp4.png" alt="test-4" class="my-1" />
+					<img src="../media/images/emp5.png" alt="test-5" class="my-1" />
+					<img src="../media/images/emp6.png" alt="test-6" class="my-1" />
+
 				</div>
 
 				<div class="testimonial-contents">
