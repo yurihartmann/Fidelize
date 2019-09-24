@@ -8,7 +8,7 @@ class Site
 
     public $conexao;
 
-    const LOCAL = 'pojigo.tk';
+    const LOCAL = 'mysql669.umbler.com:41890';
     const USER = 'fidelize';
     const PASS = '1qaz2wsxentra21';
     const DB = 'fidelize_master';

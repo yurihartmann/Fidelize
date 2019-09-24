@@ -27,7 +27,7 @@ include "include/navbar.php";
             <div class="row">
                 <div class="col text-center mt-3 mb-5">
                     <?php if ($_SESSION['cliente_img'] != null && $_SESSION['cliente_img'] != ''): ?>
-                        <img style="width: 200px; height: 200px" src="uploads/<?=$_SESSION['cliente_img']?>" class="rounded-circle mx-3 border-orange">
+                        <img style="width: 200px; height: 200px" src="../uploads/<?=$_SESSION['cliente_img']?>" class="rounded-circle mx-3 border-orange">
                     <?php else: ?>
                         <img src="../media/images/perfil_generico.jpg" height="200px" class="rounded-circle mx-3 border-orange">
                     <?php endif;?>

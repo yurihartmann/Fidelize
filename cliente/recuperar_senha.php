@@ -35,7 +35,7 @@ include "include/header.php";
                             <div class="form-group">
                                 <label for="telefoneRecuperacao">Seu Telefone</label>
                                 <input type="text"
-                                       class="form-control" name="telefoneRecuperacao" id="telefoneRecuperacao"
+                                       class="form-control rounded-0" name="telefoneRecuperacao" id="telefoneRecuperacao"
                                        inputmode="numeric">
                             </div>
                             <button type="submit" class="btn btn-block btn-lg btn-orange mt-3" name="btnContinuar">Recuperar <i class="fas fa-arrow-right"></i></button>
