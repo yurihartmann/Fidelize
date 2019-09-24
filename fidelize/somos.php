@@ -37,10 +37,10 @@ include "include/navbar.php";
                 <p>Responsável pelo sistema de suporte/fidelidade, interações com ajax usando javascript, colaborando com o design e corpo do Fidelize.</p>
             </div>
             <div class="col-12 col-lg-3 text-center p-3">
-                <img src="../media/images/perfil_generico.jpg" class="img-fluid rounded-circle mb-4" style="height: 200px">
+                <img src="../media/images/gabriel.jpg" class="img-fluid rounded-circle mb-4" style="height: 200px">
                 <h2 class=""><strong>Gabriel Luchtenberg</strong></h2>
                 <h4>Back End</h4>
-                <p>Responsável pela Back-End, dando prioridade a funcionabilidade do sistema </p>
+                <p>Responsável pela Back-End, dando prioridade a funcionabilidade do sistema, realizando interações primordiais para a manipulação do sistema Fidelize. </p>
             </div>
         </div>
     </div>
