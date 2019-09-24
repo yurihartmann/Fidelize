@@ -50,6 +50,9 @@ class Site
         $session = new session($this->conexao);
         if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index')
             $session->veficaSession();
+        else if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) == 'index' && isset($_SESSION['empresa_logado']) && $_SESSION['empresa_logado'] == true)
+            header("Location: dashboard.php");
+
 
         // Poderia ser utilizado aqui também para incluir o HEADER do site
     }

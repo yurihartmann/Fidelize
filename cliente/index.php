@@ -18,13 +18,15 @@ include "include/header.php";
         <div id="coluna2" class="col-lg-4 col-sm-6 col-xs-12 mt-5">
             <div class="row mt-5">
                 <div class="col text-center my-2">
-
-
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-left my-2">
+                    <a href="../fidelize/index.php"><button class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Voltar</button></a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 text-center my-2">
-
                     <h1 class="font-weight-light">Login</h1>
                 </div>
             </div>
@@ -41,7 +43,7 @@ include "include/header.php";
                             <input type="password" class="form-control rounded-0" name="inputSenha" id="inputSenha" placeholder="Sua senha...">
                         </div>
 
-                        <a href="recuperar_senha.php" class="text-muted mb-3">Esqueceu a senha?</a>
+                        <a href="recuperar_senha.php" class="text-muted mb-3">Esqueceu o email ou senha?</a>
                         <button type="submit" class="btn btn-block btn-lg btn-orange mt-3 rounded-0" name="btnLogin">Entrar
                         </button>
                     </form>
