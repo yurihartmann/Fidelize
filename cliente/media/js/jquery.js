@@ -148,6 +148,7 @@ $(document).ready(function () {
 
     function verificaNomeConfig() {
         let inputNome = $('#inputNomeCliente');
+        let inputSenha = $('#inputSenhaConfig');
         let valid = true;
 
         if (inputNome.val().length > 3) {
@@ -157,6 +158,12 @@ $(document).ready(function () {
             valid = false;
             inputNome.addClass('is-invalid');
             inputNome.removeClass('is-valid');
+        }
+        if (inputSenha.val().length > 0){
+            inputSenha.removeClass('is-invalid');
+        } else {
+            valid = false;
+            inputSenha.addClass('is-invalid');
         }
 
         return valid;

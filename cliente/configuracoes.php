@@ -52,7 +52,7 @@ include "include/navbar.php";
                 <div class="form-group">
                     <label for="inputSenha">Senha Atual</label>
                     <input type="password"
-                           class="form-control rounded-0" name="inputSenha" id="inputSenha" aria-describedby="helpId" placeholder="" value="">
+                           class="form-control rounded-0" name="inputSenha" id="inputSenhaConfig" aria-describedby="helpId" placeholder="" value="">
                 </div>
                 <div class="form-group">
                     <label for="inputSenhaNova">Senha Nova</label>
