@@ -11,18 +11,6 @@
             <li class="nav-item active d-none d-lg-block">
                 <span class="nav-link font-weight-light">|</span>
             </li>
-
-            <li class="nav-item">
-
-
-            <li class="nav-item <?= (basename($_SERVER['PHP_SELF'], '.php') == 'precos' ? 'active' : '') ?>">
-
-                <a class="nav-link" href="index.php#precos">Preços</a>
-
-            </li>
-            <li class="nav-item active d-none d-lg-block">
-                <span class="nav-link font-weight-light">|</span>
-            </li>
             <li class="nav-item <?= (basename($_SERVER['PHP_SELF'], '.php') == 'suporte' ? 'active' : '') ?>">
                 <a class="nav-link" href="suporte.php">Suporte</a>
             </li>
