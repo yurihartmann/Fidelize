@@ -10,10 +10,7 @@
 			</div>
 			<div class="container">
 				<div class="btn-group-lg mb-5" role="group" aria-label="Exemplo básico">
-					<button type="button" class="btn btn-light"><i class="fab fa-twitter-square"></i></button>
-					<button type="button" class="btn btn-light"><i class="fab fa-facebook-square"></i></button>
-					<button type="button" class="btn btn-light"><i class="fab fa-linkedin"></i></button>
-					<button type="button" class="btn btn-light"><i class="fab fa-github-square"></i></button>
+					<a class="btn btn-light" target="_blank" href="https://github.com/yurihartmann/Fidelize"><i class="fab fa-github-square"></i></a>
 				</div>
 			</div>
 
