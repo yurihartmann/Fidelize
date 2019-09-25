@@ -117,17 +117,28 @@
   /* opacity: 0.9; */
   letter-spacing: -1px;
 }
-.icon-fundo{
+
+.icon-fundo {
   position: absolute;
   right: 35px;
   bottom: 40px;
   opacity: 0.3;
 }
 
-.bg-diamante{
+.bg-diamante {
   background-color: #03b5ff;
 }
 
-.bg-ouro{
+.bg-ouro {
   background-color: #ffce41;
+}
+
+.bg-adm {
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(../../../media/images/empresa.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+
 }

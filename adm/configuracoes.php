@@ -27,45 +27,41 @@ include "include/navbar.php";
             <h1 class="text-center font-weight-light">Minha Empresa</h1>
             <div class="row">
                 <div class="col text-center mt-3 mb-5">
-                    <?php if ($_SESSION['empresa_img'] != null && $_SESSION['empresa_img'] != ''): ?>
-                        <img style="width: 200px; height: 200px" src="../uploads/<?=$_SESSION['empresa_img']?>" class="rounded-circle mx-3 border-orange">
-                    <?php else: ?>
+                    <?php if ($_SESSION['empresa_img'] != null && $_SESSION['empresa_img'] != '') : ?>
+                        <img style="width: 200px; height: 200px" src="../uploads/<?= $_SESSION['empresa_img'] ?>" class="rounded-circle mx-3 border-orange">
+                    <?php else : ?>
                         <img src="../media/images/perfil_generico.jpg" height="100px" class="rounded-circle mx-3 border-orange">
-                    <?php endif;?>
+                    <?php endif; ?>
                 </div>
             </div>
             <form method="post" class="" id="formSalvarConfig" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="inputNomeLoja">Nome da Loja</label>
-                    <input type="text"
-                    class="form-control rounded-0" name="nome" id="inputNomeLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome'] : '') ?>">
+                    <input type="text" class="form-control rounded-0" name="nome" id="inputNomeLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['nome'] : '') ?>">
                 </div>
                 <div class="form-group">
                     <label for="inputDescricao">Descrição</label>
-                    <textarea class="form-control" id="inputDescricao" name="inputDescricao" rows="4"><?= (is_array($registros) ? $registros['descricao'] : '') ?></textarea>
+                    <textarea class="form-control rounded-0" id="inputDescricao" name="inputDescricao" rows="4"><?= (is_array($registros) ? $registros['descricao'] : '') ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="inputEmailLoja">Email</label>
-                    <input type="email"
-                    class="form-control rounded-0" name="email" id="inputEmailLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" readonly>
+                    <input type="email" class="form-control rounded-0" name="email" id="inputEmailLoja" aria-describedby="helpId" placeholder="" value="<?= (is_array($registros) ? $registros['email'] : '') ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="inputSenha">Senha Atual</label>
-                    <input type="password"
-                    class="form-control rounded-0" name="old_senha" id="inputSenha" aria-describedby="helpId" placeholder="" value="">
+                    <input type="password" class="form-control rounded-0" name="old_senha" id="inputSenha" aria-describedby="helpId" placeholder="" value="">
                 </div>
                 <div class="form-group">
                     <label for="inputSenhaNova">Senha Nova</label>
-                    <input type="password"
-                    $id_loja                  class="form-control rounded-0" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
+                    <input type="password" $id_loja class="form-control rounded-0" name="new_senha" id="inputSenhaNova" aria-describedby="helpId" placeholder="" value="">
                     <small id="helpId" class="form-text text-muted">Se nao deseja alterar a senha deixe o campo em branco.</small>
                 </div>
 
                 <div class="form-group">
                     <label for="">Segmento da Empresa</label>
                     <select class="custom-select" name="segmento" id="">
-                        <?php foreach ($segmento as $chave => $valor):?>
-                            <option value="<?=$valor['id']?>" <?= ($registros['segmento'] == $valor['id'])? 'selected ': '' ?>><?=$valor['nome_segmento']?></option>
+                        <?php foreach ($segmento as $chave => $valor) : ?>
+                            <option value="<?= $valor['id'] ?>" <?= ($registros['segmento'] == $valor['id']) ? 'selected ' : '' ?>><?= $valor['nome_segmento'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
