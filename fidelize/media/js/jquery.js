@@ -205,21 +205,7 @@ $(document).ready(function () {
 
 
 
-	$('#buttonfidelizar').click(function () {
-		swal({
-			text: "Você pode tirar suas dúvidas pelo Suporte, podemos redirecionar para à página?",
-			buttons: {
-				cancel: "Sair",
-				confirm: {
-					value: 1,
-				},
-			},
-		}).then((value) => {
-			if (value == 1) {
-				window.location.href = 'suporte.php';
-			}
-		});
-	});
+	
 
 });
 

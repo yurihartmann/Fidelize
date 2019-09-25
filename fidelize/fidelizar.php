@@ -51,9 +51,6 @@ $segmentos = mysqli_fetch_all($query);
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="text-center pb-2">                                    
-                                    <small><a class="btn-sm btn-white text-muted" id="buttonfidelizar" >Alguma dúvida sobre planos?</a></small>
-                                </div>
                             </form>
                             <div class="text-center my-2">
                                 <input class="btn btn-orange btn-lg btn-block  rounded-0" name="btnSalvarFidelizar" id="btnSalvarFidelizar" type="button" value="Enviar">
