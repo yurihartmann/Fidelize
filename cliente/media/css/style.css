@@ -80,24 +80,26 @@
 
 .rating label:before {
     content: "\f005";
-    font-family: fontAwesome;
+    font-family: 'Font Awesome 5 Free';
     position: relative;
     display: block;
-    font-size: 50px;
+    font-size: 45px;
     color: rgba(16, 16, 16, 0.31);
+    font-weight: 900;
 }
 
 .rating label:after {
     content: "\f005";
-    font-family: fontAwesome;
+    font-family: 'Font Awesome 5 Free';
     position: absolute;
     display: block;
-    font-size: 50px;
+    font-size: 45px;
     color: #ff8933;
     top: 0;
     opacity: 0;
     transition: 0.5s;
     text-shadow: 0 2px 5px rgba(16, 16, 16, 0.31);
+    font-weight: 900;
 }
 
 .rating label:hover:after,
