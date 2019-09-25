@@ -9,7 +9,6 @@ $(document).ready(function () {
 		type: 'POST',
 		data: {},
 		success: function (resultado) {
-			console.log(resultado);
 			totalcliente = resultado;
 		}
 	});
@@ -39,7 +38,6 @@ $(document).ready(function () {
 		type: 'POST',
 		data: {},
 		success: function (result) {
-			console.log(result);
 			totalcupons = result;
 		}
 	});
@@ -70,7 +68,6 @@ $(document).ready(function () {
 		type: 'POST',
 		data: {},
 		success: function (resultado) {
-			console.log(resultado);
 			totalempresas = resultado;
 		}
 	});

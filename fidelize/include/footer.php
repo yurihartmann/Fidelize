@@ -32,9 +32,5 @@
 	<script src="../media/js/jquery-3.4.1.min.js"></script>
 	<script src="../media/js/bootstrap.min.js"></script>
 	<script src="media/js/jquery.js"></script>
-<!--	-->
-<!--<!--CAROUSEL JS-->-->
-<!--    <script type="text/javascript" src="../code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
-<!--    <script type="text/javascript" src="media/slick/slick.min.js"></script>-->
 </body>
 </html>
