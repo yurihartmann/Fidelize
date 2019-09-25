@@ -20,4 +20,14 @@
     <link rel="stylesheet" href="../media/css/font_awesome.css">
 </head>
 
-<body class="bg-light" style="margin-bottom: 80px;">
+
+
+<!-- SE NÃO FOR INDEX IMAGEM -->
+<?php if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index') : ?>
+
+    <body class="bg-light" style="margin-bottom: 80px;">
+        <!-- SE FOR INDEX IMAGEM -->
+    <?php else : ?>
+
+        <body class="bg-adm" style="margin-bottom: 80px;">
+        <?php endif; ?>

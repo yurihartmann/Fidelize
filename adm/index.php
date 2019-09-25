@@ -17,27 +17,24 @@ include "include/header.php";
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 col-12 offset-md-2 text-center mt-5 mb-3 px-5 p-md-0">
-                    <img src="../media/images/fidelize_adm_preto.png" class="img-fluid">
+                <div class="col-md-8 col-12 offset-md-2 text-center mt-4 mb-3 px-5 p-md-0">
+                    <img src="../media/images/fidelize_adm_preto.png" class="img-fluid" style="width:350px;">
                     <h1></h1>
                 </div>
             </div>
-            <div class="row mb-3">
-                <div class="col px-5 py-4">
+            <div class="row">
+                <div class="col px-4 ">
                     <?php getAlerta(); ?>
                     <form method="post">
                         <div class="form-group">
                             <label for="inputEmail">Email</label>
-                            <input type="email"
-                                   class="form-control rounded-0" name="inputEmail" id="inputEmail"
-                                   placeholder="Digite seu email..." value="<?=(isset($_SESSION['email_digitado'])? $_SESSION['email_digitado'] : "")?>">
+                            <input type="email" class="form-control rounded-0" name="inputEmail" id="inputEmail" placeholder="Digite seu email..." value="<?= (isset($_SESSION['email_digitado']) ? $_SESSION['email_digitado'] : "") ?>">
                         </div>
                         <div class="form-group">
                             <label for="inputSenha">Senha</label>
-                            <input type="password" class="form-control rounded-0" name="inputSenha" id="inputSenha"
-                                   placeholder="Sua senha...">
+                            <input type="password" class="form-control rounded-0" name="inputSenha" id="inputSenha" placeholder="Sua senha...">
                         </div>
-                        <button class="btn btn-block btn-lg btn-orange" type="submit" name="btnEntrar">Login</button>
+                        <button class="btn btn-block btn-lg btn-orange my-5 type=" submit" name="btnEntrar">Login</button>
                     </form>
                 </div>
             </div>
@@ -47,5 +44,3 @@ include "include/header.php";
 
 
 <?php include "include/footer.php" ?>
-
-
