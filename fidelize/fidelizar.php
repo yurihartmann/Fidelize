@@ -1,16 +1,15 @@
 <?php
 include "include/header.php";
 include "include/navbar.php";
+include_once "ajax/site.php";
+$sql = "SELECT * FROM segmento";
+$query= mysqli_query($conexao, $sql);
+$segmentos = mysqli_fetch_all($query);
+//die(var_dump($segmentos));
+
 
 
 ?>
-
-
-
-
-
-
-
 <div class="header">
     <div class="container">
         <div class="row center">
@@ -44,40 +43,13 @@ include "include/navbar.php";
                                     <label for="mensagem" class="">Descrição da Empresa</label>
                                     <textarea class="form-control rounded-0" id="mensagem" name="mensagem" rows="3" placeholder="Somos fidelizados etc..." required=""></textarea>
                                 </div>
-                                <div class="text-center my-2">
-                                    <span class="h5">Escolha um pacote Fidelize</span>
-                                </div>
-
-                                <div class="btn-group btn-group-toggle d-none d-lg-block text-center" data-toggle="buttons">
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'gratuito') ? 'active' : '' ?>" title="Teste grátis">
-                                        <input type="radio" name="plano" id="gratuito" class="" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "gratuito") ? "checked" : "" ?>> Gratuito
-                                    </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'basico') ? 'active' : '' ?>" title="R$ 1,50">
-                                        <input type="radio" name="plano" id="basico" class="" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "basico") ? "checked" : "" ?>> Básico
-                                    </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'intermediario') ? 'active' : '' ?>" title="R$ 15,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="intermediario" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "intermediario") ? "checked" : "" ?>> Intermediário
-                                    </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'avancado') ? 'active' : '' ?>" title="R$ 199,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="avancado" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "avancado") ? "checked" : "" ?>> Avançado
-                                    </label>
-                                </div>
-                                <div class="btn-group-vertical btn-group-toggle d-block d-lg-none" data-toggle="buttons">
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'gratuito') ? 'active' : '' ?>" title="Teste grátis">
-                                        <input type="radio" name="plano" id="gratuito" autocomplete="off" <?= (isset($_GET["plano"]) && $_GET["plano"] == "gratuito") ? "checked" : "" ?>> Gratuito
-                                    </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'basico') ? 'active' : '' ?>" title="R$ 1,50">
-                                        <input type="radio" name="plano" id="basico" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "basico") ? "checked" : "" ?>> Básico
-                                    </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'intermediario') ? 'active' : '' ?>" title="R$ 15,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="intermediario" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "intermediario") ? "checked" : "" ?>> Intermediário
-                                    </label>
-                                    <label class="btn btn-light text-primary font-weight-bold <?= (isset($_GET['plano']) && $_GET['plano'] == 'avancado') ? 'active' : '' ?>" title="R$ 199,90 + R$ 1,50">
-                                        <input type="radio" name="plano" id="avancado" autocomplete="off" <?= (isset($_GET['plano']) && $_GET['plano'] == "avancado") ? "checked" : "" ?>> Avançado
-                                    </label>
-                                </div>
-                                <div class="text-center p-2">                                    
-                                    <small><a class="btn-sm btn-light text-muted" id="buttonfidelizar" >Alguma dúvida de pacotes clique aqui!</a></small>
+                                <div class="form-group">
+                                    <label for="">Segmento da Empresa</label>
+                                    <select class="custom-select" name="segmento" id="segmento">
+                                        <?php foreach ($segmentos as $chave => $valor) : ?>
+                                            <option value="<?= $valor[0] ?>"><?= $valor[1] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </form>
                             <div class="text-center my-2">
