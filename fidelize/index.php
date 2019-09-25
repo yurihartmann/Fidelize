@@ -9,158 +9,50 @@ include "include/painel.php";
 
 <content class="container-fluid" style=overflow-x: hidden;>
 	<div class="container">
+        <div class="row">
+            <div class="col-12 px-5 py-4 text-center">
+                <h1 class="font-weight-light">O fidelize é 100% gratuito, mas você pode destacar seus Cartões Fidelidade.</h1>
+            </div>
+        </div>
 		<div class="row">
-
-			<div class="col-sm-12" id="precos">
-				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-1">
-					<!-- Modal pequeno -->
-					<a href="#"><i class="far fa-question-circle fa-sm float-right" data-toggle="modal" data-target=".free"></i></a>
-
-					<div class="modal fade free" tabindex="-1" role="dialog" aria-labelledby="free" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<span class=" text font-weight-bold text-muted">GRATUITO <i class="fas fa-check text-green"></i></span>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body text-muted">
-									Os primeiros 10 clientes a completar o cupom é gratuito. Tenha o direito de testar no primeiro mês os beneficios sem nenhum custo!
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- CARD -->
-					<div class="card-body">
-						<h5 class="card-title text-orange"><strong>GRATUITO</strong></h5>
-						<p class="card-text text-muted">Os primeiros 10 clientes a completar o cupom é gratuito sem válidade única, aproveite para testar!</p>
-						<hr>
-
-						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
-						<div>
-							<a href="#" class="text-decoration-none h2"><strong>R$ 0,00</strong></a>
-						</div>
-
-						<a class="btn btn-orange float-right d-none d-lg-block	" href="fidelizar.php?plano=gratuito" role="button">QUERO TESTAR</a>
-
-
-					</div>
-					<a class="btn btn-orange btn-block float-right d-block d-lg-none" href="fidelizar.php?plano=gratuito" role="button">QUERO TESTAR</a>
-
-				</div>
-			</div>
-
 			<div class="col-lg-4 col-sm-12">
-				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-1">
-					<!-- Modal pequeno -->
-					<a href="#"><i class="far fa-question-circle fa-sm float-right" data-toggle="modal" data-target=".basic"></i></a>
+				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 
-					<div class="modal fade basic" tabindex="-1" role="dialog" aria-labelledby="basico" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<span class="text font-weight-bold text-muted">BÁSICO <i class="fas fa-check text-green"></i></span>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body text-muted">
-									A partir do 11° cliente a completar o cupom, será cobrado R$ 1,5 para cada novo cupom completado.
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- CARD -->
 					<div class="card-body">
-						<h5 class="card-title text-orange"><strong>BÁSICO</strong></h5>
-						<p class="card-text text-muted">A partir do 11° cliente a completar o cupom, será cobrado R$ 1,5 para cada novo cupom completado.</p>
+						<h5 class="card-title text-secondary"><strong><i class="fas fa-sun"></i> Prata</strong></h5>
+						<p class="card-text text-muted">Tire seu Cartão Fidelidade do papel e comece a receber resultados.</p>
 						<hr>
 						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
 						<div>
-							<a href="#" class="text-decoration-none h2"><strong>R$ 1,50</strong></a>
+                            <span class="text-decoration-none h2 text-orange"><strong>R$ 0,50</strong><span class="h6"> por dia</span></span>
 						</div>
 					</div>
-					<!-- <div class="container"> -->
-
-
-					<small><a class="btn btn-orange d-none d-lg-block float-right" href="fidelizar.php?plano=basico" name="basico" role="button">Fidelizar</a></small>
-
-					<a class="btn btn-orange btn-block float-right d-block d-lg-none" href="fidelizar.php?plano=basico" name="basico" role="button">Fidelizar</a>
-
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-12">
-				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-1">
-					<!-- Modal pequeno -->
-					<a href="#"><i class="far fa-question-circle fa-sm float-right" data-toggle="modal" data-target=".intermediary"></i></a>
-
-					<div class="modal fade intermediary" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<span class=" text font-weight-bold text-muted">INTERMEDIÁRIO <i class="fas fa-check text-green"></i></span>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body text-muted">
-									R$ 15,90 + R$ 1,5 para cada cupom completado.
-									Além do básico, terá acesso a respostas de satisfação , sms marketing básico para até 100 clientes/mês e 1000 e-mail marketing/mês.
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- CARD -->
+				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 					<div class="card-body">
-						<h5 class="card-title text-orange"><strong> INTERMEDIÁRIO</strong></h5>
-						<p class="card-text text-muted">Acesso a respostas de satisfação, sms básico para até 100 clientes/mês e 1000 e-mail marketing/mês!</p>
+						<h5 class="card-title text-ouro"><strong><i class="fas fa-medal"></i> Ouro</strong></h5>
+						<p class="card-text text-muted">De um upgrade no seu Cartão Fidelidade e veja resultados satisfatórios.</p>
 						<hr>
-
 						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
 						<div>
-							<a href="#" class="text-decoration-none h2"><strong>R$ 15,90</strong> <span class="h6"> + R$ 1,50</span></a>
+                            <span class="text-decoration-none h2 text-orange"><strong>R$ 1,00</strong><span class="h6"> por dia</span></span>
 						</div>
 					</div>
-					<small><a class="btn btn-orange d-none d-lg-block float-right" href="fidelizar.php?plano=intermediario" name="intermediario" role="button">Fidelizar</a></small>
-
-					<a class="btn btn-orange btn-block float-right d-block d-lg-none" href="fidelizar.php?plano=intermediario" name="intermediario" role="button">Fidelizar</a>
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-12">
-				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-1">
-					<!-- Modal pequeno -->
-					<a href="#"><i class="far fa-question-circle fa-sm float-right" data-toggle="modal" data-target=".advanced"></i></a>
-
-					<div class="modal fade advanced" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<span class=" text font-weight-bold text-muted">AVANÇADO <i class="fas fa-check text-green"></i></span>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body text-muted">
-									R$ 199,90 + R$ 1,5 para cada cupom completado.
-									Terá acesso a respostas de satisfação , sms marketing para até 1000 clientes/mês e 10000 e-mail marketing/mês, sms de "Sentimos sua falta", e sms para chamar o cliente pois um cupom novo foi criado pela empresa.
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- CARD -->
+				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 					<div class="card-body">
-						<h5 class="card-title text-orange"><strong>AVANÇADO</strong></h5>
-						<p class="card-text text-muted">Acesso a respostas de satisfação, sms marketing até 1000 clientes/mês e 10000 e-mail marketing/mês.</p>
+						<h5 class="card-title text-diamante"><strong><i class="far fa-gem"></i> Diamante</strong></h5>
+						<p class="card-text text-muted">Fique na frente de todos e ganhe muita visibilidade com o destaque diamante.</p>
 						<hr>
 						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
 						<div>
-							<a href="#" class="text-decoration-none h2"><strong>R$ 199,90</strong> <span class="h6"> + R$ 1,50</span></a>
+                            <span class="text-decoration-none h2 text-orange"><strong>R$ 1,50</strong><span class="h6"> por dia</span></span>
 						</div>
 					</div>
-					<small><a class="btn btn-orange d-none d-lg-block float-right" href="fidelizar.php?plano=avancado" role="button">Fidelizar</a></small>
-
-					<a class="btn btn-orange btn-block float-right d-block d-lg-none" href="fidelizar.php?plano=avancado" role="button">Fidelizar</a>
 				</div>
 			</div>
 		</div>

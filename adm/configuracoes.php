@@ -63,7 +63,7 @@ include "include/navbar.php";
 
                 <div class="form-group">
                     <label for="">Segmento da Empresa</label>
-                    <select class="custom-select" name="segmento" id="">
+                    <select class="custom-select rounded-0" name="segmento" id="">
                         <?php foreach ($segmento as $chave => $valor):?>
                             <option value="<?=$valor['id']?>" <?= ($registros['segmento'] == $valor['id'])? 'selected ': '' ?>><?=$valor['nome_segmento']?></option>
                         <?php endforeach; ?>
