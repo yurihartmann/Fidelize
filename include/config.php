@@ -2,7 +2,7 @@
 
 	/** 
 	 * CONFIGURAÇÕES
-     *
+     * jasfaljkfasflasjflaksjk
      * ATIVE E DESATIVE O SMS, CASO ATIVADO COLOQUE UMA KEY E UMA SECRET DA AWS COM ERMISSAO PARA SNS_SMS
      * aiejhiajfsajlfkasfajlja
 	 */
