@@ -96,45 +96,10 @@ $(document).ready(function () {
 		var email = document.getElementById('email').value;
 		var nome = document.getElementById('nome').value;
 		var mensagem = document.getElementById('mensagem').value;
-		var plano = document.getElementsByName('plano');
-
-		var planovalue = "";
-
-		if (plano[0].checked) {
-			planovalue = "Gratuito";
-		}
-
-		if (plano[1].checked) {
-			planovalue = "Básico";
-		}
-
-		if (plano[2].checked) {
-			planovalue = "Intermediário";
-		}
-
-		if (plano[3].checked) {
-			planovalue = "Avançado";
-		}
-
-		if (plano[4].checked) {
-			planovalue = "Gratuito";
-		}
-
-		if (plano[5].checked) {
-			planovalue = "Básico";
-		}
-
-		if (plano[6].checked) {
-			planovalue = "Intermediário";
-		}
-
-		if (plano[7].checked) {
-			tipovalue = "Avançado";
-		}
+		var segmento = document.getElementById('segmento').value;
 
 
-
-		if (email.length > 0 && nome.length > 0 && mensagem.length > 0 && plano.length > 0) {
+		if (email.length > 0 && nome.length > 0 && mensagem.length > 0) {
 
 			$.ajax({
 				//Alert de sucesso
@@ -144,7 +109,7 @@ $(document).ready(function () {
 					'email': email,
 					'nome': nome,
 					'mensagem': mensagem,
-					'plano': planovalue,
+					'segmento': segmento,
 
 				},
 				success: function (resultado) {
@@ -154,8 +119,13 @@ $(document).ready(function () {
 						icon: "success",
 						button: "Confirmar!",
 					});
-				}
-			})
+
+		// DEIXA O VALUE VAZIO
+		document.getElementById('email').value = "";
+		document.getElementById('nome').value = "";
+		document.getElementById('mensagem').value = "";
+	}
+})
 		} else {
 			// Alert de error 
 			swal({
@@ -165,10 +135,6 @@ $(document).ready(function () {
 				button: "Confirmar!",
 			});
 		}
-		// DEIXA O VALUE VAZIO
-		document.getElementById('email').value = "";
-		document.getElementById('nome').value = "";
-		document.getElementById('mensagem').value = "";
 
 
 	});
