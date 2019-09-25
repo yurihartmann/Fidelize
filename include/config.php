@@ -2,7 +2,9 @@
 
 	/** 
 	 * CONFIGURAÇÕES
-	 * Algumas definições globais, exemplo: timezone, constantes...
+     *
+     * ATIVE E DESATIVE O SMS, CASO ATIVADO COLOQUE UMA KEY E UMA SECRET DA AWS COM ERMISSAO PARA SNS_SMS
+     *
 	 */
 
 //error_reporting(0);
