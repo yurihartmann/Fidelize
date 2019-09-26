@@ -8,11 +8,6 @@ class Site
 
     public $conexao;
 
-    const LOCAL = 'mysql669.umbler.com:41890';
-    const USER = 'fidelize';
-    const PASS = '1qaz2wsxentra21';
-    const DB = 'fidelize_master';
-
     /**
      * SITE CONSTRUCT
      * Executa o autoload, inclui as configurações,
@@ -38,14 +33,15 @@ class Site
          */
 
 
-        // Iniciando a Conexão
-        $this->Conexao();
-
         // Includes de configurações e funções globais do projeto
         require_once("../include/config.php");
         require_once("include/sms.php");
         require_once("../include/functions.php");
         clearAlerta();
+
+
+        // Iniciando a Conexão
+        $this->Conexao();
 
         $session = new session($this->conexao);
         if (substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, -4) != 'index')
@@ -59,7 +55,7 @@ class Site
 
     public function Conexao()
     {
-        $this->conexao = mysqli_connect(self::LOCAL, self::USER, self::PASS, self::DB) or die ("Erro na conexao com o servidor.");
+        $this->conexao = mysqli_connect(LOCAL, USER, PASS, DB) or die ("Erro na conexao com o servidor.");
     }
 
     /**

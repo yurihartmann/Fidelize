@@ -1,6 +1,6 @@
 <?php
 
-require_once "site.class.php";
+require_once "site.php";
 
 class registro_cartaofidelidade extends Site
 {
