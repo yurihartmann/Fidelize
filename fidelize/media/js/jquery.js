@@ -1,36 +1,37 @@
 $(document).ready(function () {
 
-
-	// AJAX CLIENTE
-	var cliente = $('#cliente');
-	var totalcliente = 0;
+// AJAX CLIENTE
+			var cliente = $('#cliente');
+			var totalcliente = 0;
+	
 	$.ajax({
 		url: 'ajax/clientes_cadastrados.php',
 		type: 'POST',
 		data: {},
 		success: function (resultado) {
 			totalcliente = resultado;
+
+			
+
+			var icliente = 0;
+			var loopCliente = setInterval(loopCliente, 100);
+
+			function loopCliente() {
+				if (icliente <= totalcliente) {
+					cliente.text(icliente);
+					icliente += 1;
+				} else {
+					clearInterval(loopCliente);
+				}
+			}
 		}
 	});
 
-	var icliente = 0;
-	var loopCliente = setInterval(loopCliente, 65);
-
-
-
-	function loopCliente() {
-		if (icliente <= totalcliente) {
-			cliente.text(icliente);
-			icliente += 1;
-		} else {
-			clearInterval(loopCliente);
-		}
-	}
+	
 
 	// AJAX CUPOM
-	var totalcupons = 0;
-
-	var cupons = $('#cupons');
+			var totalcupons = 0;
+			var cupons = $('#cupons');
 
 	$.ajax({
 
@@ -39,28 +40,29 @@ $(document).ready(function () {
 		data: {},
 		success: function (result) {
 			totalcupons = result;
+
+			
+
+			var icupons = 0;
+			var loopCupom = setInterval(loopCupom, 100);
+
+			function loopCupom() {
+				if (icupons <= totalcupons) {
+					cupons.text(icupons);
+					icupons += 1;
+				} else {
+					clearInterval(loopCupom);
+				}
+			}
 		}
 	});
 
 
-	var icupons = 0;
-	var loopCupom = setInterval(loopCupom, 85);
-
-
-
-	function loopCupom() {
-		if (icupons <= totalcupons) {
-			cupons.text(icupons);
-			icupons += 1;
-		} else {
-			clearInterval(loopCupom);
-		}
-	}
+	
 
 	// AJAX EMPRESAS
-	var totalempresas = 0;
-
-	var empresas = $('#empresas');
+			var totalempresas = 0;
+			var empresas = $('#empresas');
 
 	$.ajax({
 
@@ -69,23 +71,25 @@ $(document).ready(function () {
 		data: {},
 		success: function (resultado) {
 			totalempresas = resultado;
+
+			
+
+			var iempresas = 0;
+			var loopEmpresas = setInterval(loopEmpresas, 100);
+
+			function loopEmpresas() {
+				if (iempresas <= totalempresas) {
+					empresas.text(iempresas);
+					iempresas += 1;
+				} else {
+					clearInterval(loopEmpresas);
+				}
+			}
 		}
 	});
 
 
-	var iempresas = 0;
-	var loopEmpresas = setInterval(loopEmpresas, 95);
 
-
-
-	function loopEmpresas() {
-		if (iempresas <= totalempresas) {
-			empresas.text(iempresas);
-			iempresas += 1;
-		} else {
-			clearInterval(loopEmpresas);
-		}
-	}
 
 	// NARUTO É GOTICO
 	$('#btnSalvarFidelizar').click(function () {
