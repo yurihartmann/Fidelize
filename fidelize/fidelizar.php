@@ -1,7 +1,12 @@
 <?php
 include "include/header.php";
 include "include/navbar.php";
-include_once "ajax/site.php";
+
+require_once "../include/config.php";
+
+$conexao = mysqli_connect(LOCAL, USER, PASS, DB) or die ("Erro na conexao com o servidor.");
+
+
 $sql = "SELECT * FROM segmento";
 $query= mysqli_query($conexao, $sql);
 $segmentos = mysqli_fetch_all($query);
