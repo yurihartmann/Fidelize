@@ -6,6 +6,7 @@ $registros = new registro_cartaofidelidade();
 $registros = $registros->clientesPorLoja();
 
 
+
 include "include/header.php";
 
 // INCLUINDO NAVBAR
