@@ -1,6 +1,6 @@
 <?php
 
-	/** 
+	/**
 	 * CONFIGURAÇÕES
      *
 	 * CONFIGURE A CONECAO COM O BANCO DE DADOS
@@ -9,7 +9,7 @@
      *
 	 */
 
-//error_reporting(0);
+error_reporting(0);
 date_default_timezone_set('America/Sao_Paulo');
 
 CONST LOCAL = '';
