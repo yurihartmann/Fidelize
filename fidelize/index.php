@@ -9,22 +9,22 @@ include "include/painel.php";
 
 <content class="container-fluid" style=overflow-x: hidden;>
 	<div class="container">
-        <div class="row">
-            <div class="col-12 px-5 py-4 text-center">
-                <h1 class="font-weight-light">O fidelize é 100% gratuito, mas você pode destacar seus Cartões Fidelidade.</h1>
-            </div>
-        </div>
+		<div class="row">
+			<div class="col-12 px-5 py-4 text-center">
+				<h1 class="font-weight-light">O fidelize é 100% gratuito, mas você pode destacar seus Cartões Fidelidade.</h1>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-4 col-sm-12">
 				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 
 					<div class="card-body">
 						<h5 class="card-title text-secondary"><strong><i class="fas fa-sun"></i> Prata</strong></h5>
-						<p class="card-text text-muted">Tire seu Cartão Fidelidade do papel e comece a receber resultados.</p>
-						<hr>
+						<p class="card-text text-muted">Tire seu Cartão Fidelidade do papel e comece a receber resultados imediatamente.</p>
+						<hr class="">
 						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
 						<div>
-                            <span class="text-decoration-none h2 text-orange"><strong>R$ 0,50</strong><span class="h6"> por dia</span></span>
+							<span class="text-decoration-none h2 text-orange"><strong>R$ 0,50</strong><span class="h6"> por dia</span></span>
 						</div>
 					</div>
 				</div>
@@ -37,7 +37,7 @@ include "include/painel.php";
 						<hr>
 						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
 						<div>
-                            <span class="text-decoration-none h2 text-orange"><strong>R$ 1,00</strong><span class="h6"> por dia</span></span>
+							<span class="text-decoration-none h2 text-orange"><strong>R$ 1,00</strong><span class="h6"> por dia</span></span>
 						</div>
 					</div>
 				</div>
@@ -50,7 +50,7 @@ include "include/painel.php";
 						<hr>
 						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
 						<div>
-                            <span class="text-decoration-none h2 text-orange"><strong>R$ 1,50</strong><span class="h6"> por dia</span></span>
+							<span class="text-decoration-none h2 text-orange"><strong>R$ 1,50</strong><span class="h6"> por dia</span></span>
 						</div>
 					</div>
 				</div>

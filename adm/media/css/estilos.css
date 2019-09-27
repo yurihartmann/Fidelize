@@ -127,11 +127,14 @@
 
 .bg-diamante {
   background-color: #03b5ff;
+
 }
 
 .bg-ouro {
   background-color: #ffce41;
+
 }
+
 
 .bg-adm {
 
@@ -142,6 +145,8 @@
   padding: 0;
 
 }
+
+
 
 @media (max-width: 500px) {
   .bg-adm {
