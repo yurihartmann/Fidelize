@@ -127,7 +127,7 @@ INSERT INTO `clientes` (`numero`, `nome`, `email`, `senha`, `img`) VALUES
 (47991436103, 'Gabriel Luchtenberg', 'danzomikaelson@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL),
 (47992030801, 'William Basso', 'williambasso73@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL),
 (47992030802, 'William.B,,,,,Â¥â‚©â‚¬/â™¥ï¸â™¥ï¸â™¥ï¸â™¥ï¸', 'williambasso75@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL),
-(47992152233, 'Andrei Gustavo', 'andrei.gustavo96@gmail.com', '0d18cff639a0e423d4588231ad61d5f7', NULL),
+(47992152233, 'Andrei Gustavo', 'andrei.gustavo96@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL),
 (47996385544, 'Yuri Hartmann', 'yurihartmann0607@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL),
 (47996717615, 'Sabrina Capeleti dos Santos', 'binasantos1314@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL),
 (47998065107, 'SebastiÃ£o Leandro Oliveira', 'sebastiaoleandro@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL),
