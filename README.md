@@ -17,3 +17,14 @@ O arquivo `db_fidelize.sql` e o banco principal para o sistema funcionar, e o ar
 Entre em `include/config.php.txt`, lá você irá encontrar um modelo para o arquivo de configuração, você deve criar um arquivo `include/config.php` e configurar as constante.
 
 Crie uma pasta na raiz do projeto chamada "uploads", será lá que as imagens enviadas ficaram salva.
+
+### Usar o Sistema
+
+Para usar o sistema você pode usar os perfis de lojas e clientes já existentes, a lista está no banco de dados nas tabelas `clientes` e `lojas`, a senha esta criptografada porém todas são `12345678`.
+
+## Telas do Sitema
+
+<p align="center">
+  <img src="media/images/fidelize_preto.png">
+</p>
+
