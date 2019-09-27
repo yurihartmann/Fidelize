@@ -45,14 +45,14 @@ include "include/navbar.php";
                     </div>
                 </div>
             </div>
-        <?php foreach ($registros as $chave => $valor):
-            $ppv = 100/$valor['objetivo'];
-            $porcentagem = $ppv * $valor['count(fk_cliente)'];
+            <?php foreach ($registros as $chave => $valor) :
+                $ppv = 100 / $valor['objetivo'];
+                $porcentagem = $ppv * $valor['count(fk_cliente)'];
 
-            if (empty($valor['nome']))
-                $valor['nome'] = "Usuário Temporário";
+                if (empty($valor['nome']))
+                    $valor['nome'] = "Usuário Temporário";
 
-            ?>
+                ?>
 
                 <div class="card mb-1 shadow-sm rounded-0">
                     <div class="card-body">
@@ -60,27 +60,22 @@ include "include/navbar.php";
                             <div class="col-md-3 col-5">
                                 <?= formatacaoCelular($valor['numero']) ?><br>
 
-                                <span class="d-block d-md-none"><?= limitaTexto(30,$valor['nome']) ?></span>
+                                <span class="d-block d-md-none"><?= limitaTexto(30, $valor['nome']) ?></span>
                             </div>
                             <div class="col-3 d-none d-md-block">
-                                <?php if ($valor['img'] != null && $valor['img'] != ''): ?>
-                                    <img style="width: 40px; height: 40px" src="../uploads/<?= $valor['img'] ?>"
-                                         class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
-                                <?php else: ?>
-                                    <img src="../media/images/perfil_generico.jpg" height="40px"
-                                         class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
+                                <?php if ($valor['img'] != null && $valor['img'] != '') : ?>
+                                    <img style="width: 40px; height: 40px" src="../uploads/<?= $valor['img'] ?>" class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
+                                <?php else : ?>
+                                    <img src="../media/images/perfil_generico.jpg" height="40px" class="rounded-circle mx-3 border-orange d-none d-lg-block float-left">
                                 <?php endif; ?>
-                                <?= limitaTexto(30,$valor['nome']) ?>
+                                <?= limitaTexto(30, $valor['nome']) ?>
                             </div>
                             <div class="col-md-3 col-4 text-center">
-                                <?= limitaTexto(40,$valor['nome_cartao']) ?>
+                                <?= limitaTexto(40, $valor['nome_cartao']) ?>
                             </div>
                             <div class="col-3">
                                 <div class="progress">
-                                    <div class="progress-bar <?= ($porcentagem >= 70 ? 'progress-bar-striped' : '') ?> <?= ($porcentagem == 100 ? 'bg-dark-orange' : 'bg-soft-orange') ?>"
-                                         role="progressbar"
-                                         style="width: <?= $porcentagem ?>%"
-                                         aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>
+                                    <div class="progress-bar <?= ($porcentagem >= 70 ? 'progress-bar-striped' : '') ?> <?= ($porcentagem == 100 ? 'bg-dark-orange' : 'bg-soft-orange') ?>" role="progressbar" style="width: <?= $porcentagem ?>%" aria-valuemin="0" aria-valuemax="100"><?= $valor['count(fk_cliente)'] ?>
                                         /<?= $valor['objetivo'] ?>
                                     </div>
                                 </div>
@@ -88,8 +83,8 @@ include "include/navbar.php";
                         </div>
                     </div>
                 </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
 
-<?php include "include/footer.php"?>
+    <?php include "include/footer.php" ?>
