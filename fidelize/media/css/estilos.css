@@ -354,3 +354,9 @@ hr {
 .card {
   height: 300px;
 }
+
+@media screen and (max-width: 500px) {
+  .card {
+    height: 800px;
+  }
+}
