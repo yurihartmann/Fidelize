@@ -241,9 +241,34 @@ html {
 .menu-disable {
     color: #000000;
     opacity: 0.4;
+    text-decoration: none;
+}
+
+.menu-disable:hover, .menu-disable:active{
+    text-decoration: none;
+    color: #000000;
+    opacity: 1;
 }
 
 .menu-activated {
+    color: #000000;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.menu-activated:hover, .menu-activated:active{
+    text-decoration: none;
+    color: #000000;
+    opacity: 1;
+}
+
+.menu-title{
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.menu-title:hover, .menu-title:active{
+    text-decoration: none;
     color: #000000;
     opacity: 1;
 }

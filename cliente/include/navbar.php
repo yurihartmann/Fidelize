@@ -82,22 +82,17 @@
 <!--NAVBAR FOOTER MOBILE-->
 <nav class="fixed-bottom navbar-light bg-light d-lg-none d-block">
     <div class="row">
-        <a href="descubra.php" class="col-3 nav-item text-center pb-3 px-2 pl-4" style="text-decoration: none">
-            <i class="fas fa-search <?= ($ativo == "descubra") ? "menu-activated" : "menu-disable" ?>" style="margin-bottom: -10px"></i><br>
-            <small><small class="text-decoration-none m-0 p-0 <?= ($ativo == "descubra") ? "menu-activated" : "menu-disable" ?>">Descubra</small></small>
+        <a href="descubra.php" class="col-3 nav-item text-center px-2 pl-4 text-decoration-none <?= ($ativo == "descubra") ? "menu-activated" : "menu-disable" ?>">
+            <i class="fas fa-search p-1 pt-2"></i><p class="menu-title">Descubra</p>
         </a>
-        <a href="meus_cartoes.php" class="col-3 nav-item text-center pb-3 px-2" style="text-decoration: none">
-            <i class="fas fa-ticket-alt <?= ($ativo == "meus_cartoes") ? "menu-activated" : "menu-disable" ?>" style="margin-bottom: -10px"></i><br>
-            <small><small class="text-decoration-none m-0 p-0 <?= ($ativo == "meus_cartoes") ? "menu-activated" : "menu-disable" ?>"> Meus Cartões</small></small>
+        <a href="meus_cartoes.php" class="col-3 nav-item text-center px-2 text-decoration-none <?= ($ativo == "meus_cartoes") ? "menu-activated" : "menu-disable" ?>">
+            <i class="fas fa-ticket-alt p-1 pt-2"></i><p class="menu-title">Meus Cartões</p>
         </a>
-        <a href="meus_tokens.php" class="col-3 nav-item text-center pb-3 px-2" style="text-decoration: none">
-            <i class="fas fa-key <?= ($ativo == "meus_tokens") ? "menu-activated" : "menu-disable" ?>" style="margin-bottom: -10px"></i><br>
-            <small><small><small class="text-decoration-none m-0 p-0 <?= ($ativo == "meus_tokens") ? "menu-activated" : "menu-disable" ?>">Meus
-                        Tokens</small></small></small>
+        <a href="meus_tokens.php" class="col-3 nav-item text-center px-2 text-decoration-none <?= ($ativo == "meus_tokens") ? "menu-activated" : "menu-disable" ?>">
+            <i class="fas fa-key p-1 pt-2"></i><p class="menu-title">Meus Tokens</p>
         </a>
-        <a href="lista_avaliacao.php" class="col-3 nav-item text-center pb-3 px-2 pr-4 <?= ($ativo == "lista_avaliacao") ? "menu-activated" : "menu-disable" ?>" style="text-decoration: none">
-            <i class="fas fa-star " style="margin-bottom: -10px"></i><br>
-            <small><small class="text-decoration-none m-0 p-0 <?= ($ativo == "lista_avaliacao") ? "menu-activated" : "menu-disable" ?>">Avaliação</small></small>
+        <a href="lista_avaliacao.php" class="col-3 nav-item text-center px-2 pr-4 text-decoration-none <?= ($ativo == "lista_avaliacao") ? "menu-activated" : "menu-disable" ?>" style="text-decoration: none">
+            <i class="fas fa-star p-1 pt-2"></i><p class="menu-title">Avaliação</p>
         </a>
     </div>
 </nav>
