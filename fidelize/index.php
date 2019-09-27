@@ -16,7 +16,7 @@ include "include/painel.php";
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-sm-12">
-				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
+				<div class="card card-tamanho bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 
 					<div class="card-body">
 						<h5 class="card-title text-secondary"><strong><i class="fas fa-sun"></i> Prata</strong></h5>
@@ -30,7 +30,7 @@ include "include/painel.php";
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-12">
-				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
+				<div class="card card-tamanho bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 					<div class="card-body">
 						<h5 class="card-title text-ouro"><strong><i class="fas fa-medal"></i> Ouro</strong></h5>
 						<p class="card-text text-muted">De um upgrade no seu Cartão Fidelidade e veja resultados satisfatórios.</p>
@@ -43,7 +43,7 @@ include "include/painel.php";
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-12">
-				<div class="card bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
+				<div class="card card-tamanho bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 					<div class="card-body">
 						<h5 class="card-title text-diamante"><strong><i class="far fa-gem"></i> Diamante</strong></h5>
 						<p class="card-text text-muted">Fique na frente de todos e ganhe muita visibilidade com o destaque diamante.</p>
