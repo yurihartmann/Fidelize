@@ -21,7 +21,6 @@ include "include/navbar.php";
 ?>
 
 <div class="container" style="margin-top: 70px;">
-    <?php getAlerta(); ?>
     <div class="row">
         <div class="col mt-4">
             <a class="btn btn-outline-secondary" href="registro_carimbos.php"><i class="fas fa-arrow-left"></i>
