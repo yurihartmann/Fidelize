@@ -153,3 +153,9 @@
     background: #f8f9fa;
   }
 }
+
+.bagde-cartao{
+  margin-top: -40px;
+  width: 200px;
+  position: relative;
+}

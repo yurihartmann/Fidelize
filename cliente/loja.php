@@ -115,8 +115,7 @@ include "include/navbar.php";
                             $estilo = "bg-diamante text-white";
                             break;
                     endswitch; ?>
-                    <div title="Esse é um cartão patrocinado!" class="<?= $estilo ?> p-1 ml-2 text-center p-2"
-                         style="margin-top: -44px; width: 200px;position: relative">
+                    <div title="Esse é um cartão patrocinado!" class="bagde-cartao <?= $estilo ?> p-1 ml-2 text-center p-2">
                         <strong>Cartão: <?= $cartaoFidelidade->getDestaqueCartao($valor['id']) ?></strong>
                     </div>
 

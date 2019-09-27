@@ -52,13 +52,11 @@ include "include/navbar.php";
                         <?php endif ?>
                     </div>
                     <?php if ($valor['usado'] == 0): ?>
-                        <div class="bg-success p-1 ml-2 text-white text-center p-2"
-                             style="margin-top: -40px; width: 130px; position: relative">
+                        <div class="bagde-cartao bg-success p-1 ml-2 text-white text-center p-2">
                             <strong>Disponível</strong>
                         </div>
                     <?php else: ?>
-                        <div class="bg-secondary p-1 ml-2 text-white text-center p-2"
-                             style="margin-top: -40px; width: 130px; position: relative">
+                        <div class="bagde-cartao bg-secondary p-1 ml-2 text-white text-center p-2">
                             <strong>Já Utilizado</strong>
                         </div>
                     <?php endif ?>

@@ -17,3 +17,31 @@ O arquivo `db_fidelize.sql` e o banco principal para o sistema funcionar, e o ar
 Entre em `include/config.php.txt`, lá você irá encontrar um modelo para o arquivo de configuração, você deve criar um arquivo `include/config.php` e configurar as constante.
 
 Crie uma pasta na raiz do projeto chamada "uploads", será lá que as imagens enviadas ficaram salva.
+
+### Usar o Sistema
+
+Para usar o sistema você pode usar os perfis de lojas e clientes já existentes, a lista está no banco de dados nas tabelas `clientes` e `lojas`, a senha esta criptografada porém todas são `12345678`.
+
+## Telas do Sistema
+A seguir algumas Screeshots do sistema.
+#### Loja/Empresa
+<p float="left">
+  <img width="430" src="media/images/screeshots/loja_dashboard.png">
+  <img width="430" src="media/images/screeshots/loja_carimbos.png">
+  <img width="430" src="media/images/screeshots/loja_cartoes.png">  
+  <img width="430" src="media/images/screeshots/loja_tokens.png">
+  <img width="430" src="media/images/screeshots/loja_token_valido.png">
+</p>
+
+#### Cliente
+
+<p float="left">
+  <img width="430" src="media/images/screeshots/cliente_cartoes.png">
+  <img width="430" src="media/images/screeshots/cliente_token.png">
+</p>
+<p float="left">
+  <img width="200" src="media/images/screeshots/cliente_cartoes_mobile.png">
+  <img width="200" src="media/images/screeshots/cliente_config_mobile.png">
+  <img width="200" src="media/images/screeshots/cliente_modal_avalicao.png">  
+</p>
+
