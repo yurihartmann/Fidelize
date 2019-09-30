@@ -24,14 +24,31 @@ class cartaofidelidade extends Site
             $this->updateCupom();
     }
 
-    function todosCartoesPorLoja()
+    function todosCartoesPorLoja($pagina,$limite)
     {
+        if ($pagina != 1)
+            $atual = (($pagina-1) * $limite);
+        else
+            $atual = 0;
+
         $id_loja = $_SESSION['empresa_id'];
         // RETORNA TODOS OS CARTOES RELACIONADO COM O ID DA LOJA
-        $sql = "select * from cartaoFidelidade where fk_loja like '$id_loja'";
+        $sql = "select * from cartaoFidelidade where fk_loja like '$id_loja' order by fk_destaque desc limit $atual,$limite";
         $query = mysqli_query($this->conexao, $sql);
         if ($query)
             return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        else
+            return false;
+    }
+
+    function countTodosCartoesPorLoja()
+    {
+        $id_loja = $_SESSION['empresa_id'];
+        // RETORNA TODOS OS CARTOES RELACIONADO COM O ID DA LOJA
+        $sql = "select count(*) AS total from cartaoFidelidade where fk_loja like '$id_loja' ";
+        $query = mysqli_query($this->conexao, $sql);
+        if ($query)
+            return mysqli_fetch_array($query);
         else
             return false;
     }
