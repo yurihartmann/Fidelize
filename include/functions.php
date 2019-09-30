@@ -11,7 +11,7 @@ function setAlerta($tipo, $mensagem)
 {
     $alerta['tipo'] = $tipo;
     $alerta['msg'] = $mensagem;
-    setcookie('alerta', serialize($alerta), time() + 10);
+    setcookie('alerta', serialize($alerta), time() + 5);
 }
 
 function getAlerta()

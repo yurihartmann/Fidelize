@@ -37,7 +37,6 @@ class Site
         require_once("../include/config.php");
         require_once("include/sms.php");
         require_once("../include/functions.php");
-        clearAlerta();
 
 
         // Iniciando a Conexão

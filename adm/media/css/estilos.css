@@ -127,11 +127,14 @@
 
 .bg-diamante {
   background-color: #03b5ff;
+
 }
 
 .bg-ouro {
   background-color: #ffce41;
+
 }
+
 
 .bg-adm {
 
@@ -143,8 +146,16 @@
 
 }
 
+
+
 @media (max-width: 500px) {
   .bg-adm {
     background: #f8f9fa;
   }
+}
+
+.bagde-cartao{
+  margin-top: -40px;
+  width: 200px;
+  position: relative;
 }

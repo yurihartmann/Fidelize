@@ -9,12 +9,12 @@
         && substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/') + 1, 15) != 'recuperar_senha'
     ) : ?>
         <!-- Chrome, Firefox OS and Opera -->
-        <meta name="theme-color" content="#ff763b">
+        <meta name="theme-color" content="#ff620d">
         <!-- Windows Phone -->
-        <meta name="msapplication-navbutton-color" content="#ff763b">
+        <meta name="msapplication-navbutton-color" content="#ff620d">
         <!-- iOS Safari -->
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="#ff763b">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ff620d">
     <?php endif; ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
