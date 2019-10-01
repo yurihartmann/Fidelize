@@ -226,9 +226,12 @@ class Cliente extends Site
             $sql = "update clientes set senha = '$senha_nova_hash' where numero = '$numero'";
             $query = mysqli_query($this->conexao, $sql);
             if ($query){
-                sendSMS($numero,"Seu email é: " . $result['email'] . " e sua nova senha: " . $senha_nova);
-                sendEmailResetPassword($result['email'], $result['nome']);
-                setAlerta('success', 'Você irá receber o seu email e nova senha pelo SMS!');
+//              sendSMS($numero,"Seu email é: " . $result['email'] . " e sua nova senha: " . $senha_nova);
+                if (sendEmailResetPassword($result['email'], $result['nome'], $senha_nova)){
+                    setAlerta('success', 'Verifique seu email para ver sua nova senha!');
+                } else{
+                    setAlerta('warning', 'Erro ao enviar o email, tente novamente!');
+                }
                 header('Location: index.php');
             } else {
                 setAlerta('danger', 'Algo deu errado, tente novamente!');
