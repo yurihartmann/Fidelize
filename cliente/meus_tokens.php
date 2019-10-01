@@ -24,7 +24,7 @@ include "include/navbar.php";
     <div class="row">
         <div class="col p-5 text-center">
             <?php if ($vazio): ?>
-                <h1 class="font-weight-light">Não temos mais nada!</h1>
+                <h1 class="font-weight-light">Você não possui nenhum Token!</h1>
                 <i class="far fa-frown fa-10x mt-5"></i>
             <?php else: ?>
                 <h1 class="font-weight-light">Seus Tokens</h1>

@@ -25,14 +25,16 @@ include "include/navbar.php";
     <div class="row">
         <div class="col p-5 text-center">
             <?php if ($vazio): ?>
-                <h1 class="font-weight-light">Não temos mais nada!</h1>
-                <i class="far fa-frown fa-10x mt-5"></i>
+                <h1 class="font-weight-light">Você não possui nenhum Cartão!</h1>
+                <i class="far fa-frown fa-10x mt-5"></i><br>
+                <a href="descubra.php" class="btn btn-orange mt-5 btn-lg">Descubra novos Cartões</a>
             <?php else: ?>
                 <h1 class="font-weight-light">Meus Cartões
                 </h1>
             <?php endif; ?>
         </div>
     </div>
+    <?php if (!$vazio): ?>
     <div class="row">
         <div class="col-12 col-md-6 p-3">
             <div class="text-center shadow p-5 bg-orange text-white">
@@ -57,6 +59,7 @@ include "include/navbar.php";
             </div>
         </div>
     </div>
+    <?php endif; ?>
     <div class="row">
         <?php foreach ($dados as $chave => $valor):
             $ppv = 100 / $valor['objetivo'];
