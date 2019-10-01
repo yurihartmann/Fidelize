@@ -56,7 +56,7 @@ include "include/navbar.php";
 						<div class="card-body">
 							<p class="lead">
 								Perguntas Frequentes
-								<p class="card-text">Empresas pequenas podem adiquirir o sistema?</p>
+								<p class="card-text">Empresas pequenas podem adquirir o sistema?</p>
 
 								<p><span class="text-muted"><strong>R: </strong>O sistema pode ser utilizado por todas as empresas.</span></p>
 
