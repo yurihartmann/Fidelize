@@ -22,7 +22,7 @@ class registro_cartaofidelidade extends Site
             $registros = new cartaofidelidade();
             $registros = $registros->todosCartoesPorLoja();
             if (empty($registros)) {
-                setAlerta('warning', 'Você não posse nenhum cartão, primeiro cadastre um!');
+                setAlerta('warning', 'Você não possue nenhum cartão, primeiro cadastre um!');
                 header('Location: cartoes.php');
             }
         }

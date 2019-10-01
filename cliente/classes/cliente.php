@@ -163,7 +163,7 @@ class Cliente extends Site
                     if ($foto != null) {
                         $_SESSION['cliente_img'] = $foto;
                     }
-                    setAlerta('success', 'Alteracoes salvas com sucesso!');
+                    setAlerta('success', 'Alterações salvas com sucesso!');
                     header('Location: configuracoes.php');
                 } else {
                     setAlerta('danger', 'Algo deu errado, tente novamente!');
@@ -185,7 +185,7 @@ class Cliente extends Site
                     if ($foto != null) {
                         $_SESSION['cliente_img'] = $foto;
                     }
-                    setAlerta('success', 'Alteracoes salvas com sucesso!');
+                    setAlerta('success', 'Alterações salvas com sucesso!');
                     header('Location: configuracoes.php');
                 } else {
                     setAlerta('danger', 'Algo deu errado, tente novamente!');

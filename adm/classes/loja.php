@@ -64,7 +64,7 @@ class loja extends Site
                     if ($logo != null) {
                         $_SESSION['empresa_img'] = $logo;
                     }
-                    setAlerta('success', 'Alteracoes salvas com sucesso!');
+                    setAlerta('success', 'Alterações salvas com sucesso!');
                     header('Location: configuracoes.php');
                 } else {
                     setAlerta('danger', 'Algo deu errado, tente novamente!');
@@ -86,7 +86,7 @@ class loja extends Site
                     if ($logo != null) {
                         $_SESSION['empresa_img'] = $logo;
                     }
-                    setAlerta('success', 'Alteracoes salvas com sucesso!');
+                    setAlerta('success', 'Alterações salvas com sucesso!');
                     header('Location: configuracoes.php');
                 } else {
                     setAlerta('danger', 'Algo deu errado, tente novamente!');

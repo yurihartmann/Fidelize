@@ -38,7 +38,7 @@ class session
             header("Location: dashboard.php");
         } else {
             $_SESSION['empresa_logado'] = false;
-            setAlerta('danger', "<strong>Email ou senha invalidos</strong>, tente novamente");
+            setAlerta('danger', "<strong>Email ou senha inválidos</strong>, tente novamente");
             header("Location: index.php");
         }
     }

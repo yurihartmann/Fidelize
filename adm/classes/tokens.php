@@ -70,7 +70,7 @@ where token = '$token' and l.id = '$id_loja'";
         $id_loja = $_SESSION['empresa_id'];
         if ($this->vericarSeTokenExistePercenteALoja($token,$id_loja)){
             if ($this->verificaSeTokenJaFoiUtilizado($token)){
-                setAlerta('danger','Esse token ja foi utilizado');
+                setAlerta('danger','Esse token já foi utilizado');
                 header("Location: validar_token.php");
             } else {
                 $sql = "UPDATE `tokens` SET `usado` = '1', data_usado = current_time WHERE token = '$token';";
@@ -97,7 +97,7 @@ where token = '$token' and l.id = '$id_loja'";
                 }
             }
         } else {
-            setAlerta('danger','Esse token nao existe');
+            setAlerta('danger','Esse token nãO existe');
             header("Location: validar_token.php");
         }
     }
