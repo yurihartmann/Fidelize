@@ -227,6 +227,7 @@ class Cliente extends Site
             $query = mysqli_query($this->conexao, $sql);
             if ($query){
                 sendSMS($numero,"Seu email é: " . $result['email'] . " e sua nova senha: " . $senha_nova);
+                sendEmailResetPassword($result['email'], $result['nome']);
                 setAlerta('success', 'Você irá receber o seu email e nova senha pelo SMS!');
                 header('Location: index.php');
             } else {
