@@ -35,16 +35,18 @@
         /* resolução de imagem */
         img {
             max-width: 100%;
+
         }
 
         /* tamanho de header */
         header {
             width: 98%;
+
         }
 
         /* resolução de logo */
         #logo {
-            max-width: 220px;
+            max-width: 300px;
             margin: 2% 0 0 5%;
             float: left;
         }
@@ -71,7 +73,7 @@
         /* resolução do banner (img) */
         .banner {
             margin-bottom: 3%;
-            background: url(../../media/images/email/empresa.jpg) no-repeat;
+            background: linear-gradient(rgba(255, 119, 0, 0.4), rgba(255, 119, 0, 0.4)), url(../../media/images/email/empresa.jpg) no-repeat;
             height: 300px;
         }
 
@@ -81,8 +83,23 @@
         }
 
         /* espaçamento de letra */
-        h1 {
+        .titulo {
             letter-spacing: 1%;
+            display: inline;
+
+        }
+
+        .orange {
+            color: #ff763b;
+            margin: 0 2%;
+        }
+
+        /* cadeado */
+        .cadeado img {
+            margin-left: 2%;
+            height: 30px;
+            color:
+
         }
 
         /* formatação do texto */
@@ -92,13 +109,14 @@
 
         /* dimensão do botão e posicionamento */
         .button-holder {
-            float: right;
-            margin: 0 2% 4% 0;
+            /* float: right; */
+            margin: 3% 2% 3% 0;
+            text-align: center;
         }
 
         /* estilização do botão */
         .btn {
-            float: right;
+            /* float: right; */
             background: #ff763b;
             color: #fff;
             text-decoration: none;
@@ -128,7 +146,15 @@
         }
 
         /* responsivo */
-        @media (max-width: 600px) {}
+        @media (max-width: 600px) {
+
+            /* estilização do botão */
+            .button-holder {
+
+                clear: both;
+                margin: 5%;
+            }
+        }
     </style>
 </head>
 
