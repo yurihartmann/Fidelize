@@ -28,11 +28,11 @@ include "include/header.php";
                     <form method="post">
                         <div class="form-group">
                             <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control rounded-0" name="inputEmail" id="inputEmail" placeholder="Digite seu email..." value="<?= (isset($_SESSION['email_digitado']) ? $_SESSION['email_digitado'] : "") ?>">
+                            <input type="email" class="form-control rounded-0" name="inputEmailAdm" id="inputEmailAdm" placeholder="Digite seu email..." value="<?= (isset($_SESSION['email_digitado']) ? $_SESSION['email_digitado'] : "") ?>">
                         </div>
                         <div class="form-group">
                             <label for="inputSenha">Senha</label>
-                            <input type="password" class="form-control rounded-0" name="inputSenha" id="inputSenha" placeholder="Sua senha...">
+                            <input type="password" class="form-control rounded-0" name="inputSenhaAdm" id="inputSenhaAdm" placeholder="Sua senha...">
                         </div>
                         <button class="btn btn-block btn-lg btn-orange my-5 type=" submit" name="btnEntrar">Login</button>
                     </form>
