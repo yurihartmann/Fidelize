@@ -34,6 +34,7 @@ $segmentos = mysqli_fetch_all($query);
                             <p class="lead text-center">
                                 Fidelize sua Empresa <i class="far fa-building mx-1"></i>
                             </p>
+                            <!-- FORM -->
                             <form class="was-validated">
                                 <div class="form-group">
                                     <label for="email" class="">E-mail</label>
