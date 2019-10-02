@@ -9,7 +9,7 @@ class Tokens extends Site {
         // retona o nome do cupom e o token
         $id = $_SESSION["cliente_id"];
 
-        $sql = "select *, l.nome as nome_loja from tokens 
+        $sql = "select *, l.nome as nome_loja, cF.id as id_cartao from tokens 
                 inner join cartaoFidelidade cF on tokens.fk_carimbo = cF.id 
                 inner join lojas l on cF.fk_loja = l.id
                 where fk_cliente = '$id' order by usado";

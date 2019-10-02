@@ -101,7 +101,11 @@ include "include/navbar.php";
                                         class="fas fa-store-alt"></i> <?= limitaTexto(25, $valor['nome_loja']) ?></p>
                         </a>
                         <h4 class="card-title font-weight-bold text-center mt-3"><?= $valor['nome_cartao'] ?></h4>
-                        <p class="card-text font-weight-light"><?= limitaTexto(140, $valor['descricao']) ?></p>
+                        <p class="card-text d-block text-justify font-weight-light" id="descricao-curta-<?=$valor['id_cartao']?>"><?= limitaTexto(120, $valor['descricao']) ?></p>
+                        <p class="card-text d-none text-justify font-weight-light" id="descricao-longa-<?=$valor['id_cartao']?>"><?= $valor['descricao'] ?></p>
+                        <?php if (strlen($valor['descricao']) > 119) : ?>
+                            <button data-action="Mostrar mais" onclick="alternaDescricao(<?=$valor['id_cartao']?>)" id="btn-descricao-<?=$valor['id_cartao']?>" class="float-right btn btn-sm font-weight-light">mais</button>
+                        <?php endif; ?>
                         <p class="font-weight-light"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></p>
                         <p class="font-weight-light"><strong>Prêmio:</strong> <?= limitaTexto(50, $valor['premio']) ?>
                         </p>

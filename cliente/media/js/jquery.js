@@ -205,3 +205,39 @@ $(document).ready(function () {
 
 
 });
+
+
+function alternaDescricao(id) {
+
+    let descricaoCurta = $('#descricao-curta-' + id);
+    let descricaoLonga = $('#descricao-longa-' + id);
+    let btnDescricao = $('#btn-descricao-' + id);
+
+    if (btnDescricao.attr('data-action') === "Mostrar menos"){
+
+        // esconde descricao curta
+        descricaoCurta.removeClass("d-none");
+        descricaoCurta.addClass('d-block');
+
+        // mostra descricao longa
+        descricaoLonga.removeClass("d-block");
+        descricaoLonga.addClass("d-none");
+
+        btnDescricao.attr('data-action', "Mostrar mais");
+        btnDescricao.html('mais');
+
+    } else {
+
+        // esconde descricao curta
+        descricaoCurta.addClass("d-none");
+        descricaoCurta.removeClass('d-block');
+
+        // mostra descricao longa
+        descricaoLonga.addClass("d-block");
+        descricaoLonga.removeClass("d-none");
+
+        btnDescricao.attr('data-action', "Mostrar menos");
+        btnDescricao.html('menos');
+    }
+
+}

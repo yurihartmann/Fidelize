@@ -155,7 +155,11 @@ function sendSMS($numero, $mensagem){
 }
 
 function sendEmailResetPassword($email, $nome, $senha_nova){
-    $body = "Sua senha e =>" . $senha_nova;
+
+    $body = file_get_contents('../include/template_email/recuperacao_senha.html');
+    $body = str_replace("%NOME%", $nome, $body);
+    $body = str_replace("%SENHANOVA%", $senha_nova, $body);
+
     return sendEmail("Recuperacao de Senha", $body, $email);
 }
 

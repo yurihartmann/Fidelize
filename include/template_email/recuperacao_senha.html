@@ -1,283 +1,300 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Recuperacao Senha</title>
+    <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<![endif]-->
+    <title></title>
+    <!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
     <style type="text/css">
-        /* CLASSES CSS */
-        @import url('https://fonts.googleapis.com/css?family=Catamaran:400,800&display=swap');
-
-        * {
+        body {
             margin: 0;
-            border: 0;
             padding: 0;
         }
 
-        /* Font Cataraman */
-        body {
-            font-family: 'Catamaran', sans-serif;
-            background-color: #d8dbdb;
-            font-size: 18px;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2%;
-            color: #565859;
+        table,
+        td,
+        tr {
+            vertical-align: top;
+            border-collapse: collapse;
         }
 
-        /* container page */
-        #wrapper {
-            background: #f6faff;
+        * {
+            line-height: inherit;
         }
 
-        .obs {
-            font-size: 13px;
-            padding-top: 5px;
+        a[x-apple-data-detectors=true] {
+            color: inherit !important;
+            text-decoration: none !important;
         }
+    </style>
+    <style type="text/css" id="media-query">
+        @media (max-width: 620px) {
 
-        .token {
-            color: orange;
-            padding-left: 25px;
-        }
-
-        /* color orange */
-        .orange {
-            color: #ff763b;
-            margin: 0 2%;
-        }
-
-        /* resolução de imagem */
-        img {
-            max-width: 100%;
-
-        }
-
-        /* tamanho de header */
-        header {
-            width: 98%;
-
-        }
-
-        /* resolução de logo */
-        #logo {
-            max-width: 300px;
-            margin: 2% 0 0 5%;
-            float: left;
-        }
-
-        /* posicionamento de callout (media) */
-        #callout {
-            float: right;
-            margin: 3% 3% 2% 0;
-        }
-
-        /* resolução rede sociais */
-        .social {
-            float: right;
-            list-style-type: none;
-            max-width: 35px;
-            margin-top: 10%;
-        }
-
-        /* alinhamento de rede-social */
-        .social li {
-            display: inline;
-        }
-
-        /* resolução do banner (img) */
-        .banner {
-            margin-bottom: 3%;
-            background: linear-gradient(rgba(255, 119, 0, 0.4), rgba(255, 119, 0, 0.4)), url(../../media/images/email/empresa.jpg) no-repeat;
-            height: 300px;
-        }
-
-        /* padding da coluna do conteudo */
-        .one-col {
-            padding: 3%;
-        }
-
-        /* espaçamento de letra */
-        .titulo {
-            letter-spacing: 1%;
-            display: inline;
-
-        }
-
-        /* espaçamento de letra */
-        h1 {
-            letter-spacing: 1%;
-        }
-
-        .orange {
-            color: #ff763b;
-            margin: 0 2%;
-        }
-
-        /* cadeado */
-        .cadeado img {
-            margin-left: 2%;
-            height: 30px;
-            color:
-
-        }
-
-        /* formatação do texto */
-        p {
-            text-align: justify;
-        }
-
-        /* dimensão do botão e posicionamento */
-        .button-holder {
-            /* float: right; */
-            margin: 3% 2% 3% 0;
-            text-align: center;
-        }
-
-        /* estilização do botão */
-        .btn {
-            /* float: right; */
-            background: #ff763b;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            padding: 8px 12px;
-            letter-spacing: 1px;
-        }
-
-        /* botão hover */
-        .btn:hover {
-            background: #d06734;
-        }
-
-        /* linha de separamento */
-        .line {
-            clear: both;
-            height: 2px;
-            background-color: #e3e9e9;
-            margin: 2% auto;
-            width: 96%;
-        }
-
-        /* contatos footer*/
-        .contact {
-            text-align: center;
-            padding-bottom: 3%;
-        }
-
-        /* card */
-        .card {
-            width: 50%;
-            /* text-align: center; */
-            position: relative;
-            display: flex;
-            flex-direction: column;
-
-            background-color: #fff;
-            background-clip: border-box;
-            border: 1px solid rgba(0, 0, 0, .125);
-            margin: 0 auto;
-        }
-
-        .card-info {
-            margin-bottom: 5%;
-        }
-
-        /* classe de texto centralizado */
-        .text-center {
-            text-align: center;
-        }
-
-        .detalhes {
-            margin-top: 5%;
-        }
-
-        /* objetivo */
-        .objective {
-            margin: 10px;
-        }
-
-        /* classe de texto grosso */
-        .text-bold {
-            font-weight: bold;
-        }
-
-        /* card-body */
-        .card-body {
-            flex: 1 1 auto;
-            padding: 1.25rem;
-        }
-
-        /* responsivo */
-        @media (max-width: 600px) {
-            .card {
-                width: 90%;
+            .block-grid,
+            .col {
+                min-width: 320px !important;
+                max-width: 100% !important;
+                display: block !important;
             }
 
-            .card-info h4 {
-                font-size: 100%;
-                margin: auto 20px;
-            }
-        }
-
-        @media (max-width: 800px) {
-            .card {
-                width: 90%;
+            .block-grid {
+                width: 100% !important;
             }
 
-            /* .card-info h4 {
-                font-size: 100%;
-                margin: auto 20px;
-            } */
-        }
-
-        @media (max-width: 900px) {
-            .card {
-                width: 90%;
+            .col {
+                width: 100% !important;
             }
 
-            /* .card-info h4 {
-                font-size: 100%;
-                margin: auto 20px;
-            } */
+            .col>div {
+                margin: 0 auto;
+            }
+
+            img.fullwidth,
+            img.fullwidthOnMobile {
+                max-width: 100% !important;
+            }
+
+            .no-stack .col {
+                min-width: 0 !important;
+                display: table-cell !important;
+            }
+
+            .no-stack.two-up .col {
+                width: 50% !important;
+            }
+
+            .no-stack .col.num4 {
+                width: 33% !important;
+            }
+
+            .no-stack .col.num8 {
+                width: 66% !important;
+            }
+
+            .no-stack .col.num4 {
+                width: 33% !important;
+            }
+
+            .no-stack .col.num3 {
+                width: 25% !important;
+            }
+
+            .no-stack .col.num6 {
+                width: 50% !important;
+            }
+
+            .no-stack .col.num9 {
+                width: 75% !important;
+            }
+
+            .video-block {
+                max-width: none !important;
+            }
+
+            .mobile_hide {
+                min-height: 0px;
+                max-height: 0px;
+                max-width: 0px;
+                display: none;
+                overflow: hidden;
+                font-size: 0px;
+            }
+
+            .desktop_hide {
+                display: block !important;
+                max-height: none !important;
+            }
         }
     </style>
 </head>
 
-<body>
-    <div id="wrapper">
-        <header>
-            <a href="https://fidelize.ga/fidelize/index.php" target="_blank">
-                <div id="logo">
-                    <img src="../../media/images/email/fidelize_branco.png" alt="logo" target="_blank">
+<body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #FFFFFF;">
+<!--[if IE]><div class="ie-browser"><![endif]-->
+<table class="nl-container" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF; width: 100%;" cellpadding="0" cellspacing="0" role="presentation" width="100%" bgcolor="#FFFFFF" valign="top">
+    <tbody>
+    <tr style="vertical-align: top;" valign="top">
+        <td style="word-break: break-word; vertical-align: top;" valign="top">
+            <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#FFFFFF"><![endif]-->
+            <div style="background-color:#ff763b;">
+                <div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #ff763b;">
+                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#ff763b;">
+                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff763b;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px"><tr class="layout-full-width" style="background-color:#ff763b"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color:#ff763b;width:600px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 20px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+                        <div class="col num12" style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
+                            <div style="width:100% !important;">
+                                <!--[if (!mso)&(!IE)]><!-->
+                                <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 20px;">
+                                    <!--<![endif]-->
+                                    <div class="img-container center fixedwidth" align="center" style="padding-right: 25px;padding-left: 25px;">
+                                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 25px;padding-left: 25px;" align="center"><![endif]-->
+                                        <div style="font-size:1px;line-height:25px">&nbsp;</div><a href="https://fidelize.ga/fidelize/index.php" target="_blank" tabindex="-1"> <img class="center fixedwidth" align="center" border="0" src="https://fidelize.ga/media/images/email/fidelize_branco.png" alt="Image" title="Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 290px; display: block;" width="290"></a>
+                                        <div style="font-size:1px;line-height:25px">&nbsp;</div>
+                                        <!--[if mso]></td></tr></table><![endif]-->
+                                    </div>
+                                    <!--[if (!mso)&(!IE)]><!-->
+                                </div>
+                                <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    </div>
                 </div>
-            </a>
-            <div id="callout">
-                <ul class="social">
-                    <li><a href="https://github.com/yurihartmann/Fidelize" target="_blank"><img src="../../media/images/email/git.png" alt="git"></a></li>
-                </ul>
-
             </div>
-        </header>
-        <div class="banner">
-            <!-- <img src="../../media/images/email/empresa.jpg" alt="fundo"> -->
-        </div>
-        <div class="one-col">
-            <h1 class="titulo">Recuperação de Senha</h1><span class="cadeado"><img src="../../media/images/email/cadeado.png" alt=""></span>
-            <p>Olá "Nome", você solicitou sua recuperação de senha.</p>
-            <h3>Sua senha nova é:<span class="orange">"99999999999adsfasf"</span></h3>
-            <div class="button-holder">
-                <a class="btn" href="https://fidelize.ga/cliente/index.php" target="_blank">Fazer login</a>
+            <div style="background-color:#ff763b;">
+                <div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #ff763b;">
+                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#ff763b;">
+                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ff763b;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px"><tr class="layout-full-width" style="background-color:#ff763b"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color:#ff763b;width:600px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+                        <div class="col num12" style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
+                            <div style="width:100% !important;">
+                                <!--[if (!mso)&(!IE)]><!-->
+                                <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+                                    <!--<![endif]-->
+                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+                                    <div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                        <div style="font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">
+                                            <p style="font-size: 28px; line-height: 1.2; text-align: center; mso-line-height-alt: 34px; margin: 0;"><span style="font-size: 28px; color: #ffffff;">O cartão rápido e fácil em apenas um clique!</span></p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td></tr></table><![endif]-->
+                                    <!--[if (!mso)&(!IE)]><!-->
+                                </div>
+                                <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    </div>
+                </div>
             </div>
-            <div class="line"></div>
-        </div>
-        <p class="contact">
-            noreply.fidelize@gmail.com<br>
-            Todos os direitos reservados ©
-        </p>
-    </div>
-    <!--- FIM WRAPPER -->
+            <div style="background-color:#FFFFFF;">
+                <div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
+                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
+                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color:#FFFFFF;width:600px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+                        <div class="col num12" style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
+                            <div style="width:100% !important;">
+                                <!--[if (!mso)&(!IE)]><!-->
+                                <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+                                    <!--<![endif]-->
+                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+                                    <div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                        <div style="font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">
+                                            <p style="font-size: 14px; line-height: 1.2; text-align: center; mso-line-height-alt: 17px; margin: 0;"><span style="color: #333333; font-size: 14px;"><strong><span style="font-size: 30px;">Recuperação de Senha</span></strong></span></p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td></tr></table><![endif]-->
+                                    <!--[if (!mso)&(!IE)]><!-->
+                                </div>
+                                <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:#FFFFFF;">
+                <div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
+                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
+                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color:#FFFFFF;width:600px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 35px; padding-left: 35px; padding-top:35px; padding-bottom:40px;"><![endif]-->
+                        <div class="col num12" style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
+                            <div style="width:100% !important;">
+                                <!--[if (!mso)&(!IE)]><!-->
+                                <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:35px; padding-bottom:40px; padding-right: 35px; padding-left: 35px;">
+                                    <!--<![endif]-->
+                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+                                    <div style="color:#132F40;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                        <div style="font-size: 12px; line-height: 1.2; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #132F40; mso-line-height-alt: 14px;">
+                                            <p style="font-size: 22px; line-height: 1.2; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;">Olá, <strong>%NOME%</strong>,&nbsp;você solicitou sua recuperação de senha.</span></p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td></tr></table><![endif]-->
+                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 20px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+                                    <div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                        <div style="font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">
+                                            <p style="font-size: 22px; line-height: 1.2; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;"><span style="color: #000000; font-size: 22px;"><strong>Sua senha nova é</strong></span>: <span style="color: #ff6600; font-size: 22px;">%SENHANOVA%</span></span></p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td></tr></table><![endif]-->
+                                    <!--[if (!mso)&(!IE)]><!-->
+                                </div>
+                                <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:#FFFFFF;">
+                <div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
+                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
+                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color:#FFFFFF;width:600px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+                        <div class="col num12" style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
+                            <div style="width:100% !important;">
+                                <!--[if (!mso)&(!IE)]><!-->
+                                <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+                                    <!--<![endif]-->
+                                    <div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://fidelize.ga/cliente/index.php" style="height:31.5pt; width:112.5pt; v-text-anchor:middle;" arcsize="0%" stroke="false" fillcolor="#ff763b"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Tahoma, Verdana, sans-serif; font-size:16px"><![endif]--><a href="https://fidelize.ga/cliente/index.php" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #ff763b; border-radius: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px; width: auto; width: auto; border-top: 1px solid #ff763b; border-right: 1px solid #ff763b; border-bottom: 1px solid #ff763b; border-left: 1px solid #ff763b; padding-top: 5px; padding-bottom: 5px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;">
+														<span style="font-size: 16px; line-height: 2; mso-line-height-alt: 32px;">Ir para o Login</span>
+													</span></a>
+                                        <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
+                                    </div>
+                                    <!--[if (!mso)&(!IE)]><!-->
+                                </div>
+                                <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:#000000;">
+                <div class="block-grid " style="Margin: 0 auto; min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #000000;">
+                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#000000;">
+                        <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#000000;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px"><tr class="layout-full-width" style="background-color:#000000"><![endif]-->
+                        <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color:#000000;width:600px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+                        <div class="col num12" style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
+                            <div style="width:100% !important;">
+                                <!--[if (!mso)&(!IE)]><!-->
+                                <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+                                    <!--<![endif]-->
+                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+                                    <div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                        <div style="font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">
+                                            <p style="font-size: 12px; line-height: 1.2; text-align: center; mso-line-height-alt: 14px; margin: 0;"><span style="color: #ffffff; font-size: 12px;">noreply.fidelize@gmail.com</span><br><strong><span style="color: #ffffff; font-size: 12px;">Todos os direitos reservados ©</span></strong></p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td></tr></table><![endif]-->
+                                    <!--[if (!mso)&(!IE)]><!-->
+                                </div>
+                                <!--<![endif]-->
+                            </div>
+                        </div>
+                        <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                        <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    </div>
+                </div>
+            </div>
+            <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--[if (IE)]></div><![endif]-->
 </body>
 
 </html>

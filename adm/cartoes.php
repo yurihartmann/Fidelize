@@ -79,7 +79,9 @@ include "include/navbar.php";
                                 //                                var_dump($valor['fk_destaque']);
                                 ?>
                                 <?= limitaTexto(40, $valor['nome_cartao']) ?></h5>
-                            <p class="card-text"><?= limitaTexto(120, $valor['descricao']) ?></p>
+                            <p class="card-text d-block text-justify" id="descricao-curta-<?=$valor['id']?>"><?= limitaTexto(120, $valor['descricao']) ?></p>
+                            <p class="card-text d-none text-justify" id="descricao-longa-<?=$valor['id']?>"><?= $valor['descricao'] ?></p>
+                            <button data-action="Mostrar mais" onclick="alternaDescricao(<?=$valor['id']?>)" id="btn-descricao-<?=$valor['id']?>" class="float-right btn btn-sm font-weight-light">mais</button>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></li>
