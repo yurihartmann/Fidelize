@@ -47,7 +47,7 @@ $segmentos = mysqli_fetch_all($query);
                                 </div>
                                 <div class="form-group">
                                     <label for="mensagem" class="">Descrição da Empresa</label>
-                                    <textarea class="form-control rounded-0" id="mensagem" name="mensagem" rows="3" placeholder="Somos fidelizados etc..." required=""></textarea>
+                                    <textarea class="form-control rounded-0" id="mensagem" name="mensagem" rows="3" placeholder="Somos uma empresa..." required=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Segmento da Empresa</label>
