@@ -32,6 +32,22 @@
             background: #f6faff;
         }
 
+        .obs {
+            font-size: 13px;
+            padding-top: 5px;
+        }
+
+        .token {
+            color: orange;
+            padding-left: 25px;
+        }
+
+        /* color orange */
+        .orange {
+            color: #ff763b;
+            margin: 0 2%;
+        }
+
         /* resolução de imagem */
         img {
             max-width: 100%;
@@ -87,6 +103,11 @@
             letter-spacing: 1%;
             display: inline;
 
+        }
+
+        /* espaçamento de letra */
+        h1 {
+            letter-spacing: 1%;
         }
 
         .orange {
@@ -145,15 +166,81 @@
             padding-bottom: 3%;
         }
 
+        /* card */
+        .card {
+            width: 50%;
+            /* text-align: center; */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+            margin: 0 auto;
+        }
+
+        .card-info {
+            margin-bottom: 5%;
+        }
+
+        /* classe de texto centralizado */
+        .text-center {
+            text-align: center;
+        }
+
+        .detalhes {
+            margin-top: 5%;
+        }
+
+        /* objetivo */
+        .objective {
+            margin: 10px;
+        }
+
+        /* classe de texto grosso */
+        .text-bold {
+            font-weight: bold;
+        }
+
+        /* card-body */
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
         /* responsivo */
         @media (max-width: 600px) {
-
-            /* estilização do botão */
-            .button-holder {
-
-                clear: both;
-                margin: 5%;
+            .card {
+                width: 90%;
             }
+
+            .card-info h4 {
+                font-size: 100%;
+                margin: auto 20px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .card {
+                width: 90%;
+            }
+
+            /* .card-info h4 {
+                font-size: 100%;
+                margin: auto 20px;
+            } */
+        }
+
+        @media (max-width: 900px) {
+            .card {
+                width: 90%;
+            }
+
+            /* .card-info h4 {
+                font-size: 100%;
+                margin: auto 20px;
+            } */
         }
     </style>
 </head>
