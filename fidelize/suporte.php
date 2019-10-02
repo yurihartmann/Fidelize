@@ -66,7 +66,7 @@ include "include/navbar.php";
 
 								<p>Como faço para adquirir o sistema Fidelize? </p>
 
-								<p><span class="text-muted"><strong>R: </strong>Em nossa página inicial temos uma tabela de preços e também temos a opção <strong>GRATUITA</strong> para fazer o teste do sistema!</span></p>
+								<p><span class="text-muted"><strong>R: </strong>Na parte superior da página temos a opção "Quero Fidelizar", clique nela, se cadastre e aproveite o nosso sistema!</span></p>
 							</p>
 							<div class="text-center">
 								<i class="far fa-user fa-2x"></i>

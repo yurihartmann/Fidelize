@@ -64,7 +64,7 @@ include "include/header.php";
                                 <input type="password" class="form-control rounded-0" name="inputCSenha" id="inputCSenha"
                                        placeholder="Digite sua senha novamente...">
                                 <div class="invalid-feedback">
-                                    Senha nao coincidem!
+                                    Senha não coincidem!
                                 </div>
                             </div>
 
