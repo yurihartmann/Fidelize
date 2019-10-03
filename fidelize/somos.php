@@ -27,7 +27,7 @@ include "include/navbar.php";
             <div class="col-12 col-lg-3 text-center p-3">
                 <img src="../media/images/andrei.png" class="img-fluid rounded-circle mb-4" style="height: 200px">
                 <h2 class=""><strong>Andrei Gustavo</strong></h2>
-                <h4>Front End</h4>
+                <h4>Front End e Design</h4>
                 <p>Responsável pela criação do design, elementos das páginas, construção de visibilidade e estética.</p>
             </div>
             <div class="col-12 col-lg-3 text-center p-3">
@@ -37,10 +37,10 @@ include "include/navbar.php";
                 <p>Responsável pelo sistema de suporte/fidelidade, interações com ajax usando javascript, colaborando com o design e corpo do Fidelize.</p>
             </div>
             <div class="col-12 col-lg-3 text-center p-3">
-                <img src="../media/images/gabriel.jpeg" class="img-fluid rounded-circle mb-4" style="height: 200px">
+                <img src="../media/images/gabriel.png" class="img-fluid rounded-circle mb-4" style="height: 200px">
                 <h2 class=""><strong>Gabriel Luchtenberg</strong></h2>
-                <h4>Back End</h4>
-                <p>Responsável pela Back-End, dando prioridade a funcionabilidade do sistema, realizando interações primordiais para a manipulação do sistema Fidelize. </p>
+                <h4>Front End</h4>
+                <p>Ajudou na montagem dos formulários do sistema e nos testes do sistema, sempre verificando seu devido funcionamento correto.</p>
             </div>
         </div>
     </div>
