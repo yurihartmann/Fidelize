@@ -112,8 +112,12 @@ class registro_cartaofidelidade extends Site
                     }
                     if ($this->verificaSeCompletouCupom($numero, $id_cupom)) {
                         $token = new tokens();
-                        $token->createToken($numero, $id_cupom);
+                        $token = $token->createToken($numero, $id_cupom);
                         sendSMS($numero,"Parabéns, Você completou um cartão - Acesse fidelize.ga/cliente para ver seu token!");
+                        $dados_cartao = new cartaofidelidade();
+                        $dados_cartao = $dados_cartao->dadosCartaoFidelidadePorId($id_cupom);
+                        var_dump($dados_cartao);
+                        sendEmailToken($result[0][2],$result[0][1],$token,$dados_cartao[0]['nome_cartao'],$dados_cartao[0]["premio"] );
                         setAlerta('success', 'Completou cartão, token gerado!');
                         header("Location: registro_carimbos.php");
                     } else {

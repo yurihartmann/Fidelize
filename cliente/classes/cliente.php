@@ -226,7 +226,7 @@ class Cliente extends Site
             $sql = "update clientes set senha = '$senha_nova_hash' where numero = '$numero'";
             $query = mysqli_query($this->conexao, $sql);
             if ($query){
-//              sendSMS($numero,"Seu email é: " . $result['email'] . " e sua nova senha: " . $senha_nova);
+                sendSMS($numero,"Seu email é: " . $result['email'] . " e sua nova senha: " . $senha_nova);
                 if (sendEmailResetPassword($result['email'], $result['nome'], $senha_nova)){
                     setAlerta('success', 'Verifique seu email para ver sua nova senha!');
                 } else{

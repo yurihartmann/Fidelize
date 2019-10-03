@@ -22,9 +22,8 @@ class Site
 
         require_once "vendor/autoload.php";
 
-
-
-        session_start();
+        if (!isset($_SESSION))
+            session_start();
 
         // Includes de configurações e funções globais do projeto
         require_once("../include/config.php");

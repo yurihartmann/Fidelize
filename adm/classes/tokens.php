@@ -36,7 +36,7 @@ class tokens extends Site {
                 VALUES (NULL, '$id_usuario', '$id_cupom', '$this->token', '0', CURRENT_TIME());";
         $query = mysqli_query($this->conexao, $sql);
         if ($query)
-            return true;
+            return $this->token;
         else
             return false;
     }

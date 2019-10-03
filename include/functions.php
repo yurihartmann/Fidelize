@@ -160,13 +160,18 @@ function sendEmailResetPassword($email, $nome, $senha_nova){
     $body = str_replace("%NOME%", $nome, $body);
     $body = str_replace("%SENHANOVA%", $senha_nova, $body);
 
-    return sendEmail("Recuperacao de Senha", $body, $email);
+    return sendEmail("Recuperação de Senha", $body, $email);
 }
 
-function sendEmailToken($email, $nome, $token, $nome_cartao, $premio, $nome_loja)
+function sendEmailToken($email, $nome, $token, $nome_cartao, $premio)
 {
-    $body = "Seu token e" . $token;
-    return sendEmail("Recuperacao de Senha", $body, $email);
+    $body = file_get_contents('../include/template_email/token.html');
+    $body = str_replace("%NOME%", $nome, $body);
+    $body = str_replace("%NOMECARTAO%", $nome_cartao, $body);
+    $body = str_replace("%PREMIO%", $premio, $body);
+    $body = str_replace("%TOKEN%", $token, $body);
+
+    return sendEmail("Parabéns, Você completou seu cartão: " . $nome_cartao ."!", $body, $email);
 }
 
 function sendEmail($subject,$body, $email) {
