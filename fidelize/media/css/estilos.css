@@ -354,9 +354,3 @@ hr {
 .card-tamanho {
   height: 300px;
 }
-
-@media screen and (max-width: 500px) {
-  .card-tamanho {
-    height: 800px;
-  }
-}

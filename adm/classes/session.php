@@ -17,7 +17,7 @@ class session
         $this->conexao = $conexao;
 
         if (isset($_POST['btnEntrar'])) {
-            $this->Login($_POST['inputEmail'], hash('md5',$_POST['inputSenha']));
+            $this->Login($_POST['inputEmailAdm'], hash('md5',$_POST['inputSenhaAdm']));
         }
         if (isset($_POST['btnSair'])) {
             $this->Logout();

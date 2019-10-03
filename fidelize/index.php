@@ -11,7 +11,7 @@ include "include/painel.php";
 	<div class="container">
 		<div class="row">
 			<div class="col-12 px-5 py-4 text-center">
-				<h1 class="font-weight-light">O fidelize é 100% gratuito, mas você pode destacar seus Cartões Fidelidade.</h1>
+				<h1 class="font-weight-light">O Fidelize é 100% gratuito, mas você pode destacar seus Cartões Fidelidade.</h1>
 			</div>
 		</div>
 		<div class="row">
@@ -46,7 +46,7 @@ include "include/painel.php";
 				<div class="card card-tamanho bg-light shadow-sm p-3 bg-white rounded mt-5 mb-md-3 mb-1">
 					<div class="card-body">
 						<h5 class="card-title text-diamante"><strong><i class="far fa-gem"></i> Diamante</strong></h5>
-						<p class="card-text text-muted">Fique na frente de todos e ganhe muita visibilidade com o destaque diamante.</p>
+						<p class="card-text text-muted">Fique na frente de todos e ganhe muita visibilidade com o destaque Diamante.</p>
 						<hr>
 						<span class="font-weight-normal" style="font-size: 10px"><strong>PREÇO:</strong></span>
 						<div>
@@ -112,7 +112,7 @@ include "include/painel.php";
 				<div class="testimonial-contents">
 					<div class="testimonial active" id="test-1">
 						<p>
-							Ótimo negócio a se fazer! Super prático em nossas vendas, estamos
+							Ótimo negócio a se fazer! Muito prático em nossas vendas, estamos
 							muito satisfeitos com o resultado adquirido e recomendamos muito a
 							todos.
 						</p>
@@ -142,7 +142,7 @@ include "include/painel.php";
 					<div class="testimonial" id="test-4">
 						<p>
 							Nossos pet's estão alegres demais com o FIDELIZE, nunca vimos
-							tantos clientes movimentando nosso ambiente com agora!
+							tantos clientes movimentando nosso ambiente como agora!
 						</p>
 						<hr />
 						<span class="description">AuAmigos</span>

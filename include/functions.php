@@ -154,25 +154,77 @@ function sendSMS($numero, $mensagem){
     sleep(1);
 }
 
-function sendEmailResetPassword($email){
+function sendEmailResetPassword($email, $nome, $senha_nova){
 
-    if (EMAIL_ACTIVE){
-        $mail = new PHPMailer;
-        $mail->IsSMTP();		// Ativar SMTP
-        $mail->SMTPDebug = 0;		// Debugar: 1 = erros e mensagens, 2 = mensagens apenas
-        $mail->SMTPAuth = true;		// Autenticação ativada
-        $mail->SMTPSecure = 'ssl';	// SSL REQUERIDO pelo GMail
-        $mail->Host = 'smtp.gmail.com';	// SMTP utilizado
-        $mail->Port = 587;  		// A porta 587 deverá estar aberta em seu servidor
+    $body = file_get_contents('../include/template_email/recuperacao_senha.html');
+    $body = str_replace("%NOME%", $nome, $body);
+    $body = str_replace("%SENHANOVA%", $senha_nova, $body);
+
+    return sendEmail("Recuperacao de Senha", $body, $email);
+}
+
+function sendEmailToken($email, $nome, $token, $nome_cartao, $premio, $nome_loja)
+{
+    $body = "Seu token e" . $token;
+    return sendEmail("Recuperacao de Senha", $body, $email);
+}
+
+function sendEmail($subject,$body, $email) {
+
+    if (EMAIL_ACTIVE) {
+        // Iniciando um novo objeto
+        $mail = new PHPMailer();
+
+        // Configurações UTF-8
+        $mail->CharSet = "UTF-8";
+
+        // Codificação do e-mail
+        $mail->Enconding = "base64";
+
+        // Forçando o e-mail a ter o corpo em HTML
+        $mail->IsHTML(true);
+
+        // Ativar o SMTP
+        $mail->IsSMTP();
+
+        // Ativando a autenticação
+        $mail->SMTPAuth = true;
+
+        // Uso de certificados
+        $mail->SMTPSecure = 'ssl';
+
+        // Servidor SMTP utilizado para enviar o e-mail
+        $mail->Host = 'smtp.gmail.com';
+
+        // Porta do servidor SMTP
+        $mail->Port = 465;
+
+        // Usuario do servidor
         $mail->Username = EMAIL_USER;
-        $mail->Password = EMAIL_PASSWORD;
-        $mail->SetFrom(EMAIL_USER, "Fidelize");
-        $mail->Subject = "aloalo";
-        $mail->Body = "teste";
-        $mail->AddAddress($email);
-        $mail->send();
-    }
 
+        // Senha do servidor
+        $mail->Password = EMAIL_PASSWORD;
+
+        // Definindo o remetente
+        $mail->SetFrom(EMAIL_USER, "Fidelize");
+
+        // Definindo o assunto
+        $mail->Subject = $subject;
+
+        // Definindo o corpo do e-mail
+        $mail->Body = $body;
+
+        // Definindo o destinarário
+        $mail->AddAddress($email);
+
+
+        // Enviando o e-mail
+        if ($mail->Send()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 

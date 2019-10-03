@@ -8,7 +8,7 @@ class registro_cartaofidelidade extends Site
     function buscarCartoesPorIdCliente($id_cliente)
     {
         // retorna o nome do cliente, nome do cupom, andamento, objetivo.
-        $sql = "select *, count(fk_cliente), l.nome as nome_loja, l.id as id_loja, cF.id as id_cartao from registro_cartaoFidelidade
+        $sql = "select *, count(fk_cliente), l.nome as nome_loja, l.id as id_loja, cF.id as id_cartao, cF.id as id_cartao from registro_cartaoFidelidade
                 inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
                 inner join lojas l on cF.fk_loja = l.id
                 inner join clientes c on registro_cartaoFidelidade.fk_cliente = c.numero

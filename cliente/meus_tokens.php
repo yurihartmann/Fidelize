@@ -24,7 +24,7 @@ include "include/navbar.php";
     <div class="row">
         <div class="col p-5 text-center">
             <?php if ($vazio): ?>
-                <h1 class="font-weight-light">Não temos mais nada!</h1>
+                <h1 class="font-weight-light">Você não possui nenhum Token!</h1>
                 <i class="far fa-frown fa-10x mt-5"></i>
             <?php else: ?>
                 <h1 class="font-weight-light">Seus Tokens</h1>
@@ -65,7 +65,11 @@ include "include/navbar.php";
                             <p class="card-text text-orange font-weight-bold"><i class="fas fa-store-alt"></i> <?= limitaTexto(25,$valor['nome_loja']) ?></p>
                         </a>
                         <h4 class="card-title font-weight-bold text-center mt-3"><?= $valor['nome_cartao'] ?></h4>
-                        <p class="card-text font-weight-light"><?= limitaTexto(140,$valor['descricao']) ?></p>
+                        <p class="card-text d-block text-justify font-weight-light" id="descricao-curta-<?=$valor['id_cartao']?>"><?= limitaTexto(120, $valor['descricao']) ?></p>
+                        <p class="card-text d-none text-justify font-weight-light" id="descricao-longa-<?=$valor['id_cartao']?>"><?= $valor['descricao'] ?></p>
+                        <?php if (strlen($valor['descricao']) > 119) : ?>
+                            <button data-action="Mostrar mais" onclick="alternaDescricao(<?=$valor['id_cartao']?>)" id="btn-descricao-<?=$valor['id_cartao']?>" class="float-right btn btn-sm font-weight-light">mais</button>
+                        <?php endif; ?>
                         <p class="font-weight-light"><strong>Objetivo: </strong> <?= $valor['objetivo'] ?></p>
                         <p class="font-weight-light"><strong>Prêmio:</strong> <?= limitaTexto(50,$valor['premio']) ?></p>
                     </div>
