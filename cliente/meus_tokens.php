@@ -61,7 +61,7 @@ include "include/navbar.php";
                         </div>
                     <?php endif ?>
                     <div class="card-body">
-                        <a href="loja.php?id_loja=<?=$valor['id_loja']?>" class="text-decoration-none">
+                        <a href="loja.php?id_loja=<?= $valor['id_loja']?>" class="text-decoration-none">
                             <p class="card-text text-orange font-weight-bold"><i class="fas fa-store-alt"></i> <?= limitaTexto(25,$valor['nome_loja']) ?></p>
                         </a>
                         <h4 class="card-title font-weight-bold text-center mt-3"><?= $valor['nome_cartao'] ?></h4>

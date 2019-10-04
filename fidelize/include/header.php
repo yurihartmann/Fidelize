@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="../media/css/bootstrap.min.css">
 	<link rel="stylesheet" href="media/css/estilos.css">
     <link rel="stylesheet" href="../media/css/font_awesome.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="media/js/sweetalert.min.js"></script>
 
  	<!-- Carousel CSS -->  
     <link rel="stylesheet" type="text/css" href="media/slick/slick.css" />
