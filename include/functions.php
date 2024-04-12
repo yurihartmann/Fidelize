@@ -107,7 +107,7 @@ function limpaMascaraNumero($numero)
 
 function setEmailDigitado($email)
 {
-    $email['email'] = $email;
+    //$email['email'] = $email;
     setcookie('email_digitado', serialize($email), time() + 30);
 }
 
