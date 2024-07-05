@@ -15,7 +15,7 @@ class cartaofidelidade extends Site
                 from cartaoFidelidade cF
                 inner join lojas l on cF.fk_loja = l.id
                 having total_registro = 0 and data_inicio < now() and data_fim > now()
-                order by cF.fk_destaque desc limit 1,15";
+                order by cF.fk_destaque desc limit 15";
         $query = mysqli_query($this->conexao, $sql);
 
         if ($query)
