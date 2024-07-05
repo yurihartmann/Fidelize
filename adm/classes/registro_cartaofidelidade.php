@@ -157,9 +157,13 @@ class registro_cartaofidelidade extends Site
     public function verificaSeCompletouCupom($number_cliente, $id_cupom)
     {
         // VERIFICA SE O CUPOM JA FOI COMPLETADO PELO USUARIO EM QUESTAO
-        $sql = "select count(*) as num, cF.objetivo from registro_cartaoFidelidade
-                inner join cartaoFidelidade cF on registro_cartaoFidelidade.fk_carimbo = cF.id
-                where fk_cliente = '$number_cliente' and fk_carimbo = '$id_cupom'";
+        $sql = "SELECT 
+        COUNT(rcf.id) AS num,
+        cf.objetivo
+    FROM 
+        cartaoFidelidade AS cf
+    LEFT JOIN 
+        registro_cartaoFidelidade AS rcf ON rcf.fk_carimbo = cf.id AND rcf.fk_cliente = '$number_cliente' AND rcf.fk_carimbo = '$id_cupom'";
         $query = mysqli_query($this->conexao, $sql);
         $result = mysqli_fetch_assoc($query);
         if ($result['num'] >= $result['objetivo']) {
